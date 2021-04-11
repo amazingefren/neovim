@@ -1,12 +1,14 @@
 -- vim.o.{option}  -- Global Options
 --    .bo.{option} -- Buffer-Local Options
 --    .wo.{option} -- Window-Local Options
+require('lib/augroups')
 
 local function apply(opt, table)
     for key, value in pairs(opt) do
-        if table == "cmds" then
-            vim.cmd(opt[key])
-        elseif table == "gv" then
+        --if table == "cmds" then
+            --vim.cmd(opt[key])
+        if table == "gv" then
+            -- print(key, value)
             vim.api.nvim_set_var(key, value)
         else
 	    vim[table][key] = value
@@ -19,9 +21,9 @@ local global_variables = {
     sonokai_style           = "atlantis",
     sonokai_enable_italic   = 1,
     sonokai_disable_italic_comment = 0,
-    sonokai_disable_italic_comment = 0,
     sonokai_diagnostic_text_highlight = 1,
     sonokai_diagnostic_line_highlight = 1,
+    sonokai_current_word    = 'bold',
 }
 
 local global_options = {
@@ -40,11 +42,7 @@ local global_options = {
     cpo         = vim.o.cpo .. "n", -- Hide Number for Break
 }
 
-local buffer_options = {
-    tabstop = 4,
-    shiftwidth = 4,
-    expandtab = true
-}
+--local buffer_options = {}
 
 local window_options = {
     number      = true,     -- Number
@@ -55,14 +53,23 @@ local window_options = {
     cursorline  = true      -- Cursor Line
 }
 
-local commands = {
-    "highlight clear SignColumn",
-    "filetype plugin indent on",
-    "colorscheme sonokai"
+vim.cmd [[
+    set autoindent
+    set expandtab
+    set shiftwidth=4
+    set tabstop=4
+    set smartindent
+    highlight clear SignColumn
+    filetype plugin indent on
+    colorscheme sonokai
+]]
+
+local augroups = {
+    BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
 }
 
 apply(global_variables, "gv")
 apply(global_options, "o")
-apply(buffer_options, "bo")
+--apply(buffer_options, "bo")
 apply(window_options, "wo")
-apply(commands, "cmds")
+augroup_create(augroups)

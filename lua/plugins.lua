@@ -8,11 +8,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 --]]
-
 return require('packer').startup(function()
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use 'neoclide/coc.nvim'
-  use 'sainnhe/sonokai'
-  use 'nvim-treesitter/nvim-treesitter'
+    use 'wbthomason/packer.nvim'
+    use 'neovim/nvim-lspconfig'
+    use 'nvim-lua/completion-nvim'
+    use 'tjdevries/nlua.nvim'
+    use 'sainnhe/sonokai'
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use 'karb94/neoscroll.nvim'
 end)
+
+-- SETUP THE SETUPS OF PLUGINS
