@@ -1,0 +1,258 @@
+call plug#begin(stdpath('data') . '/plugged')
+    "Rainbow Matching"
+    Plug 'luochen1990/rainbow'
+    Plug 'preservim/nerdcommenter',
+    Plug 'mbbill/undotree',
+    Plug 'tpope/vim-fugitive',
+    Plug 'mhinz/vim-startify',
+    Plug 'preservim/tagbar',
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'romgrk/barbar.nvim'
+    Plug 'hoob3rt/lualine.nvim'
+    Plug 'kyazdani42/nvim-web-devicons'
+
+    "Themes"
+    Plug 'lifepillar/vim-gruvbox8'
+    Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+    Plug 'bluz71/vim-moonfly-colors'
+    Plug 'chuling/equinusocio-material.vim'
+    Plug 'sainnhe/edge'
+    Plug 'tpope/vim-vividchalk'
+    Plug 'sainnhe/everforest'
+    Plug 'cocopon/iceberg.vim'
+    Plug 'sainnhe/sonokai'
+
+    "Engine"
+    Plug 'neoclide/coc.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+call plug#end()
+
+set termguicolors
+syntax on
+set number relativenumber
+highlight clear SignColumn 
+set mouse=a
+set scrolloff=999 " Follow Cursor *preference
+set ic " Case Insensitive pattern matching / search
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
+"autocmd BufEnter * lcd %:p:h " Set Working Directory By File
+set cmdheight=1
+set encoding=utf-8
+set hidden
+set nobackup
+set nowritebackup
+set updatetime=200
+set shortmess+=c
+set signcolumn=number
+set nocompatible
+set splitright
+set splitbelow
+set wrap linebreak nolist
+set breakindent
+set showbreak=--->
+" set spr=\>
+set cpoptions+=n
+set cursorline
+
+" Theme
+let g:sonokai_style="atlantis"
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 0
+let g:sonokai_diagnostic_text_highlight = 1
+let g:sonokai_diagnostic_line_highlight = 1
+let g:sonokai_current_word = 'bold'
+set fillchars+=vert:│
+colorscheme sonokai
+lua require('lualine').setup{options={theme='auto'}}
+"lua color = {bg= '#ff0000'}
+
+"""
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
+""" Rainbow
+let g:rainbow_active = 1
+
+""" Clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+
+""" Navigation & Pane Management
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <silent><tab> :bnext<CR>
+nnoremap <silent><s-tab> :bprevious<CR>
+nnoremap <silent><S-j> :+5<CR>
+nnoremap <silent><S-k> :-5<CR>
+nnoremap <silent><M-h> :vertical resize +3<CR>
+nnoremap <silent><M-j> :res -1<CR>
+nnoremap <silent><M-k> :res +1<CR>
+nnoremap <silent><M-l> :vertical resize -3<CR>
+nnoremap <silent><M-q> :q<CR>
+
+""" Telescope Vim 
+
+" Vim Working Directory
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+
+" PWD of file
+nnoremap <leader>fd <cmd> lua
+    \ local test = vim.api.nvim_command('lcd %:p:h')
+    \ require('telescope.builtin').find_files({
+    \ cwd = test
+    \ })<cr>
+
+"Not optimal, but still useful
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').find_files({
+    \ cwd = "/home/amazingefren/",
+    \ find_command = {
+    \"fd", "--hidden", 
+    \"-E", "node_modules", 
+    \"-E", ".git", 
+    \"-E", ".cache", 
+    \"-E", ".local",
+    \"-E", ".undodir",
+    \"-E", ".mozilla",
+    \"-E", ".zim"}
+    \ })<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+""" Treesitter
+lua require'nvim-treesitter.configs'.setup {
+    \    ensure_installed = "all",
+    \    highlight = {
+    \      enable = true
+    \    },
+    \    incremental_selection = {
+    \      enable = true
+    \    }
+    \}
+
+"" Airline
+"let g:airline#extensions#tabline#enabled = 1
+ "Show just the filename
+"let g:airline#extensions#tabline#fnamemod = ':t'
+
+""" Tagbar
+let g:tagbar_autofocus = 1
+nmap <C-t> :TagbarToggle<CR>
+
+""" UndoTree
+set undodir=$HOME/.undodir
+set undofile
+nnoremap <C-u> :UndotreeToggle<CR>
+
+
+""" NerdCommenter
+map <C-_> <Plug>NERDCommenterToggle<CR>
+
+""" COC Config
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-clangd',
+    \ 'coc-highlight',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-pyright',
+    \ 'coc-rust-analyzer',
+    \ 'coc-sh',
+    \ 'coc-pairs',
+    \ 'coc-git',
+    \ 'coc-prettier',
+    \ 'coc-lists'
+    \ ]
+
+" Startify
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+
+function! SplitIfNotOpen(...)
+    let fname = a:1
+    let call = ''
+    if a:0 == 2
+	let fname = a:2
+	let call = a:1
+    endif
+    let bufnum=bufnr(expand(fname))
+    let winnum=bufwinnr(bufnum)
+    if winnum != -1
+	" Jump to existing split
+	exe winnum . "wincmd w"
+    else
+	" Make new split as usual
+	exe ":30 split " . fname
+    endif
+    " Execute the cursor movement command
+    exe call
+endfunction
+
+command! -nargs=+ CocSplitIfNotOpen :call SplitIfNotOpen(<f-args>)
+
+"nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :call CocAction("jumpDefinition")<CR>
+nmap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> <c-space> :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <leader>rn <Plug>(coc-rename)
+xmap <leader>f  <Plug>(coc-format)
+nmap <leader>f  <Plug>(coc-format)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>qf  <Plug>(coc-fix-current)
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
