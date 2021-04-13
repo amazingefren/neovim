@@ -9,10 +9,10 @@ vim.api.nvim_set_keymap('n', '<Leader>h', ':noh<CR>', { noremap = true, silent =
 -- vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- <Ctrl + {h,j,k,l}> -- Better Pane Navigation
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- < < , > > -- Better Tabbing
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })

@@ -1,18 +1,4 @@
-require('neoscroll').setup({
-    hide_cursor = true,
-    respect_scrolloff = false
-})
-
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "all",
-    highlight = {
-        enable = true
-    }
-}
-
 require'lspconfig'.tsserver.setup{}
-
-
 
 -- LUA
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'

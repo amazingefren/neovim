@@ -1,22 +1,3 @@
--- vim.o.{option}  -- Global Options
---    .bo.{option} -- Buffer-Local Options
---    .wo.{option} -- Window-Local Options
-require('lib/augroups')
-
-local function apply(opt, table)
-    for key, value in pairs(opt) do
-        --if table == "cmds" then
-            --vim.cmd(opt[key])
-        if table == "gv" then
-            -- print(key, value)
-            vim.api.nvim_set_var(key, value)
-        else
-	    vim[table][key] = value
-        end
-    end
-end
-
---vim.api.nvim_set_var('sonokai_style', "atlantis")
 local global_variables = {
     sonokai_style           = "atlantis",
     sonokai_enable_italic   = 1,
@@ -68,8 +49,8 @@ local augroups = {
     BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
 }
 
-apply(global_variables, "gv")
-apply(global_options, "o")
+Apply.var(global_variables)
+Apply.opt(global_options, "o")
 --apply(buffer_options, "bo")
-apply(window_options, "wo")
-augroup_create(augroups)
+Apply.opt(window_options, "wo")
+Augroup.create(augroups)

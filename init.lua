@@ -1,4 +1,3 @@
+require('util')
 require('plugins')
-require('settings')
-require('mappings')
-require('setup')
+require('config')
