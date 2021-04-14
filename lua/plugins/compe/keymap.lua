@@ -9,10 +9,10 @@
 -- inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 -- ]]
 
-Apply.var({lexima_no_default_rules = "v:true"})
-vim.cmd[[
-call lexima#set_default_rules()
-]]
+--Apply.var({lexima_no_default_rules = "v:true"})
+--vim.cmd[[
+--call lexima#set_default_rules()
+--]]
 
 vim.api.nvim_set_keymap('i','<C-Space>' ,'compe#complete()' , {expr = true, noremap = true, silent=true})
 vim.api.nvim_set_keymap('i','<CR>' ,'compe#confirm(lexima#expand("<LT>CR>", "i"))' , {expr = true, noremap = true, silent=true})

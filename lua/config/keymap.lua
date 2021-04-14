@@ -24,8 +24,8 @@ vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true, silent = true
 
 -- <Shift + {j/k} -- Faster Navigation w/ {J/K} MIGHT BE REPLACED AS I MIGHT JUST STOP BEING LAZY AND USE CTRL+D/U
 -- Visual: Move line up / down
-vim.api.nvim_set_keymap('n', '<S-j>', ':+5<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-k>', ':-5<CR>', { noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<S-j>', ':+5<CR>', { noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<S-k>', ':-5<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<S-j>', ':m .+1<CR>gv=gv', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<S-k>', ':m .-2<CR>gv=gv', { noremap = true, silent = true})
 

@@ -12,40 +12,41 @@ require('packer').startup(function(use)
     -- Plugin Manager
     use 'wbthomason/packer.nvim'
 
-    -- LSP
-    use {
-        'neovim/nvim-lspconfig',
-        config = require('plugins.lspconfig'),
-        {
-            'hrsh7th/nvim-compe',
-            requires = {
-                {'hrsh7th/vim-vsnip'},
-                {'hrsh7th/vim-vsnip-integ'}
-            },
-            config = require('plugins.compe')
-        }
-    }
-
-    -- Neovim Lua LSP
-    use 'tjdevries/nlua.nvim'
-
     -- Auto Pairs
     use 'cohama/lexima.vim'
 
-    -- Color Schemes
-    use 'sainnhe/sonokai'
+    -- LSP
+    use {
+        'neovim/nvim-lspconfig',
+        config = function() require'plugins.lspconfig' end,
+        {
+            -- Neovim Lua LSP
+            'tjdevries/nlua.nvim'
+        },
+        {
+            'hrsh7th/nvim-compe',
+            config = function() require'plugins.compe' end,
+            requires = {
+                'rafamadriz/friendly-snippets',
+                'hrsh7th/vim-vsnip',
+                'hrsh7th/vim-vsnip-integ'
+            }
+        }
+    }
 
     -- Syntax
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        config=require('plugins.treesitter')
+        config = function() require('plugins.treesitter') end
     }
 
     -- Smooth Scroll
     use {
         'karb94/neoscroll.nvim',
-        config = require('plugins.neoscroll')
+        config = function() require('plugins.neoscroll') end
     }
-end
-)
+    -- Color Scheme
+    use 'sainnhe/sonokai'
+
+end)
