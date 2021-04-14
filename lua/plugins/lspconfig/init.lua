@@ -1,1 +1,1 @@
-require('plugins.lspconfig.settings')
+require('plugins.lspconfig.server')

@@ -9,15 +9,43 @@ end
 --]]
 
 require('packer').startup(function(use)
+    -- Plugin Manager
     use 'wbthomason/packer.nvim'
-    use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/completion-nvim'
-    use 'tjdevries/nlua.nvim'
-    use 'sainnhe/sonokai'
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use 'karb94/neoscroll.nvim'
-end)
 
-require('plugins.lspconfig')
-require('plugins.neoscroll')
-require('plugins.treesitter')
+    -- LSP
+    use {
+        'neovim/nvim-lspconfig',
+        config = require('plugins.lspconfig'),
+        {
+            'hrsh7th/nvim-compe',
+            requires = {
+                {'hrsh7th/vim-vsnip'},
+                {'hrsh7th/vim-vsnip-integ'}
+            },
+            config = require('plugins.compe')
+        }
+    }
+
+    -- Neovim Lua LSP
+    use 'tjdevries/nlua.nvim'
+
+    -- Auto Pairs
+    use 'cohama/lexima.vim'
+
+    -- Color Schemes
+    use 'sainnhe/sonokai'
+
+    -- Syntax
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config=require('plugins.treesitter')
+    }
+
+    -- Smooth Scroll
+    use {
+        'karb94/neoscroll.nvim',
+        config = require('plugins.neoscroll')
+    }
+end
+)
