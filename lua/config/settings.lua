@@ -1,17 +1,17 @@
-local global_variables = {
-    sonokai_style           = "atlantis",
-    sonokai_enable_italic   = 1,
-    sonokai_disable_italic_comment = 0,
-    sonokai_diagnostic_text_highlight = 1,
-    sonokai_diagnostic_line_highlight = 1,
-    sonokai_current_word    = 'bold',
-}
+--local global_variables = {
+--    sonokai_style           = "atlantis",
+--    sonokai_enable_italic   = 1,
+--    sonokai_disable_italic_comment = 0,
+--    sonokai_diagnostic_text_highlight = 1, sonokai_diagnostic_line_highlight = 1,
+--    sonokai_current_word    = 'bold',
+--}
 
 local global_options = {
     shortmess   = vim.o.shortmess .. "c",
     termguicolors = true,
     mouse       = "a",      -- Mouse Navigation
-    scrolloff   = 999,      -- Keep Cursor Centered
+    --scrolloff   = 999,      -- Keep Cursor Centered
+    scrolloff   = 1,      -- Keep Cursor Centered
     ic          = true,     -- Insensitive Case Search
     hidden      = true,     -- Abandon Unloaded Buffer
     bk    	    = false,    -- Disable Backup (UndoTree?)
@@ -42,15 +42,12 @@ vim.cmd [[
     set smartindent
     highlight clear SignColumn
     filetype plugin indent on
-    colorscheme sonokai
 ]]
 
 local augroups = {
     BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
 }
 
-Apply.var(global_variables)
 Apply.opt(global_options, "o")
---apply(buffer_options, "bo")
 Apply.opt(window_options, "wo")
 Augroup.create(augroups)
