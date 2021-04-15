@@ -9,5 +9,6 @@ local vars = {
 }
 
 Apply.var(vars)
-
-vim.cmd('colorscheme sonokai')
+vim.cmd[[
+    colorscheme sonokai
+]]

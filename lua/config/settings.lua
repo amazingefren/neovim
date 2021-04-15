@@ -1,10 +1,5 @@
---local global_variables = {
---    sonokai_style           = "atlantis",
---    sonokai_enable_italic   = 1,
---    sonokai_disable_italic_comment = 0,
---    sonokai_diagnostic_text_highlight = 1, sonokai_diagnostic_line_highlight = 1,
---    sonokai_current_word    = 'bold',
---}
+
+-- Native Vim Configuration Only
 
 local global_options = {
     shortmess   = vim.o.shortmess .. "c",
