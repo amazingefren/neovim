@@ -42,6 +42,8 @@ require('packer').startup(function(use)
         'nvim-lua/popup.nvim',
         'nvim-lua/plenary.nvim'
     }}
+    -- Telescope FZF Native YUHYUHYUH
+    --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Tree Sitter
     use {
