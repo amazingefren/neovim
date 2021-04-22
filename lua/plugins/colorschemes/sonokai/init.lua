@@ -1,3 +1,4 @@
+require('plugins.colorschemes.sonokai.colors')
 local vars = {
     --sonokai_style           = "atlantis",
     sonokai_style           = "default",

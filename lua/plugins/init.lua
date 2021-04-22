@@ -11,17 +11,20 @@
 ✦　　 ﾟ　　. 　　　　 ✦
 ]]
 
---Packer Manager: Packer
---https://github.com/wbthomason/packer.nvim
-
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+
+    -- Auto HLS/NOH
+    use 'romainl/vim-cool'
 
     -- LSP Config
     use 'neovim/nvim-lspconfig'
 
     -- Neovim Lua LSP
     use 'tjdevries/nlua.nvim'
+
+    -- LSP Actions
+    use 'glepnir/lspsaga.nvim'
 
     -- Completion
     use {
@@ -34,6 +37,9 @@ require('packer').startup(function(use)
 
     -- Undo Tree
     use 'mbbill/undotree'
+
+    -- Git Signs
+    use 'lewis6991/gitsigns.nvim'
 
     -- Telescope
     use {
@@ -51,38 +57,38 @@ require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-    -- Smooth Scroll
-    use 'karb94/neoscroll.nvim'
-
     -- Auto Pairs
     use 'cohama/lexima.vim'
 
     -- Colorizer
     use 'norcalli/nvim-colorizer.lua'
 
-    -- Buffer Bar and Web Icons
-    use {
-        'romgrk/barbar.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
-    }
+    -- Buffer Bar
+    use 'akinsho/nvim-bufferline.lua'
+
+    -- Devicons
+    use 'kyazdani42/nvim-web-devicons'
+
+    -- File Tree
+    use 'kyazdani42/nvim-tree.lua'
+
+    -- Buffer Fill
+    use 'qpkorr/vim-bufkill'
+
+    -- Status Line
+    use 'hoob3rt/lualine.nvim'
+
+    -- pls fly again
+    -- use 'Yggdroot/indentLine'
+    use {'lukas-reineke/indent-blankline.nvim', branch = "lua"}
+
+    --[[ ColorSchemes ]]
 
     -- Sonokai
     use 'sainnhe/sonokai'
+    --Tokyo Night
+    use 'folke/tokyonight.nvim'
+
 end)
 
--- Plugin Configuration
-require'plugins.lspconfig'
-require'plugins.compe'
-require'plugins.undotree'
-require'plugins.telescope'
-require'plugins.treesitter'
-require'plugins.neoscroll'
-require'colorizer'.setup()
-
--- Colorscheme Configuration and Initialization
-require('plugins.colorschemes.sonokai')
-
--- My Status Line To Be Changed
-require('plugins.statusline')
-
--- EOF
+require'plugins.configure'
