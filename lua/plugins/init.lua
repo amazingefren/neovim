@@ -79,8 +79,10 @@ require('packer').startup(function(use)
     use 'hoob3rt/lualine.nvim'
 
     -- pls fly again
-    -- use 'Yggdroot/indentLine'
     use {'lukas-reineke/indent-blankline.nvim', branch = "lua"}
+
+    -- Comments
+    use 'b3nj5m1n/kommentary'
 
     --[[ ColorSchemes ]]
 
@@ -88,7 +90,6 @@ require('packer').startup(function(use)
     use 'sainnhe/sonokai'
     --Tokyo Night
     use 'folke/tokyonight.nvim'
-
 end)
 
 require'plugins.configure'

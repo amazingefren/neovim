@@ -10,6 +10,7 @@ require'gitsigns'.setup()
 require'plugins.lspsaga'
 require'plugins.nvimtree'
 require'plugins.indentline'
+require'plugins.kommentary'
 
 -- Set Colorscheme
 require'plugins.colorschemes.tokyonight'
