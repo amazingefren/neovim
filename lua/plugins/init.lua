@@ -14,6 +14,9 @@
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    -- Session Management
+    use 'rmagatti/auto-session'
+
     -- Auto HLS/NOH
     use 'romainl/vim-cool'
 
@@ -90,6 +93,7 @@ require('packer').startup(function(use)
     use 'sainnhe/sonokai'
     --Tokyo Night
     use 'folke/tokyonight.nvim'
+
 end)
 
 require'plugins.configure'
