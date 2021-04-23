@@ -32,8 +32,11 @@ vim.api.nvim_set_keymap('n', '<leader>nt', ':tabedit %<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('n', '<leader>dt', ':tabclose<CR>', { noremap = true, silent = true})
 
 -- <META + {?}> -- Resizing and more
-vim.api.nvim_set_keymap('n', '<M-h>', ':vertical resize +3<CR>', {noremap=true,silent=true})
-vim.api.nvim_set_keymap('n', '<M-j>', ':res -1<CR>', {noremap=true,silent=true})
-vim.api.nvim_set_keymap('n', '<M-k>', ':res +1<CR>', {noremap=true,silent=true})
-vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize -3<CR>', {noremap=true,silent=true})
-vim.api.nvim_set_keymap('n', '<M-q>', ':q <CR>', {noremap=true,silent=true})
+vim.api.nvim_set_keymap('n', '<M-h>', ':vertical resize +3<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<M-j>', ':res -1<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<M-k>', ':res +1<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize -3<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<M-q>', ':q <CR>', { noremap=true,silent=true })
+
+-- <Meta(alt) + Space> -- Exit Terminal Mode
+vim.api.nvim_set_keymap('t', '<M-Esc>', '<C-\\><C-n>', { noremap=true })
