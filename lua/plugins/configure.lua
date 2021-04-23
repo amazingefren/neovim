@@ -11,6 +11,8 @@ require'plugins.lspsaga'
 require'plugins.nvimtree'
 require'plugins.indentline'
 require'plugins.kommentary'
+require'plugins.minimap'
+require'plugins.sessions'
 
 -- Set Colorscheme
 require'plugins.colorschemes.tokyonight'

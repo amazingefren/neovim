@@ -87,6 +87,9 @@ require('packer').startup(function(use)
     -- Comments
     use 'b3nj5m1n/kommentary'
 
+    -- Minimap -- Requires {AUR/github: code-minimap}
+    use 'wfxr/minimap.vim'
+
     --[[ ColorSchemes ]]
 
     -- Sonokai
