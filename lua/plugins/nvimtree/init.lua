@@ -2,7 +2,9 @@ vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, si
 Apply.var({
     nvim_tree_width = 30,
     nvim_tree_follow = 1,
-    nvim_tree_auto_close = 1
+    nvim_tree_auto_close = 1,
+    nvim_tree_git_hl = 1,
+    nvim_tree_quit_on_open = 1
 })
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
