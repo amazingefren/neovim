@@ -87,8 +87,8 @@ require('packer').startup(function(use)
     -- Comments
     use 'b3nj5m1n/kommentary'
 
-    -- Minimap -- Requires {AUR/github: code-minimap}
-    use 'wfxr/minimap.vim'
+    -- Minimap -- Requires {AUR/github: code-minimap} To be readded later once I have time to configure its blocklist
+    -- use 'wfxr/minimap.vim'
 
     --[[ ColorSchemes ]]
 

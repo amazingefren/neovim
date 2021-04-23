@@ -11,8 +11,10 @@ require'plugins.lspsaga'
 require'plugins.nvimtree'
 require'plugins.indentline'
 require'plugins.kommentary'
-require'plugins.minimap'
-require'plugins.sessions'
+
+-- will ignore minimap for now
+-- require'plugins.minimap'
+-- require'plugins.sessions' > was being used to block minimap
 
 -- Set Colorscheme
 require'plugins.colorschemes.tokyonight'
