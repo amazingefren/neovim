@@ -94,8 +94,11 @@ require('packer').startup(function(use)
 
     -- Sonokai
     use 'sainnhe/sonokai'
-    --Tokyo Night
+    -- Tokyo Night
     use 'folke/tokyonight.nvim'
+    -- Falcon
+    use 'fenetikm/falcon'
+
 
 end)
 
