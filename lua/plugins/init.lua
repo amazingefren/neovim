@@ -14,6 +14,9 @@
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    -- Dashboard
+    -- use 'glepnir/dashboard-nvim'
+
     -- Session Management
     use 'rmagatti/auto-session'
 
@@ -40,6 +43,13 @@ require('packer').startup(function(use)
 
     -- Undo Tree
     use 'mbbill/undotree'
+    use {
+        'phaazon/hop.nvim',
+        as = 'hop',
+        config = function()
+            require'hop'.setup { keys = 'etovxqpdygblzhckisuran' }
+        end
+    }
 
     -- Git Signs
     use 'lewis6991/gitsigns.nvim'
@@ -98,7 +108,10 @@ require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     -- Falcon
     use 'fenetikm/falcon'
-
+    -- Moonlight
+    use 'shaunsingh/moonlight.nvim'
+    -- Nord
+    use 'shaunsingh/nord.nvim'
 
 end)
 

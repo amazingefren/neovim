@@ -17,9 +17,13 @@ require'plugins.kommentary'
 -- require'plugins.sessions' > was being used to block minimap
 
 -- Set Colorscheme
-require'plugins.colorschemes.tokyonight'
+require'plugins.colorschemes.moonlight'
 
 -- Status Line & Bufferline
-require'plugins.lualine'
+-- require'plugins.lualine'
 require'bufferline'.setup()
     vim.api.nvim_set_keymap('n', 'gb', ':BufferLinePick<CR>', {silent=true, noremap=true})
+
+-- Hop
+-- Controversial however I like browser-vim hinting with 'f'
+vim.api.nvim_set_keymap('n', 'f', '<cmd>lua require"hop".hint_words()<CR>', {silent=true, noremap=true})

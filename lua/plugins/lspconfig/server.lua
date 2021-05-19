@@ -4,7 +4,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Typescript --> npm global typescript, typescript-language-server
 require'lspconfig'.tsserver.setup{}
 
--- Lua --> Arch AUR sumneko-language-server
+-- Lua --> Arch AUR lua-language-server(sumneko-language-server)
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {

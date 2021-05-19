@@ -1,8 +1,8 @@
-local vars = {
-    tokyonight_style = "night",
-}
+-- local vars = {
+    -- tokyonight_style = "night",
+-- }
 
-Apply.var(vars)
+-- Apply.var(vars)
 
 vim.cmd[[
     colorscheme tokyonight
