@@ -90,7 +90,7 @@ require('packer').startup(function(use)
     use 'famiu/nvim-reload'
 
     -- Bogsterish
-    use {'amazingefren/bogsterish.nvim', requires = 'rktjmp/lush.nvim'}
+    use {'amazingefren/bogsterish.nvim', branch = 'devel', requires = 'rktjmp/lush.nvim'}
 
 end)
 
