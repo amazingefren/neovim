@@ -3,7 +3,7 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true
 vim.g.mapleader = ' '
 
 -- <Space + h> -- unhighlight search
-vim.api.nvim_set_keymap('n', '<Leader>h', ':noh<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>h', ':noh<CR>', { noremap = true, silent = true })
 
 -- <Ctrl + {h,j,k,l}> -- Better Pane Navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })

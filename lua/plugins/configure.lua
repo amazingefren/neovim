@@ -4,26 +4,26 @@ require'plugins.compe'
 require'plugins.undotree'
 require'plugins.telescope'
 require'plugins.treesitter'
--- require'plugins.neoscroll'
 require'colorizer'.setup()
 require'gitsigns'.setup()
 require'plugins.lspsaga'
 require'plugins.nvimtree'
 require'plugins.indentline'
 require'plugins.kommentary'
-
--- will ignore minimap for now
--- require'plugins.minimap'
--- require'plugins.sessions' > was being used to block minimap
+require'plugins.dashboard'
 
 -- Set Colorscheme
-require'plugins.colorschemes.moonlight'
+-- require'plugins.colorschemes.material'
+-- require'plugins.colorschemes.neon'
+require'plugins.colorschemes.tokyonight'
+-- require'plugins.colorschemes.gruvbox'
 
--- Status Line & Bufferline
--- require'plugins.lualine'
+-- Bufferline
 require'bufferline'.setup()
-    vim.api.nvim_set_keymap('n', 'gb', ':BufferLinePick<CR>', {silent=true, noremap=true})
+vim.api.nvim_set_keymap('n', 'gb', ':BufferLinePick<CR>', {silent=true, noremap=true})
 
 -- Hop
--- Controversial however I like browser-vim hinting with 'f'
 vim.api.nvim_set_keymap('n', 'f', '<cmd>lua require"hop".hint_words()<CR>', {silent=true, noremap=true})
+
+-- Reload
+vim.api.nvim_set_keymap('n', '<Leader>r', '<cmd>Reload<CR>', {silent=true, noremap=true})

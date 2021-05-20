@@ -14,17 +14,14 @@
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- Dashboard
-    -- use 'glepnir/dashboard-nvim'
-
-    -- Session Management
-    use 'rmagatti/auto-session'
-
     -- Auto HLS/NOH
     use 'romainl/vim-cool'
 
     -- LSP Config
     use 'neovim/nvim-lspconfig'
+
+    -- Dashboard
+    -- use 'glepnir/dashboard-nvim'
 
     -- Neovim Lua LSP
     use 'tjdevries/nlua.nvim'
@@ -73,7 +70,7 @@ require('packer').startup(function(use)
     -- Auto Pairs
     use 'cohama/lexima.vim'
 
-    -- Colorizer
+    -- Colorizer (Buggy)
     use 'norcalli/nvim-colorizer.lua'
 
     -- Buffer Bar
@@ -97,21 +94,25 @@ require('packer').startup(function(use)
     -- Comments
     use 'b3nj5m1n/kommentary'
 
-    -- Minimap -- Requires {AUR/github: code-minimap} To be readded later once I have time to configure its blocklist
-    -- use 'wfxr/minimap.vim'
+    -- Reload
+    use 'famiu/nvim-reload' -- Note, Will Give Weird Error with Dashboard
 
     --[[ ColorSchemes ]]
 
-    -- Sonokai
-    use 'sainnhe/sonokai'
     -- Tokyo Night
     use 'folke/tokyonight.nvim'
     -- Falcon
     use 'fenetikm/falcon'
-    -- Moonlight
-    use 'shaunsingh/moonlight.nvim'
-    -- Nord
-    use 'shaunsingh/nord.nvim'
+    -- Material
+    use 'marko-cerovac/material.nvim'
+    -- Neon
+    use 'rafamadriz/neon'
+
+    -- Nice? -> EDIT: YES REALLY NICE BRB GONNA WASTE THE REST OF MY DAY
+    use 'rktjmp/lush.nvim'
+
+    -- Ex I have to keep calling
+    use 'npxbr/gruvbox.nvim'
 
 end)
 
