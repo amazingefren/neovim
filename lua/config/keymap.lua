@@ -41,3 +41,6 @@ vim.api.nvim_set_keymap('n', '<M-q>', ':q <CR>', { noremap=true,silent=true })
 -- <Meta(alt) + Space> -- Exit Terminal Mode
 vim.api.nvim_set_keymap('t', '<M-Esc>', '<C-\\><C-n>', { noremap=true })
 vim.api.nvim_set_keymap('n', '<M-Return>', ':belowright split<CR>:terminal<CR>', { noremap=true })
+
+-- <Leader + no> -- No Highlight
+vim.api.nvim_set_keymap('n', '<Leader>no', '<cmd>noh<cr>', {silent = true, noremap = true})

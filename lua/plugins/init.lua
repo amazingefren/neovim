@@ -15,28 +15,25 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Auto HLS/NOH
-    use 'romainl/vim-cool'
+    -- use 'romainl/vim-cool'
 
     -- LSP Config
     use 'neovim/nvim-lspconfig'
-
-    -- Dashboard
-    -- use 'glepnir/dashboard-nvim'
-
     -- Neovim Lua LSP
     use 'tjdevries/nlua.nvim'
-
     -- LSP Actions
     use 'glepnir/lspsaga.nvim'
-
     -- Completion
     use {
         'hrsh7th/nvim-compe',
         requires = {
-        'rafamadriz/friendly-snippets',
-        'hrsh7th/vim-vsnip',
-        'hrsh7th/vim-vsnip-integ'
-    }}
+            'rafamadriz/friendly-snippets',
+            'hrsh7th/vim-vsnip',
+            'hrsh7th/vim-vsnip-integ'
+        }
+    }
+
+    -- Formatter mhartington/formatter.nvim --TODO
 
     -- Undo Tree
     use 'mbbill/undotree'
@@ -51,15 +48,13 @@ require('packer').startup(function(use)
     -- Git Signs
     use 'lewis6991/gitsigns.nvim'
 
-    -- Telescope
+    -- Telescope (god tier)
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
         'nvim-lua/popup.nvim',
         'nvim-lua/plenary.nvim'
     }}
-    -- Telescope FZF Native YUHYUHYUH
-    --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Tree Sitter
     use {
@@ -82,37 +77,20 @@ require('packer').startup(function(use)
     -- File Tree
     use 'kyazdani42/nvim-tree.lua'
 
-    -- Buffer Fill
-    use 'qpkorr/vim-bufkill'
-
-    -- Status Line
+    -- Status Line << awaiting theme
     use 'hoob3rt/lualine.nvim'
 
-    -- pls fly again
+    -- Tab Things
     use {'lukas-reineke/indent-blankline.nvim', branch = "lua"}
 
     -- Comments
     use 'b3nj5m1n/kommentary'
 
     -- Reload
-    use 'famiu/nvim-reload' -- Note, Will Give Weird Error with Dashboard
+    use 'famiu/nvim-reload'
 
-    --[[ ColorSchemes ]]
-
-    -- Tokyo Night
-    use 'folke/tokyonight.nvim'
-    -- Falcon
-    use 'fenetikm/falcon'
-    -- Material
-    use 'marko-cerovac/material.nvim'
-    -- Neon
-    use 'rafamadriz/neon'
-
-    -- Nice? -> EDIT: YES REALLY NICE BRB GONNA WASTE THE REST OF MY DAY
-    use 'rktjmp/lush.nvim'
-
-    -- Ex I have to keep calling
-    use 'npxbr/gruvbox.nvim'
+    -- Bogsterish
+    use {'amazingefren/bogsterish.nvim', requires = 'rktjmp/lush.nvim'}
 
 end)
 

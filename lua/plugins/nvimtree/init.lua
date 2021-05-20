@@ -1,12 +1,15 @@
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 Apply.var({
-    nvim_tree_width = 30,
+    nvim_tree_width = 37,
     nvim_tree_follow = 1,
     nvim_tree_auto_close = 1,
     nvim_tree_git_hl = 1,
     nvim_tree_quit_on_open = 1,
-    nvim_tree_auto_ignore_ft = {'dashboard'}
+    nvim_tree_auto_open = 1,
+    nvim_tree_width_allow_resize = 1
 })
+
+-- NvimTree VimEnter Full Width to be added soon -> SEE: #214, #200, #248 on gh
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {

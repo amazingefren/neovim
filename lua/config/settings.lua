@@ -18,7 +18,9 @@ local global_options = {
     --cpo         = vim.o.cpo .. "n", -- Hide Number for Break
 }
 
---local buffer_options = {}
+-- local buffer_options = {
+--     bh = true,
+-- }
 
 local window_options = {
     number      = true,     -- Number
@@ -36,12 +38,14 @@ vim.cmd [[
     set shiftwidth=4
     set tabstop=4
     set smartindent
+    set bufhidden=delete
+    setglobal bufhidden=delete
     filetype plugin indent on
 ]]
     --highlight clear SignColumn
 
 local augroups = {
-    BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
+    -- BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
 }
 
 Apply.opt(global_options, "o")
