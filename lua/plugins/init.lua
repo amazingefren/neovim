@@ -15,7 +15,7 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Auto HLS/NOH
-    -- use 'romainl/vim-cool'
+    use 'romainl/vim-cool'
 
     -- LSP Config
     use 'neovim/nvim-lspconfig'
@@ -92,6 +92,7 @@ require('packer').startup(function(use)
     -- Bogsterish
     use {'amazingefren/bogsterish.nvim', branch = 'devel', requires = 'rktjmp/lush.nvim'}
 
+    use 'wojciechkepka/bogster'
 end)
 
 require'plugins.configure'
