@@ -31,3 +31,7 @@ require'gitsigns'.setup{
         changedelete = {hl = 'DiffChange', text = '~' },
     },
 }
+
+require('auto-session').setup {
+    auto_session_enable_last_session=true,
+}
