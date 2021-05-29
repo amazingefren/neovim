@@ -5,7 +5,7 @@ Apply.var({
     nvim_tree_auto_close = 1,
     nvim_tree_git_hl = 1,
     nvim_tree_quit_on_open = 1,
-    nvim_tree_auto_open = 1,
+    -- nvim_tree_auto_open = 1,
     nvim_tree_width_allow_resize = 1
 })
 

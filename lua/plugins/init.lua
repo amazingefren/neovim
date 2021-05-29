@@ -66,7 +66,7 @@ require('packer').startup(function(use)
     use 'cohama/lexima.vim'
 
     -- Colorizer (Buggy)
-    use 'norcalli/nvim-colorizer.lua'
+    -- use 'norcalli/nvim-colorizer.lua'
 
     -- Buffer Bar
     use 'akinsho/nvim-bufferline.lua'
@@ -77,7 +77,7 @@ require('packer').startup(function(use)
     -- File Tree
     use 'kyazdani42/nvim-tree.lua'
 
-    -- Status Line << awaiting theme
+    -- Status Line
     use 'hoob3rt/lualine.nvim'
 
     -- Tab Things

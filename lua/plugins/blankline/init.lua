@@ -1,13 +1,6 @@
 local vars = {
-    -- indentLine_char = '|',
-    -- indentLine_leadingSpaceChar = '·',
-    -- indentLine_first_char = '|',
-    -- indentLine_showFirstIndentLevel = true,
-    -- indentLine_leadingSpaceEnabled = true,
-    -- indent_blankline_space_char = '·',
     -- indent_blankline_space_char = '',
     indent_blankline_char = '│',
-    -- indent_blankline_space_char_blankline = ' ',
     -- indent_blankline_char = '',
     -- indent_blankline_char= '',
     indent_blankline_bufname_exclude = {'dashboard', 'NvimTree'},
@@ -15,8 +8,6 @@ local vars = {
     indent_blankline_show_first_indent_level = false,
     indent_blankline_show_trailing_blankline_indent = false
 }
-
-
 
 -- vim.cmd[[
     -- let g:indent_blankline_char_highlight_list = ['Operator']
