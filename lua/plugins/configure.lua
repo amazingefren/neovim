@@ -11,6 +11,7 @@ require'plugins.lspsaga'
 require'plugins.nvimtree'
 require'plugins.blankline'
 require'plugins.kommentary'
+require'lspkind'.init()
 
 -- Hop
 vim.api.nvim_set_keymap('n', 'f', '<cmd>lua require"hop".hint_words()<CR>', {silent=true, noremap=true})

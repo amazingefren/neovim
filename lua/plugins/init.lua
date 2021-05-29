@@ -14,6 +14,15 @@
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    -- Sessions
+    use {'rmagatti/auto-session',
+        config = function ()
+            require('auto-session').setup {
+                auto_session_enable_last_session=true,
+            }
+        end
+    }
+
     -- Auto HLS/NOH
     use 'romainl/vim-cool'
 
@@ -29,7 +38,8 @@ require('packer').startup(function(use)
         requires = {
             'rafamadriz/friendly-snippets',
             'hrsh7th/vim-vsnip',
-            'hrsh7th/vim-vsnip-integ'
+            'hrsh7th/vim-vsnip-integ',
+            'onsails/lspkind-nvim'
         }
     }
 
