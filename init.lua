@@ -11,8 +11,6 @@
 ✦　　 ﾟ　　. 　　　　 ✦
 ]]
 
-vim.cmd[[runtime! plugin/sensible.vim]]
-
-require('util')
-require('config')
-require('plugins')
+require('global-utils')
+require('global-config')
+require('init-plug')
