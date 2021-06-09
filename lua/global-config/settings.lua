@@ -14,19 +14,24 @@ local global_options = {
     updatetime  = 500,      -- Swap File Idle Write Time
     sb          = true,     -- Split Below
     spr         = true,     -- Split Right
-    --showbreak   = "--->",   -- Symbol For Break
-    --cpo         = vim.o.cpo .. "n", -- Hide Number for Break
+    showbreak   = "-->",   -- Symbol For Break
+    cpo         = vim.o.cpo .. "n", -- Hide Number for Break
 }
 
 local window_options = {
     number      = true,     -- Number
     rnu         = true,     -- Relative Number
-    -- linebreak   = true,     -- Linebreak on Wrap
+    linebreak   = true,     -- Linebreak on Wrap
     -- signcolumn  = "number", -- Signs on Number Column
     signcolumn  = "yes:1", -- Test
     bri         = true,     -- Indent on Break
     cursorline  = true,      -- Cursor Line
-    wrap        = false
+    wrap        = true,
+    -- spell       = true
+}
+
+local buffer_options = {
+    textwidth   = 0
 }
 
 vim.cmd [[
@@ -46,4 +51,5 @@ local augroups = {
 
 Apply.opt(global_options, "o")
 Apply.opt(window_options, "wo")
+Apply.opt(buffer_options, "bo")
 Augroup.create(augroups)

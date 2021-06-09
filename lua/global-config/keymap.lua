@@ -44,3 +44,7 @@ vim.api.nvim_set_keymap('n', '<M-Return>', ':belowright split<CR>:terminal<CR>',
 
 -- <Leader + no> -- No Highlight
 vim.api.nvim_set_keymap('n', '<Leader>no', '<cmd>noh<cr>', {silent = true, noremap = true})
+
+-- <j/k> -> gj/gk Navigating Line Breaks
+vim.api.nvim_set_keymap("", 'j', 'gj', {})
+vim.api.nvim_set_keymap("", 'k', 'gk', {})
