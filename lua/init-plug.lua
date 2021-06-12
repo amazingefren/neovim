@@ -160,6 +160,9 @@ require('packer').startup(function(use)
         end
     }
 
+    --= Temp PWD =--
+    use {'airblade/vim-rooter'}
+
     ----------------------------------------------
     -- Rice                                     --
     ----------------------------------------------
