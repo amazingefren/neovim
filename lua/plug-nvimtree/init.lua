@@ -9,6 +9,9 @@ Apply.var({
     nvim_tree_width_allow_resize = 1
 })
 
+require'nvim-tree.events'.on_nvim_tree_ready(function()
+    vim.cmd("NvimTreeRefresh")
+end)
 -- NvimTree VimEnter Full Width to be added soon -> SEE: #214, #200, #248 on gh
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
