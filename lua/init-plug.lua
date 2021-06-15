@@ -39,32 +39,33 @@ require('packer').startup(function(use)
     }
 
     --= Completion =--
-    -- use { 'hrsh7th/nvim-compe',
-        -- requires = {
-            -- 'rafamadriz/friendly-snippets',
-            -- 'hrsh7th/vim-vsnip',
-            -- 'hrsh7th/vim-vsnip-integ',
-            -- 'onsails/lspkind-nvim'
-        -- },
-        -- config = function()
-            -- require'plug-compe'
-            -- require'lspkind'.init()
-        -- end
-    -- }
-    use { 'nvim-lua/completion-nvim',
+    use { 'hrsh7th/nvim-compe',
         requires = {
             'rafamadriz/friendly-snippets',
             'hrsh7th/vim-vsnip',
             'hrsh7th/vim-vsnip-integ',
+            'onsails/lspkind-nvim'
         },
-        config=function()
-            vim.cmd[[autocmd BufEnter * lua require'completion'.on_attach()]]
-            vim.api.nvim_set_keymap('i', '<Tab>', '<Plug>(completion_smart_tab)', {silent = true})
-            vim.api.nvim_set_keymap('i', '<S-Tab>', '<Plug>(completion_smart_s_tab)', {silent = true})
-            vim.api.nvim_set_keymap('i', '<C-Space>', '<Plug>(completion_trigger)', {})
-            Apply.opt({completeopt = "menuone,noselect"}, "o")
+        config = function()
+            require'plug-compe'
+            require'lspkind'.init()
         end
     }
+
+    -- use { 'nvim-lua/completion-nvim',
+        -- requires = {
+            -- 'rafamadriz/friendly-snippets',
+            -- 'hrsh7th/vim-vsnip',
+            -- 'hrsh7th/vim-vsnip-integ',
+        -- },
+        -- config=function()
+            -- vim.cmd[[autocmd BufEnter * lua require'completion'.on_attach()]]
+            -- vim.api.nvim_set_keymap('i', '<Tab>', '<Plug>(completion_smart_tab)', {silent = true})
+            -- vim.api.nvim_set_keymap('i', '<S-Tab>', '<Plug>(completion_smart_s_tab)', {silent = true})
+            -- vim.api.nvim_set_keymap('i', '<C-Space>', '<Plug>(completion_trigger)', {})
+            -- Apply.opt({completeopt = "menuone,noselect"}, "o")
+        -- end
+    -- }
     --= Comments =--
     use { 'b3nj5m1n/kommentary',
         config = function()
@@ -138,7 +139,18 @@ require('packer').startup(function(use)
     }
 
     --= Auto Pairs =--
-    use 'cohama/lexima.vim'
+    -- use 'cohama/lexima.vim'
+    -- note: autopairs readme for weird <CR> with completion
+    use {'windwp/nvim-autopairs',
+        config=function()
+            require'nvim-autopairs'.setup()
+        end
+    }
+
+    --= Auto Tags =--
+    use {'windwp/nvim-ts-autotag',
+        config=function() require'nvim-ts-autotag'.setup() end
+    }
 
     --= Auto NOH =--
     use 'romainl/vim-cool'

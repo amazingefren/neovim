@@ -1,5 +1,5 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- Typescript --> npm global typescript, typescript-language-server
 require'lspconfig'.tsserver.setup{}
@@ -37,7 +37,7 @@ require'lspconfig'.bashls.setup{}
 -- C/C++ --> clangd
 require'lspconfig'.clangd.setup{}
 
--- CSS/SCSS/LESS --> npm global vscode-css-languageserver-bin
+-- CSS/SCSS/LESS --> FOLLOW HTML INSTALL
 require'lspconfig'.cssls.setup{}
 
 -- Docker Lang Server -->  npm global dockerfile-language-server-nodejs
@@ -49,12 +49,12 @@ require'lspconfig'.gopls.setup{}
 -- GraphQl --> npm global graphql-language-service-cli
 require'lspconfig'.graphql.setup{}
 
--- HTML --> npm global vscode-html-languageserver-bin
+-- HTML --> npm global vscode-langservers-extracted
 require'lspconfig'.html.setup {
-  capabilities = capabilities,
+  capabilities = capabilities;
 }
 
--- Json --> npm global vscode-json-languageserver
+-- Json --> FOLLOW HTML INSTALL
 require'lspconfig'.jsonls.setup{}
 
 -- Python --> pip install 'python-language-server[all]' because I can
@@ -71,5 +71,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
-vim.cmd[[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+-- vim.cmd[[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
 
