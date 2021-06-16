@@ -13,31 +13,17 @@
 
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    ----------------------------------------------
-    -- LSP Config                               --
-    ----------------------------------------------
     --= LSP =--
     use { 'neovim/nvim-lspconfig',
         config = function()
             require'plug-lspconfig'
         end
     }
-
     --= Tree Sitter =--
     use { 'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
-        config = function()
-            require'plug-treesitter'
-        end
+        config = function() require'plug-treesitter' end
     }
-
-    --= Lsp Actions =--
-    use { 'glepnir/lspsaga.nvim',
-        config = function()
-            require'plug-lspsaga'
-        end
-    }
-
     --= Completion =--
     use { 'hrsh7th/nvim-compe',
         requires = {
@@ -51,34 +37,17 @@ require('packer').startup(function(use)
             require'lspkind'.init()
         end
     }
-
-    -- use { 'nvim-lua/completion-nvim',
-        -- requires = {
-            -- 'rafamadriz/friendly-snippets',
-            -- 'hrsh7th/vim-vsnip',
-            -- 'hrsh7th/vim-vsnip-integ',
-        -- },
-        -- config=function()
-            -- vim.cmd[[autocmd BufEnter * lua require'completion'.on_attach()]]
-            -- vim.api.nvim_set_keymap('i', '<Tab>', '<Plug>(completion_smart_tab)', {silent = true})
-            -- vim.api.nvim_set_keymap('i', '<S-Tab>', '<Plug>(completion_smart_s_tab)', {silent = true})
-            -- vim.api.nvim_set_keymap('i', '<C-Space>', '<Plug>(completion_trigger)', {})
-            -- Apply.opt({completeopt = "menuone,noselect"}, "o")
-        -- end
-    -- }
     --= Comments =--
-    use { 'b3nj5m1n/kommentary',
+    use {'tpope/vim-commentary',
         config = function()
-            require'plug-kommentary'
+            vim.api.nvim_set_keymap('n','<C-_>', ':Commentary<CR>',{silent=true,noremap=true})
+            vim.api.nvim_set_keymap('v','<C-_>', ':Commentary<CR>',{silent=true,noremap=true})
+            vim.api.nvim_set_keymap('i','<C-_>', ':Commentary<CR>',{silent=true,noremap=true})
         end
     }
-
     --= Neovim Lua Lsp =--
     use 'tjdevries/nlua.nvim'
 
-    ----------------------------------------------
-    -- Quality of Life                          --
-    ----------------------------------------------
     --= Sessions =--
     use { 'rmagatti/auto-session',
         config = function()
@@ -138,16 +107,11 @@ require('packer').startup(function(use)
         end
     }
 
-    --= Auto Pairs =--
-    -- use 'cohama/lexima.vim'
-    -- note: autopairs readme for weird <CR> with completion
-    use {'windwp/nvim-autopairs',
-        config=function()
-            require'nvim-autopairs'.setup()
-        end
-    }
 
-    --= Auto Tags =--
+    --= Pairs =--
+    use {'windwp/nvim-autopairs',
+        config=function() require'nvim-autopairs'.setup() end
+    }
     use {'windwp/nvim-ts-autotag',
         config=function() require'nvim-ts-autotag'.setup() end
     }
@@ -155,9 +119,6 @@ require('packer').startup(function(use)
     --= Auto NOH =--
     use 'romainl/vim-cool'
 
-    ----------------------------------------------
-    -- Navigation                               --
-    ----------------------------------------------
     --= Telescope =--
     use { 'nvim-telescope/telescope.nvim',
         requires = {
@@ -185,16 +146,13 @@ require('packer').startup(function(use)
         end
     }
 
-    --= Temp PWD =--
-    use {'airblade/vim-rooter'}
+    use 'sbdchd/neoformat'
 
     ----------------------------------------------
     -- Rice                                     --
     ----------------------------------------------
     --= Devicons =--
     use 'kyazdani42/nvim-web-devicons'
-    --= Status Line =--
-    use 'hoob3rt/lualine.nvim'
 
     --=== ColorSchemes ===---
     -- Bogsterish

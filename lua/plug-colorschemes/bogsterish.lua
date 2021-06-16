@@ -1,8 +1,8 @@
-require'lualine'.setup{
-    options={
-        theme = "bogsterish"
-    }
-}
+-- require'lualine'.setup{
+    -- options={
+        -- theme = "bogsterish"
+    -- }
+-- }
 
 vim.cmd[[
 augroup OverrideNonText

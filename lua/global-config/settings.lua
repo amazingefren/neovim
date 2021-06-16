@@ -30,10 +30,6 @@ local window_options = {
     -- spell       = true
 }
 
-local buffer_options = {
-    textwidth   = 0
-}
-
 vim.cmd [[
     set autoindent
     set expandtab
@@ -51,5 +47,4 @@ local augroups = {
 
 Apply.opt(global_options, "o")
 Apply.opt(window_options, "wo")
-Apply.opt(buffer_options, "bo")
 Augroup.create(augroups)
