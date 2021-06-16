@@ -148,9 +148,6 @@ require('packer').startup(function(use)
 
     use 'sbdchd/neoformat'
 
-    ----------------------------------------------
-    -- Rice                                     --
-    ----------------------------------------------
     --= Devicons =--
     use 'kyazdani42/nvim-web-devicons'
 
