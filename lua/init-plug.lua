@@ -38,13 +38,15 @@ require('packer').startup(function(use)
         end
     }
     --= Comments =--
-    use {'tpope/vim-commentary',
+    use {'b3nj5m1n/kommentary',
         config = function()
-            vim.api.nvim_set_keymap('n','<C-_>', ':Commentary<CR>',{silent=true,noremap=true})
-            vim.api.nvim_set_keymap('v','<C-_>', ':Commentary<CR>',{silent=true,noremap=true})
-            vim.api.nvim_set_keymap('i','<C-_>', ':Commentary<CR>',{silent=true,noremap=true})
+            require'kommentary.config'.use_extended_mappings()
+            vim.api.nvim_set_keymap('n', "<C-_>", "<Plug>kommentary_line_default", {})
+            vim.api.nvim_set_keymap('v', "<C-_>", "<Plug>kommentary_visual_default", {})
+            vim.api.nvim_set_keymap('i', "<C-_>", '<ESC>:execute "normal \\<Plug>kommentary_line_default"<CR>', {silent = true})
         end
     }
+
     --= Neovim Lua Lsp =--
     use 'tjdevries/nlua.nvim'
 
