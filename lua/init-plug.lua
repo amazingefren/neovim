@@ -153,6 +153,13 @@ require('packer').startup(function(use)
     --= Devicons =--
     use 'kyazdani42/nvim-web-devicons'
 
+    --= Status Bar =--
+    use {'glepnir/galaxyline.nvim',
+        config = function()
+            require('plug-galaxyline')
+        end
+    }
+
     --=== ColorSchemes ===---
     -- Bogsterish
     use { 'amazingefren/bogsterish.nvim', branch = 'devel',
@@ -167,4 +174,4 @@ require('packer').startup(function(use)
 
 end)
 
-require'plug-colorschemes.bogsterish'
+require'plug-colorschemes.bogsterish'.setup()
