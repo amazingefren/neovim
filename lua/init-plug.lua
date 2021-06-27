@@ -47,6 +47,13 @@ require('packer').startup(function(use)
         end
     }
 
+    --= LSP UI (WIP) =---
+    use {'amazingefren/lspsaga.nvim',
+        config = function()
+            require'plug-lspconfig.saga'
+        end
+    }
+
     --= Neovim Lua Lsp =--
     use 'tjdevries/nlua.nvim'
 
