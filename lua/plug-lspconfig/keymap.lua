@@ -26,7 +26,7 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<cmd>lua require'plug-lspconfig.saga'.sma
 vim.api.nvim_set_keymap("n", "<C-u>", "<cmd>lua require'plug-lspconfig.saga'.smart_scroll(-1)<CR>", {silent = true, noremap = true})
 
 --= Signatures =--
-vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>lua require'lspsaga.signaturehelp'.signature_help()<CR>", {silent=true, noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>lua require'lspsaga.signaturehelp'.signature_help()<CR>", {silent=true, noremap=true})
 
 --= Rename =--
 vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua require'lspsaga.rename'.rename()<CR>", {silent=true, noremap=true})

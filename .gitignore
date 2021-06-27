@@ -2,3 +2,4 @@ plugin/packer_compiled.vim
 sessions/
 colors/
 lua/dev-bogsterish
+dev-*/

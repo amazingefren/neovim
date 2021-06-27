@@ -43,4 +43,4 @@ vim.api.nvim_set_keymap('n', '<M-q>', ':q <CR>', { noremap=true,silent=true })
 -- vim.api.nvim_set_keymap('n', '<M-Return>', ':belowright split<CR>:terminal<CR>', { noremap=true })
 
 -- <Leader + no> -- No Highlight
-vim.api.nvim_set_keymap('n', '<Leader>no', '<cmd>noh<cr>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>no', '<cmd>noh<cr>', {silent = true, noremap = true})
