@@ -16,7 +16,8 @@ local function spacing(num)
     return function() return string.rep(' ',num) end
 end
 
-local colors = require"plug-colorschemes/bogsterish".colors
+local colors = require"plug-colorschemes/gruvbox".colors
+
 
 local mode_color = function()
     local mode_colors = {

@@ -173,8 +173,14 @@ require('packer').startup(function(use)
         requires = 'rktjmp/lush.nvim'
     }
 
+    -- Sonokai
+    use {'sainnhe/sonokai'}
+
     -- Tokyonight
     use 'folke/tokyonight.nvim'
+
+    -- Crack
+    use {'sainnhe/gruvbox-material'}
 
     -- Bogster
     use 'wojciechkepka/bogster'
@@ -182,4 +188,4 @@ require('packer').startup(function(use)
 end)
 
 -- require'plug-colorschemes.bogsterish'.setup()
-vim.cmd[[colorscheme dev-idk]]
+require'plug-colorschemes.gruvbox'.setup()
