@@ -181,4 +181,5 @@ require('packer').startup(function(use)
 
 end)
 
-require'plug-colorschemes.bogsterish'.setup()
+-- require'plug-colorschemes.bogsterish'.setup()
+vim.cmd[[colorscheme dev-idk]]
