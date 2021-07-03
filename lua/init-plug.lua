@@ -189,3 +189,5 @@ end)
 
 -- require'plug-colorschemes.bogsterish'.setup()
 require'plug-colorschemes.gruvbox'.setup()
+-- LowerContrast Colorscheme WIP
+vim.cmd[[colorscheme dev-idk]]
