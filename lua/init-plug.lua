@@ -110,7 +110,7 @@ require('packer').startup(function(use)
 
     --= Tab Things =--
     use { 'lukas-reineke/indent-blankline.nvim',
-        branch = "lua",
+        branch = "master",
         config = function()
             require'plug-blankline'
         end
