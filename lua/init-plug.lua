@@ -155,7 +155,8 @@ require('packer').startup(function(use)
         end
     }
 
-    use 'sbdchd/neoformat'
+    --= Formatting =--
+    use {'mhartington/formatter.nvim', config=function() require'plug-lspconfig/format' end}
 
     --= Devicons =--
     use 'kyazdani42/nvim-web-devicons'
