@@ -1,5 +1,5 @@
 plugin/packer_compiled.lua
 sessions/
-colors/
 lua/dev-bogsterish
-dev-*/
+lua/dev-twm
+colors/dev-bogsterish.vim

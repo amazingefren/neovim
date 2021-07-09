@@ -1,0 +1,43 @@
+" GUI color definitions
+let s:gui00        = "#181818"
+let g:base16_gui00 = "#181818"
+let s:gui01        = "#282828"
+let g:base16_gui01 = "#282828"
+let s:gui02        = "#383838"
+let g:base16_gui02 = "#383838"
+let s:gui03        = "#585858"
+let g:base16_gui03 = "#585858"
+let s:gui04        = "#b8b8b8"
+let g:base16_gui04 = "#b8b8b8"
+let s:gui05        = "#d8d8d8"
+let g:base16_gui05 = "#d8d8d8"
+let s:gui06        = "#e8e8e8"
+let g:base16_gui06 = "#e8e8e8"
+let s:gui07        = "#f8f8f8"
+let g:base16_gui07 = "#f8f8f8"
+let s:gui08        = "#ab4642"
+let g:base16_gui08 = "#ab4642"
+let s:gui09        = "#dc9656"
+let g:base16_gui09 = "#dc9656"
+let s:gui0A        = "#f7ca88"
+let g:base16_gui0A = "#f7ca88"
+let s:gui0B        = "#a1b56c"
+let g:base16_gui0B = "#a1b56c"
+let s:gui0C        = "#86c1b9"
+let g:base16_gui0C = "#86c1b9"
+let s:gui0D        = "#7cafc2"
+let g:base16_gui0D = "#7cafc2"
+let s:gui0E        = "#ba8baf"
+let g:base16_gui0E = "#ba8baf"
+let s:gui0F        = "#a16946"
+let g:base16_gui0F = "#a16946"
+
+b8 = "#ff6347",
+b9 = "#f89406",
+ba = "#f2ca27",
+bb = "#00cf80",
+bc = "#2eccb0",
+bd = "#22a7f0",
+be = "#fc6399",
+bf = "#BDC7C7"
+
