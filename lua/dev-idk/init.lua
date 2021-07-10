@@ -22,14 +22,14 @@ local hsl = lush.hsl
 } ]]
 
 local base = {
-    b0 = hsl(200, 10, 8),  -- Default BG
-    b1 = hsl(200, 10, 16), -- Lighter b0 (statusbar)
-    b2 = hsl(200, 10, 22), -- Selection BG
-    b3 = hsl(200, 10, 35), -- Comments/Invis/LineHL
-    b4 = hsl(200, 10, 70), -- Dark FG
-    b5 = hsl(200, 10, 80), -- Norm FG
-    b6 = hsl(200, 10, 85), -- Light BG
-    b7 = hsl(200, 10, 90), -- Light BG
+    b0 = hsl(230, 25, 8),  -- Default BG
+    b1 = hsl(230, 25, 16), -- Lighter b0 (statusbar)
+    b2 = hsl(230, 25, 22), -- Selection BG
+    b3 = hsl(230, 25, 35), -- Comments/Invis/LineHL
+    b4 = hsl(230, 25, 70), -- Dark FG
+    b5 = hsl(230, 25, 80), -- Norm FG
+    b6 = hsl(230, 25, 85), -- Light BG
+    b7 = hsl(230, 25, 90), -- Light BG
 
     b8 = hsl(0, 50, 65),
     b9 = hsl(25, 50,65),
@@ -151,7 +151,7 @@ local theme = lush(function()
     Bold       { gui = "bold" },
     Italic     { gui = "italic" },
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
-    Error          { fg=base.b8, gui=styles.curly }, -- (preferred) any erroneous construct
+    Error          { gui=styles.curly }, -- (preferred) any erroneous construct
 
     Todo           { fg=base.b4 }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
@@ -174,10 +174,10 @@ local theme = lush(function()
     LspDiagnosticsVirtualTextInformation { LspDiagnosticsDefaultInformation }, -- Used for "Information" diagnostic virtual text
     LspDiagnosticsVirtualTextHint        { LspDiagnosticsDefaultHint }, -- Used for "Hint" diagnostic virtual text
 
-    LspDiagnosticsUnderlineError         { LspDiagnosticsDefaultError }, -- Used to underline "Error" diagnostics
-    LspDiagnosticsUnderlineWarning       { LspDiagnosticsDefaultWarning }, -- Used to underline "Warning" diagnostics
-    LspDiagnosticsUnderlineInformation   { LspDiagnosticsDefaultInformation }, -- Used to underline "Information" diagnostics
-    LspDiagnosticsUnderlineHint          { LspDiagnosticsDefaultHint }, -- Used to underline "Hint" diagnostics
+    LspDiagnosticsUnderlineError         { gui=styles.curly, LspDiagnosticsDefaultError }, -- Used to underline "Error" diagnostics
+    LspDiagnosticsUnderlineWarning       { gui=styles.curly, LspDiagnosticsDefaultWarning }, -- Used to underline "Warning" diagnostics
+    LspDiagnosticsUnderlineInformation   { gui=styles.curly, LspDiagnosticsDefaultInformation }, -- Used to underline "Information" diagnostics
+    LspDiagnosticsUnderlineHint          { gui=styles.curly, LspDiagnosticsDefaultHint }, -- Used to underline "Hint" diagnostics
 
     LspDiagnosticsFloatingError          { LspError, bg=base.b1 }, -- Used to color "Error" diagnostic messages in diagnostics float
     LspDiagnosticsFloatingWarning        { LspWarning, bg=base.b1 }, -- Used to color "Warning" diagnostic messages in diagnostics float

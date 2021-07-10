@@ -135,5 +135,14 @@ require'lspconfig'.rust_analyzer.setup{
     }
 ) ]]
 
-vim.cmd[[autocmd CursorHold * lua require'lspsaga.diagnostic'.show_line_diagnostics()]]
-vim.cmd[[autocmd CursorHoldI * silent! lua require'lspsaga.signaturehelp'.signature_help()]]
+--------------------------------------------------------------------------------------------------
+-- BOTH OF THESE BREAK AUTO_SESSION (WHICH I REALLY LIKE)
+-- lspsaga floating doesn't close :q and on restore loads empty buffer of floating diag
+-- I believe lspsaga breaks neovims built in diagnostics as well, will test later
+-- + LSPSAGA memory leaks? unmaintained (dev is dealing with personal issues)
+-- ye ye ima switch but first I need sleep
+
+-- vim.cmd[[autocmd CursorHold * lua require'lspsaga.diagnostic'.show_line_diagnostics()]]
+-- vim.cmd[[autocmd CursorHoldI * silent! lua require'lspsaga.signaturehelp'.signature_help()]]
+-- vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+-- vim.cmd[[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]

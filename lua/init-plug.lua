@@ -60,7 +60,7 @@ require('packer').startup(function(use)
     --= Sessions =--
     use { 'rmagatti/auto-session',
         config = function()
-            require'auto-session'.setup{
+            require'auto-session'.setup {
                 auto_session_root_dir = vim.fn.stdpath('data').."sessions",
                 auto_save_enabled = true,
                 auto_session_enable_last_session = true,
