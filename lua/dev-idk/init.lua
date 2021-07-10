@@ -174,10 +174,10 @@ local theme = lush(function()
     LspDiagnosticsVirtualTextInformation { LspDiagnosticsDefaultInformation }, -- Used for "Information" diagnostic virtual text
     LspDiagnosticsVirtualTextHint        { LspDiagnosticsDefaultHint }, -- Used for "Hint" diagnostic virtual text
 
-    LspDiagnosticsUnderlineError         { gui=styles.curly, LspDiagnosticsDefaultError }, -- Used to underline "Error" diagnostics
-    LspDiagnosticsUnderlineWarning       { gui=styles.curly, LspDiagnosticsDefaultWarning }, -- Used to underline "Warning" diagnostics
-    LspDiagnosticsUnderlineInformation   { gui=styles.curly, LspDiagnosticsDefaultInformation }, -- Used to underline "Information" diagnostics
-    LspDiagnosticsUnderlineHint          { gui=styles.curly, LspDiagnosticsDefaultHint }, -- Used to underline "Hint" diagnostics
+    LspDiagnosticsUnderlineError         { sp=base.b8, gui=styles.curly }, -- Used to underline "Error" diagnostics
+    LspDiagnosticsUnderlineWarning       { sp=base.ba, gui=styles.curly }, -- Used to underline "Warning" diagnostics
+    LspDiagnosticsUnderlineInformation   { sp=base.bd, gui=styles.curly }, -- Used to underline "Information" diagnostics
+    LspDiagnosticsUnderlineHint          { sp=base.bc, gui=styles.curly }, -- Used to underline "Hint" diagnostics
 
     LspDiagnosticsFloatingError          { LspError, bg=base.b1 }, -- Used to color "Error" diagnostic messages in diagnostics float
     LspDiagnosticsFloatingWarning        { LspWarning, bg=base.b1 }, -- Used to color "Warning" diagnostic messages in diagnostics float
