@@ -129,11 +129,11 @@ require'lspconfig'.rust_analyzer.setup{
 
 --[[ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
+        virtual_text = true,
         underline = true,
         signs = true,
     }
 ) ]]
 
--- vim.cmd[[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
--- vim.cmd[[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+vim.cmd[[autocmd CursorHold * lua require'lspsaga.diagnostic'.show_line_diagnostics()]]
+vim.cmd[[autocmd CursorHoldI * silent! lua require'lspsaga.signaturehelp'.signature_help()]]
