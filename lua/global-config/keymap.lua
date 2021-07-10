@@ -38,6 +38,10 @@ vim.api.nvim_set_keymap('n', '<M-k>', ':res +1<CR>', { noremap=true, silent=true
 vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize -3<CR>', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', '<M-q>', ':q <CR>', { noremap=true,silent=true })
 
+-- <Leader + bd> -- Delete All Other Buffers
+vim.api.nvim_set_keymap('n', '<leader>bd', ':BufOnly<CR>', { noremap=true,silent=true })
+-- vim.api.nvim_set_keymap('n', '<leader>bdd', ':bd<CR>', { noremap=true,silent=true })
+
 -- <Meta(alt) + Space> -- Exit Terminal Mode
 -- vim.api.nvim_set_keymap('t', '<M-Esc>', '<C-\\><C-n>', { noremap=true })
 -- vim.api.nvim_set_keymap('n', '<M-Return>', ':belowright split<CR>:terminal<CR>', { noremap=true })
