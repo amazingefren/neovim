@@ -36,6 +36,7 @@ local on_attach = function(client, bufnr)
     --= Definition =--
     buf_set_keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
     buf_set_keymap("n", "gd", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
+    buf_set_keymap("n", "<leader>t", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
 end
 
 --= Server =--
