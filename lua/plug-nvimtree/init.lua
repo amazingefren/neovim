@@ -1,6 +1,6 @@
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 Apply.var({
-    nvim_tree_width = 30,
+    -- nvim_tree_width = 35,
     nvim_tree_indent_markers = 1,
     nvim_tree_follow = 1,
     nvim_tree_auto_close = 0,
