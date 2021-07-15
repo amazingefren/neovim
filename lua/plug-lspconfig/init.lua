@@ -45,7 +45,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- Typescript --> npm global typescript, typescript-language-server
 require'lspconfig'.tsserver.setup{
-  on_attach=on_attach
+  on_attach=on_attach,
+  -- Per Project Basis (being used for yarn2 here)
+  cmd={"yarn", "typescript-language-server", "--stdio"}
 }
 
 -- Lua --> Arch AUR lua-language-server(sumneko-language-server)
