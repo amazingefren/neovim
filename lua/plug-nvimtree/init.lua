@@ -14,7 +14,7 @@ Apply.var({
         files = 1
     },
     nvim_tree_ignore ={
-        ".git","node_modules",".cache"
+        ".git",".cache"
     },
     nvim_tree_icons={
         default="",

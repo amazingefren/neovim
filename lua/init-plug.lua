@@ -47,12 +47,7 @@ require('packer').startup(function(use)
         end
     }
 
-    --= LSP UI (WIP) =---
-    use {'amazingefren/lspsaga.nvim',
-        config = function()
-            require'plug-lspconfig.saga'
-        end
-    }
+    use { "ray-x/lsp_signature.nvim" }
 
     --= Neovim Lua Lsp =--
     use 'tjdevries/nlua.nvim'
@@ -73,15 +68,6 @@ require('packer').startup(function(use)
     use { 'mbbill/undotree',
         config = function()
             require'plug-undotree'
-        end
-    }
-
-    --= Hop =--
-    use { 'phaazon/hop.nvim',
-        as = 'hop',
-        config = function()
-            require'hop'.setup { keys = 'etovxqpdygblzhckisuran' }
-            vim.api.nvim_set_keymap('n', 'f', '<cmd>lua require"hop".hint_words()<CR>', {silent=true, noremap=true})
         end
     }
 
@@ -116,7 +102,6 @@ require('packer').startup(function(use)
             require'plug-blankline'
         end
     }
-
 
     --= Pairs =--
     use {'windwp/nvim-autopairs',
