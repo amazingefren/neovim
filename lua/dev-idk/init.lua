@@ -22,20 +22,20 @@ local hsl = lush.hsl
 } ]]
 
 local base = {
-    b0 = hsl(230, 25, 8),  -- Default BG
-    b1 = hsl(230, 25, 16), -- Lighter b0 (statusbar)
-    b2 = hsl(230, 25, 22), -- Selection BG
-    b3 = hsl(230, 25, 35), -- Comments/Invis/LineHL
-    b4 = hsl(230, 25, 70), -- Dark FG
-    b5 = hsl(230, 25, 80), -- Norm FG
-    b6 = hsl(230, 25, 85), -- Light BG
-    b7 = hsl(230, 25, 90), -- Light BG
+    b0 = hsl(230, 5, 8),  -- Default BG
+    b1 = hsl(230, 5, 16), -- Lighter b0 (statusbar)
+    b2 = hsl(230, 5, 22), -- Selection BG
+    b3 = hsl(50, 5, 35), -- Comments/Invis/LineHL
+    b4 = hsl(50, 15, 65), -- Dark FG
+    b5 = hsl(50, 20, 70), -- Norm FG
+    b6 = hsl(50, 25, 75), -- Light BG
+    b7 = hsl(50, 30, 80), -- Light BG
 
     b8 = hsl(0, 50, 65),
     b9 = hsl(25, 50,65),
     ba = hsl(50,  50, 65),
     bb = hsl(110, 50, 65),
-    bc = hsl(140, 50, 65),
+    bc = hsl(150, 50, 65),
     bd = hsl(190, 50, 65),
     be = hsl(300, 50, 65),
     bf = hsl(384, 50, 65)
@@ -59,7 +59,7 @@ local theme = lush(function()
     Comment      { fg=base.b3 }, -- any comment
     ColorColumn  { bg=base.b1 }, -- used for the columns set with 'colorcolumn'
     Conceal      { fg=base.bc }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor       { fg=base.bd, gui=styles.reverse }, -- character under the cursor
+    Cursor       { fg=base.bd, gui=styles.inverse }, -- character under the cursor
     lCursor      { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM     { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { bg=base.b1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -111,22 +111,22 @@ local theme = lush(function()
     -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu     { fg=base.b2, bg=base.ba }, -- current match in 'wildmenu' completion
 
-    Constant       { fg=base.b9 }, -- (preferred) any constant
+    Constant       { fg=base.b5 }, -- (preferred) any constant
     String         { fg=base.bb }, --   a string constant: "this is a string"
-    Character      { fg=base.b8 }, --  a character constant: 'c', '\n'
-    Number         { fg=base.b9 }, --   a number constant: 234, 0xff
-    Boolean        { Constant }, --  a boolean constant: TRUE, false
+    Character      { fg=base.ba }, --  a character constant: 'c', '\n'
+    Number         { fg=base.b5 }, --   a number constant: 234, 0xff
+    Boolean        { fg=base.be }, --  a boolean constant: TRUE, false
     Float          { Number }, --    a floating point constant: 2.3e10
 
-    Identifier     { fg=base.b8 }, -- (preferred) any variable name
+    Identifier     { fg=base.bc }, -- (preferred) any variable name
     Function       { fg=base.bd }, -- function name (also: methods for classes)
 
     Statement      { fg=base.b8 }, -- (preferred) any statement
     Conditional    { fg=base.be }, --  if, then, else, endif, switch, etc.
     Repeat         { fg=base.ba }, --   for, do, while, etc.
     Label          { fg=base.ba }, --    case, default, etc.
-    Operator       { fg=base.b5 }, -- "sizeof", "+", "*", etc.
-    Keyword        { fg=base.be }, --  any other keyword
+    Operator       { fg=base.b9 }, -- "sizeof", "+", "*", etc.
+    Keyword        { fg=base.b8 }, --  any other keyword
     Exception      { fg=base.b8 }, --  try, catch, throw
 
     PreProc        { fg=base.ba }, -- (preferred) generic Preprocessor
@@ -141,13 +141,13 @@ local theme = lush(function()
     Typedef        { fg=base.ba }, --  A typedef
 
     Special        { fg=base.b5 }, -- (preferred) any special symbol
-    SpecialChar    { fg=base.bf }, --  special character in a constant
+    SpecialChar    { fg=base.b5 }, --  special character in a constant
     Tag            { fg=base.ba  }, --    you can use CTRL-] on this
-    Delimiter      { fg=base.bf }, --  character that needs attention
-    SpecialComment { fg=base.bf }, -- special things inside a comment
+    Delimiter      { fg=base.b8 }, --  character that needs attention
+    SpecialComment { fg=base.b8 }, -- special things inside a comment
     Debug          { fg=base.b8 }, --    debugging statements
 
-    Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
+    Underlined { gui = "undercurl" }, -- (preferred) text that stands out, HTML links
     Bold       { gui = "bold" },
     Italic     { gui = "italic" },
     Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
