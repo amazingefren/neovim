@@ -23,14 +23,17 @@ local hsl = lush.hsl
 local base = {
     -- #131415
     b0 = hsl(230, 5, 8), -- Default BG
+    -- #27272B
     b1 = hsl(230, 5, 16), -- Lighter b0 (statusbar)
     -- #35363B
     b2 = hsl(230, 5, 22), -- Selection BG
+    -- #5E5C55
     b3 = hsl(50, 5, 35), -- Comments/Invis/LineHL
     b4 = hsl(50, 15, 65), -- Dark FG
     -- #C2BDA3
     b5 = hsl(50, 20, 70), -- Norm FG
     b6 = hsl(50, 25, 75), -- Light BG
+    -- #DBD6BD
     b7 = hsl(50, 30, 80), -- Light BG
     -- #D27979
     b8 = hsl(0, 50, 65),
