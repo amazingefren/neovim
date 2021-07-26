@@ -1,4 +1,3 @@
--- vim.cmd[[PackerLoad nvim-tree.lua]]
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 Apply.var({
     -- nvim_tree_width = 35,
@@ -22,7 +21,7 @@ Apply.var({
         symlink=""
     },
 })
-
+-- vim.cmd[[PackerLoad nvim-tree.lua]]
 require'nvim-tree.events'.on_nvim_tree_ready(function()
     vim.cmd("NvimTreeRefresh")
 end)
