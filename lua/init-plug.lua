@@ -66,13 +66,25 @@ require('packer').startup(function(use)
 
     --= Sessions =--
     use { 'rmagatti/auto-session',
+        requires={'rmagatti/session-lens'},
         config = function()
             require'auto-session'.setup {
-                auto_session_root_dir = vim.fn.stdpath('data').."sessions",
-                auto_save_enabled = true,
-                auto_session_enable_last_session = true,
-                log_level = 'error'
+              auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+              auto_save_enabled = true,
+              auto_restore_enabled = true,
+              auto_session_suppress_dirs = {'~/'},
+              pre_save_cmds = {"NvimTreeClose"},
+              log_level = 'error'
             }
+            require'session-lens'.setup{
+              -- SEE: pull #11, full path is temporary due to telescope changes
+              path_display = {'shorten'},
+              previewer = true
+            }
+
+            require'telescope'.load_extension('session-lens')
+
+            vim.api.nvim_set_keymap('n','<leader>fs',"<Cmd>lua require('session-lens').search_session()<CR>", {silent=true, noremap = true})
         end
     }
 
@@ -122,6 +134,9 @@ require('packer').startup(function(use)
     use {'windwp/nvim-ts-autotag',
         config=function() require'nvim-ts-autotag'.setup() end
     }
+
+    --= BufDelete =--
+    use 'famiu/bufdelete.nvim'
 
     --= Auto NOH =--
     use 'romainl/vim-cool'

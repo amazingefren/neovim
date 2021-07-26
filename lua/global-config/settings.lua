@@ -1,5 +1,6 @@
 
 -- Native Vim Configuration Only
+vim.cmd[[set path+=**]]
 
 local global_options = {
   shortmess   = vim.o.shortmess .. "c",
@@ -16,6 +17,8 @@ local global_options = {
   spr         = true,     -- Split Right
   showbreak   = "-->",   -- Symbol For Break
   cpo         = vim.o.cpo .. "n", -- Hide Number for Break
+  ruler       = false,
+  showcmd     = true
 }
 
 local window_options = {
@@ -31,6 +34,9 @@ local window_options = {
 }
 
 vim.cmd [[
+  set wildmode=longest,list,full
+  set wildmenu
+  set wildignorecase
   set autoindent
   set expandtab
   set shiftwidth=2

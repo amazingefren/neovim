@@ -39,7 +39,13 @@ vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize -3<CR>', { noremap=true,
 vim.api.nvim_set_keymap('n', '<M-q>', ':q <CR>', { noremap=true,silent=true })
 
 -- <Leader + bd> -- Delete All Other Buffers
-vim.api.nvim_set_keymap('n', '<leader>bd', ':BufOnly<CR>', { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n', '<leader>bd', "<Cmd>lua require('bufdelete').bufdelete(0)<CR>", { noremap=true,silent=true })
+vim.api.nvim_set_keymap('n', '<leader>bc', ':BufOnly<CR>', { noremap=true,silent=true })
+
+-- Blackhole register deletes / (delete+paste *no clipboard changes*)
+vim.api.nvim_set_keymap('v','<leader>p', '"_dP', {noremap =true, silent=true})
+vim.api.nvim_set_keymap('n','<leader>d', '"_d', {noremap =true, silent=true})
+vim.api.nvim_set_keymap('v','<leader>d', '"_d', {noremap =true, silent=true})
 -- vim.api.nvim_set_keymap('n', '<leader>bdd', ':bd<CR>', { noremap=true,silent=true })
 
 -- <Meta(alt) + Space> -- Exit Terminal Mode
