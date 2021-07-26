@@ -22,11 +22,14 @@ local hsl = lush.hsl
 } ]]
 local base = {
     -- #131415
-    b0 = hsl(230, 5, 8), -- Default BG
+    -- b0 = hsl(230, 5, 8), -- Default BG
+    b0 = hsl(230, 5, 5), -- Default BG
     -- #27272B
-    b1 = hsl(230, 5, 16), -- Lighter b0 (statusbar)
+    -- b1 = hsl(230, 5, 16), -- Lighter b0 (statusbar)
+    b1 = hsl(230, 5, 12), -- Lighter b0 (statusbar)
     -- #35363B
-    b2 = hsl(230, 5, 22), -- Selection BG
+    -- b2 = hsl(230, 5, 22), -- Selection BG
+    b2 = hsl(230, 5, 20), -- Selection BG
     -- #5E5C55
     b3 = hsl(50, 5, 35), -- Comments/Invis/LineHL
     b4 = hsl(50, 15, 65), -- Dark FG
@@ -170,10 +173,10 @@ local theme =
             LspDiagnosticsDefaultWarning {LspWarning}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
             LspDiagnosticsDefaultInformation {LspInfo}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
             LspDiagnosticsDefaultHint {LspHint}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError}, -- Used for "Error" diagnostic virtual text
-            LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning}, -- Used for "Warning" diagnostic virtual text
-            LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation}, -- Used for "Information" diagnostic virtual text
-            LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint}, -- Used for "Hint" diagnostic virtual text
+            LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg=base.b1}, -- Used for "Error" diagnostic virtual text
+            LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg=base.b1}, -- Used for "Warning" diagnostic virtual text
+            LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg=base.b1}, -- Used for "Information" diagnostic virtual text
+            LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint, bg=base.b1}, -- Used for "Hint" diagnostic virtual text
             LspDiagnosticsUnderlineError {sp = base.b8, gui = styles.curly}, -- Used to underline "Error" diagnostics
             LspDiagnosticsUnderlineWarning {sp = base.ba, gui = styles.curly}, -- Used to underline "Warning" diagnostics
             LspDiagnosticsUnderlineInformation {sp = base.bd, gui = styles.curly}, -- Used to underline "Information" diagnostics
