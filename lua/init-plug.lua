@@ -74,7 +74,6 @@ require('packer').startup(function(use)
               auto_restore_enabled = true,
               auto_session_suppress_dirs = {'~/'},
               pre_save_cmds = {"NvimTreeClose"},
-              post_restore_cmds = {"lua require'plug-nvimtree'"},
               log_level = 'error'
             }
             require'session-lens'.setup{
@@ -164,10 +163,9 @@ require('packer').startup(function(use)
 
     --= File Tree =--
     use { 'kyazdani42/nvim-tree.lua',
-      opt=true
-        --[[ config = function()
+        config = function()
             require'plug-nvimtree'
-        end ]]
+        end
     }
 
     --= Formatting =--

@@ -1,4 +1,4 @@
-vim.cmd[[PackerLoad nvim-tree.lua]]
+-- vim.cmd[[PackerLoad nvim-tree.lua]]
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 Apply.var({
     -- nvim_tree_width = 35,
