@@ -1,3 +1,4 @@
+vim.cmd[[PackerLoad nvim-tree.lua]]
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 Apply.var({
     -- nvim_tree_width = 35,
@@ -7,7 +8,7 @@ Apply.var({
     nvim_tree_git_hl = 1,
     nvim_tree_quit_on_open = 1,
     nvim_tree_width_allow_resize = 1,
-    nvim_tree_update_cwd = 1, -- vim-rooter
+    nvim_tree_update_cwd = 0, -- vim-rooter
     nvim_tree_show_icons={
         git = 1,
         folders = 1,
