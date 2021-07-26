@@ -163,6 +163,7 @@ require('packer').startup(function(use)
 
     --= File Tree =--
     use { 'kyazdani42/nvim-tree.lua',
+        -- See nvim-tree.lua LINE: #199->#201
         event='VimEnter',
         config = function()
             require'plug-nvimtree'
