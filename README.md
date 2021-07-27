@@ -16,5 +16,3 @@ Install
 git clone https://github.com/amazingefren/neovim\
  ~/.config/nvim
 ```
-
-etc etc etc
