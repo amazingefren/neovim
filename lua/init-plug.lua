@@ -73,7 +73,7 @@ require('packer').startup(function(use)
               auto_save_enabled = true,
               auto_restore_enabled = true,
               auto_session_suppress_dirs = {'~/'},
-              pre_save_cmds = {"NvimTreeClose"},
+              pre_save_cmds = {"NvimTreeClose", "ToggleTermCloseAll"},
               log_level = 'error'
             }
             require'session-lens'.setup{
@@ -217,6 +217,37 @@ require('packer').startup(function(use)
 
     -- Bogster
     use 'wojciechkepka/bogster'
+
+
+    --= WIP PLUGINS =--
+    -------- TODO Neorg Configuration
+    use {
+      "vhyrro/neorg",
+        config = function()
+          require('neorg').setup {
+            load = {
+              ["core.defaults"] = {}, -- Load all the default modules
+              ["core.norg.concealer"] = {}, -- Allows for use of icons
+              ["core.norg.dirman"] = { -- Manage your directories with Neorg
+                config = {
+                  workspaces = {
+                    my_workspace = "~/Org"
+                  }
+                }
+              }
+            },
+          }
+        end,
+    requires = "nvim-lua/plenary.nvim"
+    }
+    -------- TODO Key Mappings
+    --- "lazytanuki/nvim-mapper",
+    -------- TODO Glow
+    --- Will probably be done with ToggleTerm
+    -------- TODO Hidden Gem
+    --- 'abecodes/tabout.nvim',
+    -------- TODO Performance Improvements
+    --- https://www.reddit.com/r/neovim/comments/opipij/guide_tips_and_tricks_to_reduce_startup_and/
 
 end)
 
