@@ -178,6 +178,7 @@ require('packer').startup(function(use)
           require'toggleterm'.setup{
             direction = 'float'
           }
+          -- OP -> TODO: Dedicated Configuration Setup
           local Terminal = require('toggleterm.terminal').Terminal
           local lg = Terminal:new({cmd="lazygit", hidden=true})
           -- vim.api.nvim_set_keymap('t','<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
