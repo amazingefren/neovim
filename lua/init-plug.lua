@@ -141,6 +141,12 @@ require('packer').startup(function(use)
     --= Auto NOH =--
     use 'romainl/vim-cool'
 
+    -------- TODO Key Mappings
+    use {"lazytanuki/nvim-mapper",
+      config = function() require('nvim-mapper').setup{} end,
+      before = 'telescope.nvim'
+    }
+
     --= Telescope =--
     use { 'nvim-telescope/telescope.nvim',
         requires = {
@@ -149,6 +155,7 @@ require('packer').startup(function(use)
         },
         config = function()
             require'plug-telescope'
+            require'telescope'.load_extension('mapper')
         end
     }
 
@@ -241,8 +248,6 @@ require('packer').startup(function(use)
         end,
     requires = "nvim-lua/plenary.nvim"
     }
-    -------- TODO Key Mappings
-    --- "lazytanuki/nvim-mapper",
     -------- TODO Glow
     --- Will probably be done with ToggleTerm
     -------- TODO Hidden Gem
