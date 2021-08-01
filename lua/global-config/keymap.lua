@@ -1,4 +1,4 @@
--- Assign MapLeader
+--[[ -- Assign MapLeader
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 
@@ -53,4 +53,4 @@ vim.api.nvim_set_keymap('v','<leader>d', '"_d', {noremap =true, silent=true})
 -- vim.api.nvim_set_keymap('n', '<M-Return>', ':belowright split<CR>:terminal<CR>', { noremap=true })
 
 -- <Leader + no> -- No Highlight
--- vim.api.nvim_set_keymap('n', '<Leader>no', '<cmd>noh<cr>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>no', '<cmd>noh<cr>', {silent = true, noremap = true}) ]]
