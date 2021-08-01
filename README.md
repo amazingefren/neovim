@@ -3,7 +3,9 @@
 
 ### WIP
 
-Note: Neovim 0.5 nightly is recommended (master branch) *UNSTABLE?*
+Neovim Nightly (0.6) is recommended
+
+Note: Performance is *decent* but will get better
 
 [neovim/neovim](https://github.com/neovim/neovim)
 
