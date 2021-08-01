@@ -120,12 +120,12 @@ require('packer').startup(function(use)
     }
 
     --= Tab Things =--
-    -- use { 'lukas-reineke/indent-blankline.nvim',
-        -- branch = "master",
-        -- config = function()
-            -- require'plug-blankline'
-        -- end
-    -- }
+    use { 'lukas-reineke/indent-blankline.nvim',
+        branch = "master",
+        config = function()
+            require'plug-blankline'
+        end
+    }
 
     --= Pairs =--
     use {'windwp/nvim-autopairs',
