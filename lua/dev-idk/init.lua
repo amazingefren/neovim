@@ -75,7 +75,7 @@ local theme =
             Comment {fg = base.b3}, -- any comment
             ColorColumn {bg = base.b1}, -- used for the columns set with 'colorcolumn'
             Conceal {fg = base.bc}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-            Cursor {fg = base.bd, gui = styles.inverse}, -- character under the cursor
+            Cursor {gui=styles.inverse}, -- character under the cursor
             lCursor {Cursor}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
             CursorIM {Cursor}, -- like Cursor, but used when in IME mode |CursorIM|
             CursorColumn {bg = base.b1}, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -91,7 +91,7 @@ local theme =
             Folded {fg = base.b4, bg = base.b1}, -- line used for closed folds
             FoldColumn {fg = base.b4, bg = base.b1}, -- 'foldcolumn'
             SignColumn {}, -- column where |signs| are displayed
-            IncSearch {bg = base.ba, fg = base.b1}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+            IncSearch {bg = base.bc, fg = base.b0}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
             Substitute {IncSearch}, -- |:substitute| replacement text highlighting
             LineNr {fg = base.b1}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
             CursorLineNr {fg = base.b3}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -109,7 +109,7 @@ local theme =
             PmenuThumb {bg = base.b2}, -- Popup menu: Thumb of the scrollbar.
             Question {fg = base.be}, -- |hit-enter| prompt and yes/no questions
             QuickFixLine {fg = base.b0, bg = base.ba}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-            Search {fg = base.b0, bg = base.bd}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+            Search {fg = base.b0, bg = base.b8}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
             SpecialKey {fg = base.b3}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
             SpellBad {fg = base.be}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
             -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
