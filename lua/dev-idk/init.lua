@@ -255,14 +255,14 @@ local theme =
             -- NvimTree
             NvimTreeGitIgnored {fg = base.b3},
             NvimTreeSymlink {fg = base.be},
-            NvimTreeFolderIcon {fg = base.b8},
-            NvimTreeFolderName {fg = base.bd},
-            NvimTreeRootFolder {fg = base.bc},
+            NvimTreeFolderIcon {fg = base.bb},
+            NvimTreeFolderName {fg = base.bd, gui=styles.bold},
+            NvimTreeRootFolder {fg = base.ba},
             NvimTreeEmptyFolderName {NvimTreeFolderName},
-            NvimTreeOpenedFolderName {fg = base.ba},
-            NvimTreeIndentMarker {fg = base.ba},
+            NvimTreeOpenedFolderName {fg = base.bc, gui=styles.bold.." "..styles.italic},
+            NvimTreeIndentMarker {fg = base.b3},
             NvimTreeNormal {fg = base.b4, bg = base.b0},
-            NvimTreeGitDirty {fg = base.be}
+            NvimTreeGitDirty {fg = base.ba}
         }
     end
 )
