@@ -1,5 +1,6 @@
 # Neovim Configuration
 
+Currently: Working on a stable version (neovim-stable) instead of nightly
 
 ### WIP
 
