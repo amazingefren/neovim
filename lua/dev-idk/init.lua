@@ -18,37 +18,34 @@ local hsl = lush.hsl
     bc = hsl(140, 50, 65),
     bd = hsl(190, 50, 65),
     be = hsl(300, 50, 65),
-    bf = hsl(384, 50, 65)
 } ]]
 local base = {
+    --#0A0E1F
     b0 = hsl(230, 50, 8), -- Default BG
-    -- #27272B
+    --#131939
     b1 = hsl(230, 50, 15), -- Lighter b0 (statusbar)
-    -- #35363B
+    --#202A60
     b2 = hsl(230, 50, 25), -- Selection BG
-    -- #5E5C55
+    --#3D4B8F
     b3 = hsl(230, 40, 40), -- Comments/Invis/LineHL
-    b4 = hsl(230, 20, 80), -- Dark FG
-    -- #C2BDA3
-    b5 = hsl(230, 20, 80), -- Norm FG
-    b6 = hsl(230, 20, 80), -- Light BG
-    -- #DBD6BD
-    b7 = hsl(230, 30, 80), -- Light BG
-    -- #D27979
+    --#ACB3D2
+    b4 = hsl(230, 30, 75), -- Normal FG
+    --#DEE0ED
+    b5 = hsl(230, 30, 90), -- Bright FG
+    --#DB7070
     b8 = hsl(0, 60, 65),
-    -- #D29E79
-    b9 = hsl(25, 60, 65),
-    -- #D2C479
+    --#EB8B47
+    b9 = hsl(25, 80, 60),
+    --#DBC970
     ba = hsl(50, 60, 65),
-    -- #88D279
+    --#82DB70
     bb = hsl(110, 60, 65),
-    -- #79D2A6
+    --#70DBA6
     bc = hsl(150, 60, 65),
-    -- #79C4D2
+    --#70C9DB
     bd = hsl(190, 60, 65),
-    -- #D279D2
-    be = hsl(300, 60, 65),
-    bf = hsl(384, 60, 65)
+    --#9470DB
+    be = hsl(260, 60, 65)
 }
 
 local styles = {
@@ -71,7 +68,7 @@ local theme =
             Comment {fg = base.b3}, -- any comment
             ColorColumn {bg = base.b1}, -- used for the columns set with 'colorcolumn'
             Conceal {fg = base.bc}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-            Cursor {gui=styles.inverse}, -- character under the cursor
+            Cursor {gui = styles.inverse}, -- character under the cursor
             lCursor {Cursor}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
             CursorIM {Cursor}, -- like Cursor, but used when in IME mode |CursorIM|
             CursorColumn {bg = base.b1}, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -96,8 +93,8 @@ local theme =
             MsgArea {ModeMsg}, -- Area for messages and cmdline
             MoreMsg {ModeMsg}, -- |more-prompt|
             NonText {fg = base.b2}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-            Normal {fg = base.b5, bg = base.b0}, -- normal text
-            NormalFloat {fg = base.b5, bg = base.b1}, -- Normal text in floating windows.
+            Normal {fg = base.b4, bg = base.b0}, -- normal text
+            NormalFloat {fg = base.b4, bg = base.b1}, -- Normal text in floating windows.
             NormalNC {Normal}, -- normal text in non-current windows
             Pmenu {fg = base.b4, bg = base.b1}, -- Popup menu: normal item.
             PmenuSel {fg = base.b5, bg = base.b2}, -- Popup menu: selected item.
@@ -146,8 +143,8 @@ local theme =
             StorageClass {fg = base.ba}, -- static, register, volatile, etc.
             Structure {fg = base.be}, --  struct, union, enum, etc.
             Typedef {fg = base.ba}, --  A typedef
-            Special {fg = base.b5}, -- (preferred) any special symbol
-            SpecialChar {fg = base.b5}, --  special character in a constant
+            Special {fg = base.b4}, -- (preferred) any special symbol
+            SpecialChar {fg = base.b4}, --  special character in a constant
             Tag {fg = base.ba}, --    you can use CTRL-] on this
             Delimiter {fg = base.b8}, --  character that needs attention
             SpecialComment {fg = base.b8}, -- special things inside a comment
@@ -169,10 +166,10 @@ local theme =
             LspDiagnosticsDefaultWarning {LspWarning}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
             LspDiagnosticsDefaultInformation {LspInfo}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
             LspDiagnosticsDefaultHint {LspHint}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg=base.b1}, -- Used for "Error" diagnostic virtual text
-            LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg=base.b1}, -- Used for "Warning" diagnostic virtual text
-            LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg=base.b1}, -- Used for "Information" diagnostic virtual text
-            LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint, bg=base.b1}, -- Used for "Hint" diagnostic virtual text
+            LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg = base.b1}, -- Used for "Error" diagnostic virtual text
+            LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg = base.b1}, -- Used for "Warning" diagnostic virtual text
+            LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg = base.b1}, -- Used for "Information" diagnostic virtual text
+            LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint, bg = base.b1}, -- Used for "Hint" diagnostic virtual text
             LspDiagnosticsUnderlineError {sp = base.b8, gui = styles.curly}, -- Used to underline "Error" diagnostics
             LspDiagnosticsUnderlineWarning {sp = base.ba, gui = styles.curly}, -- Used to underline "Warning" diagnostics
             LspDiagnosticsUnderlineInformation {sp = base.bd, gui = styles.curly}, -- Used to underline "Information" diagnostics
@@ -243,7 +240,7 @@ local theme =
             TelescopeMatching {IncSearch},
             TelescopePromptPrefix {fg = base.b2},
             TelescopeMultiSelection {fg = base.bd},
-            TelescopeNormal {fg = base.b4},
+            TelescopeNormal {fg = base.b5},
             -- GitSigns
             GitSignsAdd {DiffAdd},
             GitSignsChange {DiffChange},
@@ -252,12 +249,12 @@ local theme =
             NvimTreeGitIgnored {fg = base.b3},
             NvimTreeSymlink {fg = base.be},
             NvimTreeFolderIcon {fg = base.bb},
-            NvimTreeFolderName {fg = base.bd, gui=styles.bold},
+            NvimTreeFolderName {fg = base.bd, gui = styles.bold},
             NvimTreeRootFolder {fg = base.ba},
             NvimTreeEmptyFolderName {NvimTreeFolderName},
-            NvimTreeOpenedFolderName {fg = base.bc, gui=styles.bold.." "..styles.italic},
+            NvimTreeOpenedFolderName {fg = base.bc, gui = styles.bold .. " " .. styles.italic},
             NvimTreeIndentMarker {fg = base.b3},
-            NvimTreeNormal {fg = base.b4, bg = base.b0},
+            NvimTreeNormal {Normal},
             NvimTreeGitDirty {fg = base.ba}
         }
     end
