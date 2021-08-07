@@ -21,38 +21,34 @@ local hsl = lush.hsl
     bf = hsl(384, 50, 65)
 } ]]
 local base = {
-    -- #131415
-    -- b0 = hsl(230, 5, 8), -- Default BG
-    b0 = hsl(230, 5, 5), -- Default BG
+    b0 = hsl(230, 50, 8), -- Default BG
     -- #27272B
-    -- b1 = hsl(230, 5, 16), -- Lighter b0 (statusbar)
-    b1 = hsl(230, 5, 12), -- Lighter b0 (statusbar)
+    b1 = hsl(230, 50, 15), -- Lighter b0 (statusbar)
     -- #35363B
-    -- b2 = hsl(230, 5, 22), -- Selection BG
-    b2 = hsl(230, 5, 20), -- Selection BG
+    b2 = hsl(230, 50, 25), -- Selection BG
     -- #5E5C55
-    b3 = hsl(50, 5, 35), -- Comments/Invis/LineHL
-    b4 = hsl(50, 15, 65), -- Dark FG
+    b3 = hsl(230, 40, 40), -- Comments/Invis/LineHL
+    b4 = hsl(230, 20, 80), -- Dark FG
     -- #C2BDA3
-    b5 = hsl(50, 20, 70), -- Norm FG
-    b6 = hsl(50, 25, 75), -- Light BG
+    b5 = hsl(230, 20, 80), -- Norm FG
+    b6 = hsl(230, 20, 80), -- Light BG
     -- #DBD6BD
-    b7 = hsl(50, 30, 80), -- Light BG
+    b7 = hsl(230, 30, 80), -- Light BG
     -- #D27979
-    b8 = hsl(0, 50, 65),
+    b8 = hsl(0, 60, 65),
     -- #D29E79
-    b9 = hsl(25, 50, 65),
+    b9 = hsl(25, 60, 65),
     -- #D2C479
-    ba = hsl(50, 50, 65),
+    ba = hsl(50, 60, 65),
     -- #88D279
-    bb = hsl(110, 50, 65),
+    bb = hsl(110, 60, 65),
     -- #79D2A6
-    bc = hsl(150, 50, 65),
+    bc = hsl(150, 60, 65),
     -- #79C4D2
-    bd = hsl(190, 50, 65),
+    bd = hsl(190, 60, 65),
     -- #D279D2
-    be = hsl(300, 50, 65),
-    bf = hsl(384, 50, 65)
+    be = hsl(300, 60, 65),
+    bf = hsl(384, 60, 65)
 }
 
 local styles = {
