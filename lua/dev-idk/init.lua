@@ -86,7 +86,7 @@ local theme =
             SignColumn {}, -- column where |signs| are displayed
             IncSearch {bg = base.bc, fg = base.b0}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
             Substitute {IncSearch}, -- |:substitute| replacement text highlighting
-            LineNr {fg = base.b1}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+            LineNr {fg = base.b2}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
             CursorLineNr {fg = base.b3}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
             MatchParen {fg = base.ba}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
             ModeMsg {fg = base.b4}, -- 'showmode' message (e.g., "-- INSERT -- ")
@@ -240,7 +240,7 @@ local theme =
             TelescopeMatching {IncSearch},
             TelescopePromptPrefix {fg = base.b2},
             TelescopeMultiSelection {fg = base.bd},
-            TelescopeNormal {fg = base.b5},
+            TelescopeNormal {fg = base.b4},
             -- GitSigns
             GitSignsAdd {DiffAdd},
             GitSignsChange {DiffChange},
