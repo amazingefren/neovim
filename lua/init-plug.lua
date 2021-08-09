@@ -106,6 +106,7 @@ require('packer').startup(function(use)
         end
     }
 
+    --= Git HEAD deatch, rm -rf ~/.local/share/nvim/site/pack/packer/gitsigns.nvim then :PackerSync
     --= Git Signs =--
     use { 'lewis6991/gitsigns.nvim',
         config = function()
