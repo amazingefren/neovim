@@ -5,7 +5,7 @@ Apply.var({
     nvim_tree_follow = 1,
     nvim_tree_auto_close = 0,
     nvim_tree_git_hl = 1,
-    nvim_tree_quit_on_open = 1,
+    nvim_tree_quit_on_open = 0,
     nvim_tree_width_allow_resize = 1,
     nvim_tree_update_cwd = 0, -- vim-rooter
     nvim_tree_show_icons={
