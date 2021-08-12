@@ -72,7 +72,7 @@ require'lspconfig'.bashls.setup{
   on_attach=on_attach,
 }
 
--- C/C++ --> clangd
+-- C/C++ --> clang
 require'lspconfig'.clangd.setup{
   on_attach=on_attach,
 }
