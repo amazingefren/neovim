@@ -16,12 +16,27 @@ local function spacing(num)
     return function() return string.rep(' ',num) end
 end
 
-local colors = require"plug-colorschemes/gruvbox".colors
+-- local colors = require"plug-colorschemes/gruvbox".colors
+local colors = {
+  b0='#0A0E1F',
+  b1='#131939',
+  b2='#202A60',
+  b3='#3D4B8F',
+  b4='#ACB3D2',
+  b5='#DEE0ED',
+  red='#DB7070',
+  orange='#EB8B47',
+  yellow='#DBC970',
+  green='#82DB70',
+  cyan='#70DBA6',
+  blue='#70C9DB',
+  purple='#9470DB'
+}
 
 
 local mode_color = function()
     local mode_colors = {
-        n = colors.blue,
+        n = colors.b2,
         i = colors.green,
         c = colors.orange,
         V = colors.purple,
@@ -31,7 +46,7 @@ local mode_color = function()
     }
     local color = mode_colors[vim.fn.mode()]
     if color == nil then
-        color = colors.base3
+        color = colors.b3
     end
     return color
 end
@@ -51,13 +66,18 @@ gls.left[0] = {
             local current_Mode = alias[vim.fn.mode()]
             vim.api.nvim_command('hi GalaxyViMode guibg='..mode_color())
 
-            if current_Mode == nil then
+            if current_Mode == 'Normal' then
+                vim.api.nvim_command('hi GalaxyViMode guifg='..colors.b5)
+                return "  " .. current_Mode .. " "
+            elseif current_Mode == nil then
                 return "  Terminal "
             else
+                vim.api.nvim_command('hi GalaxyViMode guifg='..colors.b0)
                 return "  " .. current_Mode .. " "
             end
+
         end,
-        highlight = {colors.base0, colors.base1, "bold"},
+        highlight = {colors.b0, colors.b1, "bold"},
     }
 }
 
@@ -65,7 +85,7 @@ gls.left[1] = {
     Prefix = {
         provider = spacing(1),
         condition = condition.check_git_workspace,
-        highlight = {colors.base1, colors.base1},
+        highlight = {colors.b1, colors.b1},
     }
 }
 
@@ -74,14 +94,14 @@ gls.left[2] = {
         provider = "GitBranch",
         icon = ' ',
         condition = condition.check_git_workspace,
-        highlight = {colors.fg1, colors.base1},
+        highlight = {colors.b4, colors.b1},
     },
 }
 gls.left[3] = {
     Prefix = {
         provider = spacing(1),
         condition = condition.check_git_workspace,
-        highlight = {colors.base1, colors.base1},
+        highlight = {colors.b1, colors.b1},
     },
 }
 
@@ -95,9 +115,9 @@ gls.left[4] = {
             end
             },
         condition = checkwidth,
-        highlight = {colors.fg1, colors.base1},
+        highlight = {colors.b4, colors.b1},
         separator = " ",
-        separator_highlight = {colors.base1, colors.base0}
+        separator_highlight = {colors.b1, colors.b0}
     }
 }
 
@@ -112,7 +132,7 @@ gls.left[5] = {
             end
             return file .. ' '
         end,
-        highlight = {colors.fg0, colors.base0},
+        highlight = {colors.b4, colors.b0},
         -- condition = condition.buffer_not_empty and condition.hide_in_width,
         condition = condition.buffer_not_empty and checkwidth
         -- condition = checkwidth
@@ -124,7 +144,7 @@ gls.left[6] = {
         provider = "DiffAdd",
         condition = checkwidth,
         icon = "+",
-        highlight = {colors.green, colors.base0, "bold"}
+        highlight = {colors.green, colors.b0, "bold"}
     }
 }
 
@@ -133,7 +153,7 @@ gls.left[7] = {
         provider = "DiffModified",
         condition = checkwidth,
         icon = "~",
-        highlight = {colors.yellow, colors.base0, "bold"}
+        highlight = {colors.yellow, colors.b0, "bold"}
     }
 }
 
@@ -142,7 +162,7 @@ gls.left[8] = {
         provider = "DiffRemove",
         condition = checkwidth,
         icon = "-",
-        highlight = {colors.red, colors.base0, "bold"},
+        highlight = {colors.red, colors.b0, "bold"},
     }
 }
 
@@ -151,14 +171,14 @@ gls.left[9] = {
         provider = function()
             return ""
         end,
-        highlight = {colors.fg0, colors.base0}
+        highlight = {colors.b4, colors.b0}
     }
 }
 
 gls.right[0] = {
     LineColumn = {
         provider = "LineColumn",
-        highlight = {colors.fg0, colors.base0},
+        highlight = {colors.b4, colors.b0},
     }
 }
 
@@ -176,7 +196,7 @@ gls.right[1] = {
             local result, _ = math.modf((current_line / total_line) * 100)
             return "  " .. result .. "% "
         end,
-        highlight = {colors.green, colors.base0}
+        highlight = {colors.green, colors.b0}
     }
 }
 
@@ -191,7 +211,7 @@ gls.short_line_left[1] = {
             end
             return file .. ' '
         end,
-        highlight = {colors.fg0, colors.base0},
+        highlight = {colors.b4, colors.b0},
         condition = condition.buffer_not_empty and checkwidth
     }
 }
@@ -201,7 +221,7 @@ gls.short_line_right[1] = {
         provider = "DiffAdd",
         condition = checkwidth,
         icon = "+",
-        highlight = {colors.green, colors.base0, "bold"}
+        highlight = {colors.green, colors.b0, "bold"}
     }
 }
 
@@ -210,7 +230,7 @@ gls.short_line_right[2] = {
         provider = "DiffModified",
         condition = checkwidth,
         icon = "~",
-        highlight = {colors.yellow, colors.base0, "bold"}
+        highlight = {colors.yellow, colors.b0, "bold"}
     }
 }
 
@@ -219,13 +239,13 @@ gls.short_line_right[3] = {
         provider = "DiffRemove",
         condition = checkwidth,
         icon = "-",
-        highlight = {colors.red, colors.base0, "bold"},
+        highlight = {colors.red, colors.b0, "bold"},
     }
 }
 
 gls.short_line_right[4] = {
     LineColumn = {
         provider = "LineColumn",
-        highlight = {colors.fg0, colors.base0},
+        highlight = {colors.b4, colors.b0},
     }
 }
