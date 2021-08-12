@@ -215,6 +215,7 @@ require('packer').startup(function(use)
 
     --= Status Bar =--
     use {'glepnir/galaxyline.nvim',
+        opt=true,
         config = function()
             require('plug-galaxyline')
         end

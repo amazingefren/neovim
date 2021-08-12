@@ -22,6 +22,8 @@ local hsl = lush.hsl
 local base = {
     --#0A0E1F
     b0 = hsl(230, 50, 8), -- Default BG
+    --#0E132A
+    bshade = hsl(230,50,11),
     --#131939
     b1 = hsl(230, 50, 15), -- Lighter b0 (statusbar)
     --#202A60
@@ -108,8 +110,8 @@ local theme =
             -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
             -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
             SpellRare {fg = base.be}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-            StatusLine {fg = base.b4, bg = base.b1}, -- status line of current window
-            StatusLineNC {fg = base.b4, bg = base.b0}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+            StatusLine {fg = base.b4, bg = base.bshade}, -- status line of current window
+            StatusLineNC {fg = base.b4, bg = base.bshade}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
             TabLine {StatusLineNC}, -- tab pages line, not active tab page label
             TabLineFill {StatusLineNC}, -- tab pages line, where there are no labels
             TabLineSel {StatusLine}, -- tab pages line, active tab page label

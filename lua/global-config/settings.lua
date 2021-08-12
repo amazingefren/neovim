@@ -29,7 +29,7 @@ local window_options = {
   signcolumn  = "yes:1", -- Test
   bri         = true,     -- Indent on Break
   cursorline  = true,      -- Cursor Line
-  wrap        = true,
+  wrap        = false,
   -- spell       = true
 }
 
@@ -41,6 +41,7 @@ vim.cmd [[
   set expandtab
   set shiftwidth=2
   set tabstop=2
+  set fillchars+=vert:│
   set smartindent
   set bufhidden=delete
   setglobal bufhidden=delete
