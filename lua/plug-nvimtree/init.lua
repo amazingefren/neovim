@@ -4,10 +4,13 @@ Apply.var({
     nvim_tree_indent_markers = 0,
     nvim_tree_follow = 1,
     nvim_tree_auto_close = 0,
+    nvim_tree_auto_open = 1,
     nvim_tree_git_hl = 1,
     nvim_tree_quit_on_open = 0,
     nvim_tree_width_allow_resize = 1,
-    nvim_tree_update_cwd = 0, -- vim-rooter
+    nvim_tree_update_cwd = 0,
+    nvim_tree_add_trailing = 1,
+    nvim_tree_hijack_cursor = 0,
     nvim_tree_show_icons={
         git = 1,
         folders = 1,
@@ -25,6 +28,7 @@ Apply.var({
 require'nvim-tree.events'.on_nvim_tree_ready(function()
     vim.cmd("NvimTreeRefresh")
 end)
+vim.cmd[[au FileType LuaTree setlocal sol]]
 -- NvimTree VimEnter Full Width to be added soon -> SEE: #214, #200, #248 on gh
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
