@@ -199,7 +199,7 @@ gls.left[7] = {
             end
             return file .. ' '
         end,
-        highlight = {colors.b4, colors.b2},
+        highlight = {colors.b5, colors.b2},
         -- condition = condition.buffer_not_empty and condition.hide_in_width,
         condition = condition.buffer_not_empty and checkwidth
         -- condition = checkwidth
