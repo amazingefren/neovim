@@ -211,11 +211,10 @@ require('packer').startup(function(use)
     }
 
     --= Devicons =--
-    use 'kyazdani42/nvim-web-devicons'
+    use {'kyazdani42/nvim-web-devicons', opt=true}
 
     --= Status Bar =--
     use {'glepnir/galaxyline.nvim',
-        opt=true,
         config = function()
             require('plug-galaxyline')
         end
