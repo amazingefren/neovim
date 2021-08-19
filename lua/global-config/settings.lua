@@ -43,6 +43,7 @@ vim.cmd [[
   set tabstop=2
   set fillchars+=vert:│
   set smartindent
+  set autoread
   set bufhidden=delete
   setglobal bufhidden=delete
   filetype plugin indent on
