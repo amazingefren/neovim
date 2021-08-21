@@ -21,6 +21,8 @@ local hsl = lush.hsl
 } ]]
 local base = {
     --#0A0E1F
+    shade = hsl(213, 50, 10),
+    --#0A0E1F
     b0 = hsl(213, 50, 12),
     --#0E132A
     b1 = hsl(213, 50, 15),
@@ -41,7 +43,7 @@ local base = {
     --#DEE0ED
     bright = hsl(35, 10, 90),
 
-    black = hsl(213, 30, 20),
+    black = hsl(213, 45, 15),
     --#DB7070
     red = hsl(0, 65, 70),
 
@@ -101,7 +103,7 @@ local theme =
             Substitute {IncSearch}, -- |:substitute| replacement text highlighting
             LineNr {fg = base.b3}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
             CursorLineNr {fg = base.b6}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-            MatchParen {fg = base.bright, bg=base.b4}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+            MatchParen {fg = base.bright}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
             ModeMsg {fg = base.fg}, -- 'showmode' message (e.g., "-- INSERT -- ")
             MsgArea {ModeMsg}, -- Area for messages and cmdline
             MoreMsg {ModeMsg}, -- |more-prompt|
@@ -241,15 +243,15 @@ local theme =
             TSLiteral {String}, -- Literal text.
             TSURI {Underlined}, -- Any URI like a link or email.
             -- Telescope
-            TelescopePreviewBorder {fg = base.b2},
+            TelescopePreviewBorder {fg = base.b4},
             TelescopePromptBorder {TelescopePreviewBorder},
             TelescopeResultsBorder {TelescopePreviewBorder},
             TelescopeSelectionCaret {TelescopePreviewBorder},
-            TelescopeSelection {bg = base.b2, fg = base.b5},
-            TelescopeMatching {IncSearch},
-            TelescopePromptPrefix {fg = base.b2},
-            TelescopeMultiSelection {fg = base.blue},
-            TelescopeNormal {fg = base.b4},
+            TelescopeSelection {bg=base.b3, fg=base.dark},
+            TelescopeMatching {fg=base.cyan},
+            TelescopePromptPrefix {fg = base.cyan},
+            TelescopeMultiSelection {fg = base.cyan},
+            TelescopeNormal {fg = base.dark},
             -- GitSigns
             GitSignsAdd {DiffAdd},
             GitSignsChange {DiffChange},
@@ -257,13 +259,13 @@ local theme =
             -- NvimTree
             NvimTreeGitIgnored {fg = base.b3},
             NvimTreeSymlink {fg = base.purple},
-            NvimTreeFolderIcon {fg = base.green},
+            NvimTreeFolderIcon {fg = base.yellow},
             NvimTreeFolderName {fg = base.blue, gui = styles.bold},
             NvimTreeRootFolder {fg = base.yellow},
             NvimTreeEmptyFolderName {NvimTreeFolderName},
-            NvimTreeOpenedFolderName {fg = base.cyan, gui = styles.bold .. " " .. styles.italic},
+            NvimTreeOpenedFolderName {fg = base.cyan, gui = styles.bold },
             NvimTreeIndentMarker {fg = base.b3},
-            NvimTreeNormal {Normal},
+            NvimTreeNormal {Normal, bg=base.shade},
             NvimTreeGitDirty {fg = base.yellow}
         }
     end
