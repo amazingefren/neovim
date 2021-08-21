@@ -20,46 +20,45 @@ local hsl = lush.hsl
     be = hsl(300, 50, 65),
 } ]]
 local base = {
-    --#0A0E1F
+    -- #0D1826
     shade = hsl(213, 50, 10),
-    --#0A0E1F
+    -- #0F1D2E
     b0 = hsl(213, 50, 12),
-    --#0E132A
+    -- #132439
     b1 = hsl(213, 50, 15),
-    --#131939
+    -- #1A304D
     b2 = hsl(213, 50, 20),
-    --#202A60
+    -- #203D60
     b3 = hsl(213, 50, 25),
-    --#3D4B8F
+    -- #264973
     b4 = hsl(213, 50, 30),
-
+    -- #2F5A8E
     b5 = hsl(213, 50, 37),
-
+    -- #3B6FB0
     b6 = hsl(213, 50, 46),
-
+    -- #737E8C
     dark = hsl(213, 10, 50),
-    --#ACB3D2
+    -- #C6C0B9
     fg = hsl(35, 10, 75),
-    --#DEE0ED
+    -- #E8E6E3
     bright = hsl(35, 10, 90),
-
+    -- #152537
     black = hsl(213, 45, 15),
-    --#DB7070
+    -- #E48181
     red = hsl(0, 65, 70),
-
-    --#EB8B47
+    -- #E4AA81
     orange = hsl(25, 65, 70),
-    --#DBC970
+    -- #E4D481
     yellow = hsl(50, 65, 70),
-    --#82DB70
+    -- #BBE481
     green = hsl(85, 65, 70),
-    --#70DBA6
+    -- #81E4B3
     cyan = hsl(150, 65, 70),
-    --#70C9DB
+    -- #81AEE4
     blue = hsl(213, 65, 70),
-    --#9470DB
+    -- #AA81E4
     purple = hsl(265, 65, 70),
-
+    -- #E481B3
     pink = hsl(330, 65, 70)
 }
 
@@ -121,7 +120,7 @@ local theme =
             SpecialKey {fg = base.b3}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
             SpellBad {fg = base.pink}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
             SpellRare {fg = base.pink}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-            StatusLine {fg = base.b4, bg = base.b1}, -- status line of current window
+            StatusLine {fg = base.fg, bg = base.b1}, -- status line of current window
             StatusLineNC {fg = base.b4, bg = base.b1}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
             TabLine {StatusLineNC}, -- tab pages line, not active tab page label
             TabLineFill {StatusLineNC}, -- tab pages line, where there are no labels
