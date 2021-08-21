@@ -33,6 +33,7 @@ local window_options = {
   -- spell       = true
 }
 
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
 vim.cmd [[
   set wildmode=longest,list,full
   set wildmenu

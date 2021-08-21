@@ -104,7 +104,7 @@ local theme =
             LineNr {fg = base.b3}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
             CursorLineNr {fg = base.b6}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
             MatchParen {fg = base.bright}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-            ModeMsg {fg = base.fg}, -- 'showmode' message (e.g., "-- INSERT -- ")
+            ModeMsg {fg = base.fg, bg=base.b0}, -- 'showmode' message (e.g., "-- INSERT -- ")
             MsgArea {ModeMsg}, -- Area for messages and cmdline
             MoreMsg {ModeMsg}, -- |more-prompt|
             NonText {fg = base.b2}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.

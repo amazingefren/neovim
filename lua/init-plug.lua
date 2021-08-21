@@ -21,7 +21,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     --= LSP =--
@@ -30,30 +29,23 @@ require('packer').startup(function(use)
             require'plug-lspconfig'
         end
     }
+    use 'kabouzeid/nvim-lspinstall'
+    use 'onsails/lspkind-nvim'
     --= Tree Sitter =--
     use { 'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         config = function() require'plug-treesitter' end
     }
     --= Completion =--
-    --use { 'hrsh7th/nvim-compe',
-    --    requires = {
-    --        'rafamadriz/friendly-snippets',
-    --        'hrsh7th/vim-vsnip',
-    --        'hrsh7th/vim-vsnip-integ',
-    --        'onsails/lspkind-nvim'
-    --    },
-    --    config = function()
-    --        require'plug-compe'
-    --        require'lspkind'.init()
-    --    end
-    --}
-    --python-virtualenv + sqlite
-    use{ 'ms-jpq/coq_nvim',
-      branch='coq',
-      requires={
-        'ms-jpq/coq.artifacts', branch = 'artifacts'
-      }
+    use { 'hrsh7th/nvim-compe',
+       requires = {
+           'rafamadriz/friendly-snippets',
+           'hrsh7th/vim-vsnip',
+           'hrsh7th/vim-vsnip-integ',
+       },
+       config = function()
+           require'plug-compe'
+       end
     }
   
     --= Comments =--
@@ -268,6 +260,14 @@ require('packer').startup(function(use)
         end,
     requires = "nvim-lua/plenary.nvim"
     }
+
+    use {
+    'gelguy/wilder.nvim',
+      config = function ()
+       vim.cmd[[call wilder#setup({'modes': [':', '/', '?']})]]
+      end
+    }
+
     -------- TODO Glow
     --- Will probably be done with ToggleTerm
     -------- TODO Performance Improvements
