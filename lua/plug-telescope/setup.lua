@@ -2,6 +2,7 @@ require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
       'rg',
+      '--hidden',
       '--color=never',
       '--no-heading',
       '--with-filename',
@@ -47,6 +48,6 @@ require('telescope').setup{
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
     -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+    --buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }

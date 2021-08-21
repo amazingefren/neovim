@@ -36,18 +36,26 @@ require('packer').startup(function(use)
         config = function() require'plug-treesitter' end
     }
     --= Completion =--
-    use { 'hrsh7th/nvim-compe',
-        requires = {
-            'rafamadriz/friendly-snippets',
-            'hrsh7th/vim-vsnip',
-            'hrsh7th/vim-vsnip-integ',
-            'onsails/lspkind-nvim'
-        },
-        config = function()
-            require'plug-compe'
-            require'lspkind'.init()
-        end
+    --use { 'hrsh7th/nvim-compe',
+    --    requires = {
+    --        'rafamadriz/friendly-snippets',
+    --        'hrsh7th/vim-vsnip',
+    --        'hrsh7th/vim-vsnip-integ',
+    --        'onsails/lspkind-nvim'
+    --    },
+    --    config = function()
+    --        require'plug-compe'
+    --        require'lspkind'.init()
+    --    end
+    --}
+    --python-virtualenv + sqlite
+    use{ 'ms-jpq/coq_nvim',
+      branch='coq',
+      requires={
+        'ms-jpq/coq.artifacts', branch = 'artifacts'
+      }
     }
+  
     --= Comments =--
     use {'b3nj5m1n/kommentary',
         config = function()

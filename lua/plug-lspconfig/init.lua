@@ -29,13 +29,15 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
+--@TODO
+local coq = require'coq'
 
 --= Server =--
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 -- Typescript --> npm global typescript, typescript-language-server
-require'lspconfig'.tsserver.setup{
+require'lspconfig'.tsserver.setup{ 
   on_attach=on_attach,
 }
 
@@ -119,13 +121,13 @@ require'lspconfig'.rust_analyzer.setup{
   on_attach=on_attach
 }
 
---[[ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
+        virtual_text = false,
         underline = true,
         signs = true,
     }
-) ]]
+)
 
 -- vim.cmd[[autocmd CursorHold * lua require'lspsaga.diagnostic'.show_line_diagnostics()]]
 -- vim.cmd[[autocmd CursorHoldI * silent! lua require'lspsaga.signaturehelp'.signature_help()]]
