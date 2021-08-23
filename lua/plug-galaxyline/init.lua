@@ -22,26 +22,7 @@ local function spacing(num)
     return function() return string.rep(' ',num) end
 end
 
--- local colors = require"plug-colorschemes/gruvbox".colors
---[[ local colors = {
-  b0='#0A0E1F',
-  bshade = '#FF0000',
-  b1='#131939',
-  b2='#202A60',
-  b3='#3D4B8F',
-  b4='#ACB3D2',
-  b5='#DEE0ED',
-  red='#DB7070',
-  orange='#EB8B47',
-  yellow='#DBC970',
-  green='#82DB70',
-  cyan='#70DBA6',
-  blue='#70C9DB',
-  purple='#9470DB'
-} ]]
-
 local colors = require"plug-colorschemes/dev-idk".colors
-
 
 local mode_color = function()
     local mode_colors = {
@@ -268,13 +249,6 @@ gls.right[1] = {
         highlight = {colors.green, colors.bshade}
     }
 }
--- gls.right[2] = {
---   leave = {
---     provider = function() return "" end,
---     separator = "",
---     separator_highlight = {colors.b1, colors.bshade}
---   }
--- }
 
 gls.short_line_left[1] = {
     ShortFileName = {

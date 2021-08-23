@@ -268,14 +268,9 @@ require('packer').startup(function(use)
       end
     }
 
-    -------- TODO Glow
-    --- Will probably be done with ToggleTerm
     -------- TODO Performance Improvements
     --- https://www.reddit.com/r/neovim/comments/opipij/guide_tips_and_tricks_to_reduce_startup_and/
 
 end)
 
--- require'plug-colorschemes.bogsterish'.setup()
--- require'plug-colorschemes.gruvbox'.setup()
--- LowerContrast Colorscheme WIP
 vim.cmd[[colorscheme dev-idk]]
