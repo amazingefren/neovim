@@ -18,13 +18,11 @@ require('telescope').setup{
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
     layout_config = {
-      width = 0.75,
-      -- results_height = 1,
-      -- results_width = 0.8,
+      width = 0.8,
       prompt_position = "bottom",
       preview_cutoff = 120,
       horizontal = {
-        mirror = true,
+        mirror = false,
       },
       vertical = {
         mirror = false,
@@ -33,11 +31,11 @@ require('telescope').setup{
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {"node_modules", 'package-lock'},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    path_display = {
-      "shorten",
-      "absolute"
-    },
-    winblend = 6,
+    -- path_display = {
+      -- "shorten",
+      -- "absolute"
+    -- },
+    winblend = 5,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
     color_devicons = true,

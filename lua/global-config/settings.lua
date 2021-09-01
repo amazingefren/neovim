@@ -1,36 +1,35 @@
-
 -- Native Vim Configuration Only
-vim.cmd[[set path+=**]]
+vim.cmd [[set path+=**]]
 
 local global_options = {
-  shortmess   = vim.o.shortmess .. "c",
-  termguicolors = true,
-  mouse       = "a",      -- Mouse Navigation
-  --scrolloff   = 999,      -- Keep Cursor Centered
-  scrolloff   = 6,        -- Keep Cursor Centered
-  ic          = true,     -- Insensitive Case Search
-  hidden      = true,     -- Abandon Unloaded Buffer
-  bk    	    = false,    -- Disable Backup (UndoTree?)
-  wb        	= false,    -- NoWriteBackup
-  updatetime  = 200,      -- Swap File Idle Write Time
-  sb          = true,     -- Split Below
-  spr         = true,     -- Split Right
-  showbreak   = "-->",   -- Symbol For Break
-  cpo         = vim.o.cpo .. "n", -- Hide Number for Break
-  ruler       = false,
-  showcmd     = true
+    shortmess = vim.o.shortmess .. "c",
+    termguicolors = true,
+    mouse = "a", -- Mouse Navigation
+    --scrolloff   = 999,      -- Keep Cursor Centered
+    scrolloff = 6, -- Keep Cursor Centered
+    ic = true, -- Insensitive Case Search
+    hidden = true, -- Abandon Unloaded Buffer
+    bk = false, -- Disable Backup (UndoTree?)
+    wb = false, -- NoWriteBackup
+    updatetime = 200, -- Swap File Idle Write Time
+    sb = true, -- Split Below
+    spr = true, -- Split Right
+    showbreak = "-->", -- Symbol For Break
+    cpo = vim.o.cpo .. "n", -- Hide Number for Break
+    ruler = false,
+    showcmd = true
 }
 
 local window_options = {
-  number      = true,     -- Number
-  rnu         = true,     -- Relative Number
-  linebreak   = true,     -- Linebreak on Wrap
-  signcolumn  = "no", -- Signs on Number Column
-  -- signcolumn  = "yes:1", -- Test
-  bri         = true,     -- Indent on Break
-  cursorline  = true,      -- Cursor Line
-  wrap        = false,
-  -- spell       = true
+    number = true, -- Number
+    rnu = false, -- Relative Number
+    linebreak = true, -- Linebreak on Wrap
+    signcolumn = "no", -- Signs on Number Column
+    -- signcolumn  = "yes:1", -- Test
+    bri = true, -- Indent on Break
+    cursorline = true, -- Cursor Line
+    wrap = false
+    -- spell       = true
 }
 
 -- vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
@@ -58,7 +57,7 @@ vim.cmd [[
 ]]
 
 local augroups = {
-  BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
+    BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
 }
 
 Apply.opt(global_options, "o")
