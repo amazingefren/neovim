@@ -13,7 +13,7 @@ local base = {
     dark = hsl(213, 10, 50),
     fg = hsl(35, 30, 75),
     bright = hsl(35, 40, 85),
-    black = hsl(213, 30, 12),
+    black = hsl(213, 30, 13),
     red = hsl(5, 70, 65),
     orange = hsl(25, 70, 65),
     yellow = hsl(50, 70, 65),
@@ -27,6 +27,34 @@ local base = {
     yellow_bg = hsl(50, 30, 10),
     green_bg = hsl(100, 30, 10),
     blue_bg = hsl(213, 30, 10)
+}
+
+local colors = {
+    shade = "#080C12",
+    b0 = "#0C141D",
+    b1 = "#1B2532",
+    b2 = "#243142",
+    b3 = "#2D3E53",
+    b4 = "#364A63",
+    b5 = "#3E5774",
+    b6 = "#506F95",
+    dark = "#737E8C",
+    fg = "#D2C2AC",
+    bright = "#E8DBC9",
+    black = "#17202B",
+    red = "#E47267",
+    orange = "#E49B67",
+    yellow = "#E4CF67",
+    green = "#A1E87D",
+    cyan = "#67E4A6",
+    teal = "#67E4E4",
+    blue = "#67A0E4",
+    purple = "#9B67E4",
+    pink = "#E467A6",
+    red_bg = "#211312",
+    yellow_bg = "#211F12",
+    green_bg = "#172112",
+    blue_bg = "#121921"
 }
 
 local styles = {
@@ -70,7 +98,7 @@ local theme =
             LineNr {fg = base.b2}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
             CursorLineNr {fg = base.teal}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
             MatchParen {fg = base.bright}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-            ModeMsg {fg = base.fg, bg=base.b0}, -- 'showmode' message (e.g., "-- INSERT -- ")
+            ModeMsg {fg = base.fg, bg = base.b0}, -- 'showmode' message (e.g., "-- INSERT -- ")
             MsgArea {ModeMsg}, -- Area for messages and cmdline
             MoreMsg {ModeMsg}, -- |more-prompt|
             NonText {fg = base.b1}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
@@ -116,7 +144,7 @@ local theme =
             PreProc {fg = base.fg}, -- (preferred) generic Preprocessor
             Include {fg = base.dark}, --  preprocessor #include
             Define {fg = base.bright}, --   preprocessor #define
-            Macro { Define }, --    same as Define
+            Macro {Define}, --    same as Define
             Type {fg = base.yellow}, -- (preferred) int, long, char, etc.
             StorageClass {fg = base.yellow}, -- static, register, volatile, etc.
             Structure {fg = base.yellow}, --  struct, union, enum, etc.
@@ -139,10 +167,10 @@ local theme =
             LspReferenceText {fg = base.b4}, -- used for highlighting "text" references
             LspReferenceRead {fg = base.b4}, -- used for highlighting "read" references
             LspReferenceWrite {fg = base.b4}, -- used for highlighting "write" references
-            LspDiagnosticsDefaultError {LspError, bg=base.red_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsDefaultWarning {fg=base.yellow, bg=base.yellow_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsDefaultInformation {LspInfo, bg=base.blue_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsDefaultHint {LspHint, bg=base.green_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultError {LspError, bg = base.red_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultWarning {fg = base.yellow, bg = base.yellow_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultInformation {LspInfo, bg = base.blue_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultHint {LspHint, bg = base.green_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
             LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg = base.red_bg}, -- Used for "Error" diagnostic virtual text
             LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg = base.yellow_bg}, -- Used for "Warning" diagnostic virtual text
             LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg = base.blue_bg}, -- Used for "Information" diagnostic virtual text
@@ -163,7 +191,7 @@ local theme =
             TSBoolean {Boolean}, -- For booleans.
             TSCharacter {Character}, -- For characters.
             TSComment {Comment}, -- For comment blocks.
-            TSConstructor {fg=base.yellow}, -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
+            TSConstructor {fg = base.yellow}, -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
             TSConditional {Conditional}, -- For keywords related to conditionnals.
             TSConstant {Constant}, -- For constants
             TSConstBuiltin {Special}, -- For constant that are built in the language: `nil` in Lua.
@@ -184,7 +212,7 @@ local theme =
             TSNone {}, -- TODO: docs
             TSNumber {Number}, -- For all numbers
             TSOperator {Operator}, -- For any operator: `+`, but also `->` and `*` in C.
-            TSParameter {fg=base.fg}, -- For parameters of a function.
+            TSParameter {fg = base.fg}, -- For parameters of a function.
             -- TSParameterReference {}, -- For references to parameters of a function.
             TSProperty {TSField}, -- Same as `TSField`.
             TSPunctDelimiter {Delimiter}, -- For delimiters ie: `.`
@@ -200,8 +228,8 @@ local theme =
             TSVariable {TSParameter}, -- Any variable name that does not have another highlight.
             TSVariableBuiltin {Special}, -- Variable names that are defined by the languages, like `this` or `self`.
             TSTag {Tag}, -- Tags like html tag names.
-            TSTagDelimiter {fg=base.dark}, -- Tag delimiter like `<` `>` `/`
-            TSText {fg=base.cyan}, -- For strings considered text in a markup language.
+            TSTagDelimiter {fg = base.dark}, -- Tag delimiter like `<` `>` `/`
+            TSText {fg = base.cyan}, -- For strings considered text in a markup language.
             TSEmphasis {gui = "italic"}, -- For text to be represented with emphasis.
             TSUnderline {gui = styles.curly}, -- For text to be represented with an underline.
             TSStrike {gui = "strikethrough"}, -- For strikethrough text.
@@ -213,8 +241,8 @@ local theme =
             TelescopePromptBorder {TelescopePreviewBorder},
             TelescopeResultsBorder {TelescopePreviewBorder},
             TelescopeSelectionCaret {TelescopePreviewBorder},
-            TelescopeSelection {bg=base.b3, fg=base.dark},
-            TelescopeMatching {fg=base.cyan},
+            TelescopeSelection {bg = base.b3, fg = base.dark},
+            TelescopeMatching {fg = base.cyan},
             TelescopePromptPrefix {fg = base.cyan},
             TelescopeMultiSelection {fg = base.cyan},
             TelescopeNormal {fg = base.dark},
@@ -229,14 +257,14 @@ local theme =
             NvimTreeFolderName {fg = base.blue, gui = styles.bold},
             NvimTreeRootFolder {fg = base.yellow},
             NvimTreeEmptyFolderName {NvimTreeFolderName},
-            NvimTreeOpenedFolderName {fg = base.cyan, gui = styles.bold },
+            NvimTreeOpenedFolderName {fg = base.cyan, gui = styles.bold},
             NvimTreeIndentMarker {fg = base.b3},
-            NvimTreeNormal {Normal, bg=base.shade},
+            NvimTreeNormal {Normal, bg = base.shade},
             NvimTreeGitDirty {fg = base.yellow}
         }
     end
 )
 
-return theme
+return theme, {colors}
 
 -- vi:nowrap
