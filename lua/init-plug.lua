@@ -273,4 +273,4 @@ require('packer').startup(function(use)
 
 end)
 
-vim.cmd[[colorscheme dev-idk]]
+vim.cmd[[colorscheme dev-theme]]

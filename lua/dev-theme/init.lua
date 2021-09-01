@@ -2,48 +2,31 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local base = {
-    -- #0D1826
     shade = hsl(213, 40, 5),
-    -- #0F1D2E
     b0 = hsl(213, 40, 8),
-    -- #132439
     b1 = hsl(213, 30, 15),
-    -- #1A304D
     b2 = hsl(213, 30, 20),
-    -- #203D60
     b3 = hsl(213, 30, 25),
-    -- #264973
     b4 = hsl(213, 30, 30),
-    -- #2F5A8E
     b5 = hsl(213, 30, 35),
-    -- #3B6FB0
     b6 = hsl(213, 30, 45),
-    -- #737E8C
     dark = hsl(213, 10, 50),
-    -- #C6C0B9
     fg = hsl(35, 30, 75),
-    -- #E8E6E3
     bright = hsl(35, 40, 85),
-    -- #152537
     black = hsl(213, 30, 12),
-    -- #E48181
-    red = hsl(0, 70, 65),
-    -- #E4AA81
+    red = hsl(5, 70, 65),
     orange = hsl(25, 70, 65),
-    -- #E4D481
     yellow = hsl(50, 70, 65),
-    -- #BBE481
-    green = hsl(85, 70, 65),
-    -- #81E4B3
+    green = hsl(100, 70, 70),
     cyan = hsl(150, 70, 65),
-    -- #81AEE4
     teal = hsl(180, 70, 65),
-    -- #81AEE4
     blue = hsl(213, 70, 65),
-    -- #AA81E4
     purple = hsl(265, 70, 65),
-    -- #E481B3
-    pink = hsl(330, 70, 65)
+    pink = hsl(330, 70, 65),
+    red_bg = hsl(5, 30, 10),
+    yellow_bg = hsl(50, 30, 10),
+    green_bg = hsl(100, 30, 10),
+    blue_bg = hsl(213, 30, 10)
 }
 
 local styles = {
@@ -77,20 +60,20 @@ local theme =
             DiffDelete {fg = base.red}, -- diff mode: Deleted line |diff.txt|
             DiffText {fg = base.fg}, -- diff mode: Changed text within a changed line |diff.txt|
             EndOfBuffer {fg = base.b2}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-            ErrorMsg {bg = base.red, fg = base.b0}, -- error messages on the command line
+            ErrorMsg {bg = base.red_bg, fg = base.red}, -- error messages on the command line
             VertSplit {fg = base.b2, bg = base.b0}, -- the column separating vertically split windows
             Folded {fg = base.b4, bg = base.b1}, -- line used for closed folds
             FoldColumn {fg = base.b4, bg = base.b1}, -- 'foldcolumn'
             SignColumn {}, -- column where |signs| are displayed
             IncSearch {bg = base.blue, fg = base.b0}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
             Substitute {IncSearch}, -- |:substitute| replacement text highlighting
-            LineNr {fg = base.b3}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-            CursorLineNr {fg = base.b6}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+            LineNr {fg = base.b2}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+            CursorLineNr {fg = base.teal}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
             MatchParen {fg = base.bright}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
             ModeMsg {fg = base.fg, bg=base.b0}, -- 'showmode' message (e.g., "-- INSERT -- ")
             MsgArea {ModeMsg}, -- Area for messages and cmdline
             MoreMsg {ModeMsg}, -- |more-prompt|
-            NonText {fg = base.b2}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+            NonText {fg = base.b1}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
             Normal {fg = base.fg, bg = base.b0}, -- normal text
             NormalFloat {fg = base.fg, bg = base.b1}, -- Normal text in floating windows.
             NormalNC {Normal}, -- normal text in non-current windows
@@ -152,18 +135,18 @@ local theme =
             LspError {fg = base.red},
             LspWarning {fg = base.yellow},
             LspInfo {fg = base.blue},
-            LspHint {fg = base.cyan},
+            LspHint {fg = base.green},
             LspReferenceText {fg = base.b4}, -- used for highlighting "text" references
             LspReferenceRead {fg = base.b4}, -- used for highlighting "read" references
             LspReferenceWrite {fg = base.b4}, -- used for highlighting "write" references
-            LspDiagnosticsDefaultError {LspError}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsDefaultWarning {LspWarning}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsDefaultInformation {LspInfo}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsDefaultHint {LspHint}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-            LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg = base.b1}, -- Used for "Error" diagnostic virtual text
-            LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg = base.b1}, -- Used for "Warning" diagnostic virtual text
-            LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg = base.b1}, -- Used for "Information" diagnostic virtual text
-            LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint, bg = base.b1}, -- Used for "Hint" diagnostic virtual text
+            LspDiagnosticsDefaultError {LspError, bg=base.red_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultWarning {fg=base.yellow, bg=base.yellow_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultInformation {LspInfo, bg=base.blue_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsDefaultHint {LspHint, bg=base.green_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+            LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg = base.red_bg}, -- Used for "Error" diagnostic virtual text
+            LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg = base.yellow_bg}, -- Used for "Warning" diagnostic virtual text
+            LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg = base.blue_bg}, -- Used for "Information" diagnostic virtual text
+            LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint, bg = base.green_bg}, -- Used for "Hint" diagnostic virtual text
             LspDiagnosticsUnderlineError {sp = base.red, gui = styles.curly}, -- Used to underline "Error" diagnostics
             LspDiagnosticsUnderlineWarning {sp = base.yellow, gui = styles.curly}, -- Used to underline "Warning" diagnostics
             LspDiagnosticsUnderlineInformation {sp = base.blue, gui = styles.curly}, -- Used to underline "Information" diagnostics
@@ -180,7 +163,7 @@ local theme =
             TSBoolean {Boolean}, -- For booleans.
             TSCharacter {Character}, -- For characters.
             TSComment {Comment}, -- For comment blocks.
-            TSConstructor {fg=base.cyan}, -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
+            TSConstructor {fg=base.yellow}, -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
             TSConditional {Conditional}, -- For keywords related to conditionnals.
             TSConstant {Constant}, -- For constants
             TSConstBuiltin {Special}, -- For constant that are built in the language: `nil` in Lua.
