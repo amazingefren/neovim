@@ -3,45 +3,47 @@ local hsl = lush.hsl
 
 local base = {
     -- #0D1826
-    shade = hsl(213, 50, 10),
+    shade = hsl(213, 40, 5),
     -- #0F1D2E
-    b0 = hsl(213, 50, 12),
+    b0 = hsl(213, 40, 8),
     -- #132439
-    b1 = hsl(213, 50, 15),
+    b1 = hsl(213, 30, 15),
     -- #1A304D
-    b2 = hsl(213, 50, 20),
+    b2 = hsl(213, 30, 20),
     -- #203D60
-    b3 = hsl(213, 50, 25),
+    b3 = hsl(213, 30, 25),
     -- #264973
-    b4 = hsl(213, 50, 30),
+    b4 = hsl(213, 30, 30),
     -- #2F5A8E
-    b5 = hsl(213, 50, 37),
+    b5 = hsl(213, 30, 35),
     -- #3B6FB0
-    b6 = hsl(213, 50, 46),
+    b6 = hsl(213, 30, 45),
     -- #737E8C
     dark = hsl(213, 10, 50),
     -- #C6C0B9
-    fg = hsl(35, 10, 75),
+    fg = hsl(35, 30, 75),
     -- #E8E6E3
-    bright = hsl(35, 10, 90),
+    bright = hsl(35, 40, 85),
     -- #152537
-    black = hsl(213, 45, 15),
+    black = hsl(213, 30, 12),
     -- #E48181
-    red = hsl(0, 65, 70),
+    red = hsl(0, 70, 65),
     -- #E4AA81
-    orange = hsl(25, 65, 70),
+    orange = hsl(25, 70, 65),
     -- #E4D481
-    yellow = hsl(50, 65, 70),
+    yellow = hsl(50, 70, 65),
     -- #BBE481
-    green = hsl(85, 65, 70),
+    green = hsl(85, 70, 65),
     -- #81E4B3
-    cyan = hsl(150, 65, 70),
+    cyan = hsl(150, 70, 65),
     -- #81AEE4
-    blue = hsl(213, 65, 70),
+    teal = hsl(180, 70, 65),
+    -- #81AEE4
+    blue = hsl(213, 70, 65),
     -- #AA81E4
-    purple = hsl(265, 65, 70),
+    purple = hsl(265, 70, 65),
     -- #E481B3
-    pink = hsl(330, 65, 70)
+    pink = hsl(330, 70, 65)
 }
 
 local styles = {
@@ -138,7 +140,7 @@ local theme =
             Typedef {fg = base.yellow}, --  A typedef
             Special {fg = base.red}, -- (preferred) any special symbol
             Tag {fg = base.green}, --    you can use CTRL-] on this
-            Delimiter {fg = base.dark}, --  character that needs attention
+            Delimiter {fg = base.orange}, --  character that needs attention
             SpecialComment {fg = base.bright}, -- special things inside a comment
             Debug {fg = base.red}, --    debugging statements
             Underlined {gui = "undercurl"}, -- (preferred) text that stands out, HTML links
