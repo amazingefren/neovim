@@ -44,7 +44,8 @@ local servers = {
     "graphql",
     "html",
     "jsonls",
-    "rust_analyzer"
+    "rust_analyzer",
+    "yamlls"
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
