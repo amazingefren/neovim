@@ -327,6 +327,10 @@ require("packer").startup(
             end
         }
 
+        use {
+            "lervag/vimtex"
+        }
+
         -------- TODO Performance Improvements
         --- https://www.reddit.com/r/neovim/comments/opipij/guide_tips_and_tricks_to_reduce_startup_and/
     end

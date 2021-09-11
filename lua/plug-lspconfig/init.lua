@@ -45,7 +45,8 @@ local servers = {
     "html",
     "jsonls",
     "rust_analyzer",
-    "yamlls"
+    "yamlls",
+    "texlab"
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
