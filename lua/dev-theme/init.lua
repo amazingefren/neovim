@@ -2,20 +2,20 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local base = {
-    shade = hsl(213, 40, 5),
-    b0 = hsl(213, 40, 8),
-    b1 = hsl(213, 30, 15),
-    b2 = hsl(213, 30, 20),
-    b3 = hsl(213, 30, 25),
-    b4 = hsl(213, 30, 30),
-    b5 = hsl(213, 30, 35),
-    b6 = hsl(213, 30, 45),
-    dark = hsl(213, 10, 50),
+    shade = hsl(180, 0, 5),
+    b0 = hsl(180, 0, 8),
+    b1 = hsl(180, 0, 15),
+    b2 = hsl(180, 0, 20),
+    b3 = hsl(180, 0, 25),
+    b4 = hsl(180, 0, 30),
+    b5 = hsl(180, 0, 35),
+    b6 = hsl(180, 0, 45),
+    dark = hsl(200, 0, 50),
+    black = hsl(180, 0, 13),
     fg = hsl(35, 30, 75),
     bright = hsl(35, 40, 85),
-    black = hsl(213, 30, 13),
     red = hsl(5, 70, 65),
-    orange = hsl(25, 70, 65),
+    orange = hsl(30, 70, 65),
     yellow = hsl(50, 70, 65),
     green = hsl(100, 70, 70),
     cyan = hsl(150, 70, 65),
@@ -26,24 +26,24 @@ local base = {
     red_bg = hsl(5, 30, 10),
     yellow_bg = hsl(50, 30, 10),
     green_bg = hsl(100, 30, 10),
-    blue_bg = hsl(213, 30, 10)
+    blue_bg = hsl(200, 30, 10)
 }
 
 local colors = {
-    shade = "#080C12",
-    b0 = "#0C141D",
-    b1 = "#1B2532",
-    b2 = "#243142",
-    b3 = "#2D3E53",
-    b4 = "#364A63",
-    b5 = "#3E5774",
-    b6 = "#506F95",
-    dark = "#737E8C",
+    shade = "#0D0D0D",
+    b0 = "#141414",
+    b1 = "#262626",
+    b2 = "#333333",
+    b3 = "#404040",
+    b4 = "#4D4D4D",
+    b5 = "#595959",
+    b6 = "#737373",
+    dark = "#808080",
     fg = "#D2C2AC",
     bright = "#E8DBC9",
-    black = "#17202B",
+    black = "#212121",
     red = "#E47267",
-    orange = "#E49B67",
+    orange = "#E4A667",
     yellow = "#E4CF67",
     green = "#A1E87D",
     cyan = "#67E4A6",
@@ -96,7 +96,7 @@ local theme =
             IncSearch {bg = base.blue, fg = base.b0}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
             Substitute {IncSearch}, -- |:substitute| replacement text highlighting
             LineNr {fg = base.b2}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-            CursorLineNr {fg = base.teal}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+            CursorLineNr {fg = base.dark}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
             MatchParen {fg = base.bright}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
             ModeMsg {fg = base.fg, bg = base.b0}, -- 'showmode' message (e.g., "-- INSERT -- ")
             MsgArea {ModeMsg}, -- Area for messages and cmdline
@@ -251,13 +251,13 @@ local theme =
             GitSignsChange {DiffChange},
             GitSignsDelete {DiffDelete},
             -- NvimTree
-            NvimTreeGitIgnored {fg = base.b3},
+            NvimTreeGitIgnored {fg = base.b4},
             NvimTreeSymlink {fg = base.purple},
             NvimTreeFolderIcon {fg = base.yellow},
-            NvimTreeFolderName {fg = base.blue, gui = styles.bold},
-            NvimTreeRootFolder {fg = base.yellow},
+            NvimTreeFolderName {fg = base.orange, gui = styles.bold},
+            NvimTreeRootFolder {fg = base.yellow, gui = styles.bold},
             NvimTreeEmptyFolderName {NvimTreeFolderName},
-            NvimTreeOpenedFolderName {fg = base.cyan, gui = styles.bold},
+            NvimTreeOpenedFolderName {fg = base.green, gui = styles.bold},
             NvimTreeIndentMarker {fg = base.b3},
             NvimTreeNormal {Normal, bg = base.shade},
             NvimTreeGitDirty {fg = base.yellow}
