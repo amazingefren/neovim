@@ -30,7 +30,6 @@ require("packer").startup(
                 require "plug-lspconfig"
             end
         }
-        use "onsails/lspkind-nvim"
         --= Tree Sitter =--
         use {
             "nvim-treesitter/nvim-treesitter",
@@ -40,15 +39,18 @@ require("packer").startup(
             end
         }
         --= Completion =--
+        -- use "onsails/lspkind-nvim"
         use {
-            "hrsh7th/nvim-compe",
+            -- "hrsh7th/nvim-compe",
+            "ms-jpq/coq_nvim",
             requires = {
-                "rafamadriz/friendly-snippets",
-                "hrsh7th/vim-vsnip",
-                "hrsh7th/vim-vsnip-integ"
+              {'ms-jpq/coq.artifacts', branch= 'artifacts'}
+                -- "rafamadriz/friendly-snippets",
+                -- "hrsh7th/vim-vsnip",
+                -- "hrsh7th/vim-vsnip-integ"
             },
             config = function()
-                require "plug-compe"
+                -- require "plug-compe"
             end
         }
 
