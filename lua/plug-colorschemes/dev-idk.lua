@@ -1,5 +1,3 @@
--- Will be exported to galaxyline tomorrow when I have time
--- TODO: marking for reminder
 local colors = {
     shade = "#0D1826",
     b0 = "#0F1D2E",

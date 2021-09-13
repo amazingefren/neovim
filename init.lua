@@ -11,6 +11,7 @@
 ✦　　 ﾟ　　. 　　　　 ✦
 ]]
 
+require('impatient')
 require('global-utils')
 require('global-config')
 require('init-plug')

@@ -20,27 +20,21 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute "packadd packer.nvim"
 end
 
-require("packer").startup(
+require("packer").startup {
     function(use)
         use "wbthomason/packer.nvim"
+        use "lewis6991/impatient.nvim"
+
         --= LSP =--
-        use {
-            "neovim/nvim-lspconfig",
-            config = function()
-                require "plug-lspconfig"
-            end
-        }
+        use "neovim/nvim-lspconfig"
+        -- require "plug-lspconfig"
         use "onsails/lspkind-nvim"
+
         --= Tree Sitter =--
-        use {
-            "nvim-treesitter/nvim-treesitter",
-            run = ":TSUpdate",
-            config = function()
-                require "plug-treesitter"
-            end
-        }
+        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+
         --= Completion =--
-        use {
+        --[[ use {
             "hrsh7th/nvim-compe",
             requires = {
                 "rafamadriz/friendly-snippets",
@@ -50,27 +44,13 @@ require("packer").startup(
             config = function()
                 require "plug-compe"
             end
-        }
-
+        } ]]
         --= Comments =--
-        use {
-            "b3nj5m1n/kommentary",
-            config = function()
-                require "kommentary.config".use_extended_mappings()
-                vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
-                vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default", {})
-                vim.api.nvim_set_keymap(
-                    "i",
-                    "<C-_>",
-                    '<ESC>:execute "normal \\<Plug>kommentary_line_default"<CR>',
-                    {silent = true}
-                )
-            end
-        }
+        use "b3nj5m1n/kommentary"
 
         -- use { "ray-x/lsp_signature.nvim" }
 
-        use {
+        --[[ use {
             "folke/trouble.nvim",
             config = function()
                 require("trouble").setup {}
@@ -91,13 +71,12 @@ require("packer").startup(
                 vim.api.nvim_set_keymap("n", "<leader>oq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
                 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
             end
-        }
-
+        } ]]
         --= Neovim Lua Lsp =--
         use "tjdevries/nlua.nvim"
 
         --= Sessions =--
-        use {
+        --[[ use {
             "rmagatti/auto-session",
             requires = {"rmagatti/session-lens"},
             config = function()
@@ -124,65 +103,40 @@ require("packer").startup(
                     {silent = true, noremap = true}
                 )
             end
-        }
-
+        } ]]
         --= Undo Tree =--
-        use {
-            "mbbill/undotree",
-            config = function()
-                require "plug-undotree"
-            end
-        }
+        use "mbbill/undotree"
 
         --= Git HEAD deatch, rm -rf ~/.local/share/nvim/site/pack/packer/gitsigns.nvim then :PackerSync
         --= Git Signs =--
-        use {
-            "lewis6991/gitsigns.nvim",
-            config = function()
-                require "gitsigns".setup {
-                    signs = {
-                        add = {hl = "GitSignsAdd", text = nil, numhl = "GitSignsAdd"},
-                        change = {hl = "GitSignsChange", text = nil, numhl = "GitSignsChange"},
-                        delete = {hl = "GitSignsDelete", text = nil, numhl = "GitSignsDelete"},
-                        topdelete = {hl = "GitSignsDelete", text = nil, numhl = "GitSignsDelete"},
-                        changedelete = {hl = "GitSignsChange", text = nil, numhl = "GitSignsChange"}
-                    },
-                    numhl = true,
-                    signcolumn = false
-                }
-            end
-        }
+        use "lewis6991/gitsigns.nvim"
 
         --= Colorizer =--
-        use {
-            "norcalli/nvim-colorizer.lua",
-            config = function()
-                require "colorizer".setup()
-            end
-        }
+        use "norcalli/nvim-colorizer.lua"
 
         --= Tab Things =--
-        use {
+        --[[ use {
             "lukas-reineke/indent-blankline.nvim",
             branch = "master",
             config = function()
                 require "plug-blankline"
             end
-        }
-
+        } ]]
         --= Pairs =--
-        use {
+        --[[ use {
             "windwp/nvim-autopairs",
             config = function()
                 require "nvim-autopairs".setup()
             end
-        }
-        use {
+        } ]]
+        --[[ use {
             "windwp/nvim-ts-autotag",
             config = function()
                 require "nvim-ts-autotag".setup()
             end
-        }
+        } ]]
+        --= Startup Time =--
+        use {"dstein64/vim-startuptime", cmd="StartupTime"}
 
         --= BufDelete =--
         use "famiu/bufdelete.nvim"
@@ -190,92 +144,32 @@ require("packer").startup(
         --= Auto NOH =--
         use "romainl/vim-cool"
 
-        -------- TODO Key Mappings
-        use {
-            "lazytanuki/nvim-mapper",
-            config = function()
-                require("nvim-mapper").setup {}
-            end,
-            before = "telescope.nvim"
-        }
-
         --= Telescope =--
         use {
             "nvim-telescope/telescope.nvim",
             requires = {
                 "nvim-lua/popup.nvim",
                 "nvim-lua/plenary.nvim"
-            },
-            config = function()
-                require "plug-telescope"
-                require "telescope".load_extension("mapper")
-            end
+            }
         }
 
         --= Buffer Bar =--
-        use {
-            "akinsho/nvim-bufferline.lua",
-            config = function()
-                require "bufferline".setup()
-                vim.api.nvim_set_keymap("n", "gb", ":BufferLinePick<CR>", {silent = true, noremap = true})
-            end
-        }
+        use "akinsho/nvim-bufferline.lua"
 
         --= File Tree =--
-        use {
-            "kyazdani42/nvim-tree.lua",
-            -- See nvim-tree.lua LINE: #199->#201
-            config = function()
-                require "plug-nvimtree"
-            end
-        }
+        use "kyazdani42/nvim-tree.lua"
 
         --= Formatting =--
-        use {
-            "mhartington/formatter.nvim",
-            config = function()
-                require "plug-lspconfig/format"
-            end
-        }
+        use "mhartington/formatter.nvim"
 
         --= Toggle Term =--
-        use {
-            "akinsho/nvim-toggleterm.lua",
-            config = function()
-                require "toggleterm".setup {
-                    direction = "float"
-                }
-                -- OP -> TODO: Dedicated Configuration Setup
-                local Terminal = require("toggleterm.terminal").Terminal
-                local lg = Terminal:new({cmd = "lazygit", hidden = true})
-                -- vim.api.nvim_set_keymap('t','<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
-                vim.api.nvim_set_keymap("n", "<C-Space>", ":ToggleTerm<CR>", {noremap = true, silent = true})
-                vim.api.nvim_set_keymap("t", "<C-Space>", "<C-\\><C-n>:ToggleTerm<CR>", {noremap = true, silent = true})
-                function LG_TOGGLE()
-                    lg:toggle()
-                end
-                vim.api.nvim_set_keymap("n", "<leader>lg", "<Cmd>lua LG_TOGGLE()<CR>", {noremap = true, silent = true})
-            end
-        }
+        use "akinsho/nvim-toggleterm.lua"
 
         --= Devicons =--
-        use {"kyazdani42/nvim-web-devicons"}
+        use "kyazdani42/nvim-web-devicons"
 
         --= Status Bar =--
-        -- TODO: glepnir in hospital, will be switching to
-        -- feline.nvim
-        --[[ use {
-            "glepnir/galaxyline.nvim",
-            config = function()
-                require("plug-galaxyline")
-            end
-        } ]]
-        use {
-            "famiu/feline.nvim",
-            config = function()
-                require("plug-feline")
-            end
-        }
+        use "famiu/feline.nvim"
 
         --=== ColorSchemes ===---
         -- Bogsterish
@@ -297,29 +191,6 @@ require("packer").startup(
         -- Bogster
         use "wojciechkepka/bogster"
 
-        --= WIP PLUGINS =--
-        -------- TODO Neorg Configuration
-        use {
-            "vhyrro/neorg",
-            config = function()
-                require("neorg").setup {
-                    load = {
-                        ["core.defaults"] = {}, -- Load all the default modules
-                        ["core.norg.concealer"] = {}, -- Allows for use of icons
-                        ["core.norg.dirman"] = {
-                            -- Manage your directories with Neorg
-                            config = {
-                                workspaces = {
-                                    my_workspace = "~/Org"
-                                }
-                            }
-                        }
-                    }
-                }
-            end,
-            requires = "nvim-lua/plenary.nvim"
-        }
-
         use {
             "gelguy/wilder.nvim",
             config = function()
@@ -327,13 +198,11 @@ require("packer").startup(
             end
         }
 
-        use {
-            "lervag/vimtex"
-        }
+        use "lervag/vimtex"
 
         -------- TODO Performance Improvements
         --- https://www.reddit.com/r/neovim/comments/opipij/guide_tips_and_tricks_to_reduce_startup_and/
     end
-)
+}
 
 vim.cmd [[colorscheme dev-theme]]

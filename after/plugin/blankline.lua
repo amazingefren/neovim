@@ -1,4 +1,4 @@
-local vars = {
+--[[ local vars = {
     indent_blankline_char = '│',
     indent_blankline_bufname_exclude = {'dashboard', 'NvimTree'},
     indent_blankline_show_first_indent_level = false,
@@ -7,4 +7,4 @@ local vars = {
 
 vim.wo.colorcolumn = "999" -- Artifact Fix
 
-Apply.var(vars)
+Apply.var(vars) ]]

@@ -1,65 +1,93 @@
 -- Native Vim Configuration Only
-vim.cmd [[set path+=**]]
+-- vim.cmd [[set path+=**]]
+--
+local o = vim.o
+local go = vim.go
+local wo = vim.wo
+local opt = vim.opt
 
-local global_options = {
-    shortmess = vim.o.shortmess .. "c",
-    termguicolors = true,
-    mouse = "a", -- Mouse Navigation
-    --scrolloff   = 999,      -- Keep Cursor Centered
-    scrolloff = 6, -- Keep Cursor Centered
-    ic = true, -- Insensitive Case Search
-    hidden = true, -- Abandon Unloaded Buffer
-    bk = false, -- Disable Backup (UndoTree?)
-    wb = false, -- NoWriteBackup
-    updatetime = 200, -- Swap File Idle Write Time
-    sb = true, -- Split Below
-    spr = true, -- Split Right
-    showbreak = "-->", -- Symbol For Break
-    cpo = vim.o.cpo .. "n", -- Hide Number for Break
-    ruler = false,
-    showcmd = true
+-- local global_options = {
+go.shortmess = vim.o.shortmess .. "c"
+go.termguicolors = true
+go.mouse = "a" -- Mouse Navigation
+-- go.scrolloff   = 999,      -- Keep Cursor Centered
+go.scrolloff = 6 -- Keep Cursor Centered
+go.ic = true -- Insensitive Case Search
+go.hidden = true -- Abandon Unloaded Buffer
+go.bk = false -- Disable Backup (UndoTree?)
+go.wb = false -- NoWriteBackup
+go.updatetime = 200 -- Swap File Idle Write Time
+go.sb = true -- Split Below
+go.spr = true -- Split Right
+go.showbreak = "-->" -- Symbol For Break
+go.cpo = o.cpo .. "n" -- Hide Number for Break
+go.ruler = false
+go.showcmd = true
+
+-- local window_options = {
+wo.number = true -- Number
+wo.rnu = false -- Relative Number
+wo.linebreak = true -- Linebreak on Wrap
+wo.signcolumn = "no" -- Signs on Number Column
+-- wo.signcolumn  = "yes:1", -- Test
+wo.bri = true -- Indent on Break
+wo.cursorline = true -- Cursor Line
+wo.wrap = false
+-- wo.spell = true
+
+opt.wildmode = {"longest", "list", "full"}
+opt.wildmenu = true
+opt.wildignorecase = true
+opt.autoindent = true
+opt.smartindent = true
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.fillchars = "vert:│"
+opt.autoread = true
+opt.bufhidden = "delete"
+vim.opt_global.bufhidden = "delete"
+vim.opt.wildignore = {
+  '*.pyc',
+  '*._build',
+  '**./coverage/*',
+  '**./node_modules/*',
+  '**./android/*',
+  '**./ios/*',
+  '**./.git/*',
 }
 
-local window_options = {
-    number = true, -- Number
-    rnu = false, -- Relative Number
-    linebreak = true, -- Linebreak on Wrap
-    signcolumn = "no", -- Signs on Number Column
-    -- signcolumn  = "yes:1", -- Test
-    bri = true, -- Indent on Break
-    cursorline = true, -- Cursor Line
-    wrap = false
-    -- spell       = true
-}
+vim.cmd('filetype plugin indent on')
 
--- vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
-vim.cmd [[
-  set wildmode=longest,list,full
-  set wildmenu
-  set wildignorecase
-  set autoindent
-  set expandtab
-  set shiftwidth=2
-  set tabstop=2
-  set fillchars+=vert:│
-  set smartindent
-  set autoread
-  set bufhidden=delete
-  setglobal bufhidden=delete
-  filetype plugin indent on
-  set wildignore+=*.pyc
-  set wildignore+=*_build/*
-  set wildignore+=**/coverage/*
-  set wildignore+=**/node_modules/*
-  set wildignore+=**/android/*
-  set wildignore+=**/ios/*
-  set wildignore+=**/.git/*
-]]
+o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
+-- vim.cmd [[
+--   set wildmode=longest,list,full
+--   set wildmenu
+--   set wildignorecase
+--   set autoindent
+--   set expandtab
+--   set shiftwidth=2
+--   set tabstop=2
+--   set fillchars+=vert:│
+--   set smartindent
+--   set autoread
+--   set bufhidden=delete
+--   setglobal bufhidden=delete
+--   filetype plugin indent on
+--   set wildignore+=*.pyc
+--   set wildignore+=*_build/*
+--   set wildignore+=**/coverage/*
+--   set wildignore+=**/node_modules/*
+--   set wildignore+=**/android/*
+--   set wildignore+=**/ios/*
+--   set wildignore+=**/.git/*
+-- ]]
 
-local augroups = {
-    BgHighlight = {"WinEnter * set cul", "WinLeave * set nocul"}
-}
+--vim.cmd[[
+--  augroup MoveCursorLineHl
+--    autocmd!
+--    autocmd WinEnter * set cul
+--    autocmd WinLeave * set nocul
+--  augroup END
+--]]
 
-Apply.opt(global_options, "o")
-Apply.opt(window_options, "wo")
-Augroup.create(augroups)

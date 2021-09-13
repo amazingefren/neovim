@@ -1,4 +1,4 @@
-local colors = {
+--[[ local colors = {
      base0=              '#1d2021',
      base1=              '#282828',
      base2=              '#282828',
@@ -28,19 +28,6 @@ local colors = {
      bg_red=           '#ea6962',
      bg_green=         '#a9b665',
      bg_yellow=        '#d8a657'
-}
+} ]]
 
-local setup = function()
-    Apply.var({
-        gruvbox_material_background='hard',
-        gruvbox_material_enable_bold=0,
-        gruvbox_material_sign_column_background='none',
-        gruvbox_material_show_eob=0,
-        gruvbox_material_better_performance=1,
-        gruvbox_material_palette='material'
-    })
-
-    vim.cmd[[colorscheme gruvbox-material]]
-end
-
-return {setup=setup, colors=colors}
+-- return {setup=setup, colors=colors}
