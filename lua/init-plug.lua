@@ -27,7 +27,6 @@ require("packer").startup {
 
         --= LSP =--
         use "neovim/nvim-lspconfig"
-        -- require "plug-lspconfig"
         use "onsails/lspkind-nvim"
 
         --= Tree Sitter =--
@@ -206,3 +205,4 @@ require("packer").startup {
 }
 
 vim.cmd [[colorscheme dev-theme]]
+require('plug-lspconfig')

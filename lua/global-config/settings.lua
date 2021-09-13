@@ -1,5 +1,5 @@
 -- Native Vim Configuration Only
--- vim.cmd [[set path+=**]]
+vim.cmd [[set path+=**]]
 --
 local o = vim.o
 local go = vim.go
