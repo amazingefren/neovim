@@ -6,7 +6,7 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_option(bufnr, ...)
     end
 
-    -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+    buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     local opts = {noremap = true, silent = true}
     buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -30,30 +30,10 @@ end
 
 local lspconfig = require("lspconfig")
 
--- vim.cmd [[let g:coq_settings = { 'auto_start': 'shut-up' }]] --, 'display.pum.fast_close': v:false}]]
-
-Apply.var(
-    {
-        coq_settings = {
-            auto_start = "shut-up",
-            keymap = {
-                recommended = true,
-                jump_to_mark = "<c-o>"
-            },
-            display = {
-                pum = {fast_close = true}
-            },
-        }
-    }
-)
-
-local coq = require("coq")
--- require('coq_settings').limits.completion_manual_timeout = 1;
-
 -- Lsp servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- require "lspkind".init()
+require "lspkind".init()
 local servers = {
     "tsserver",
     "bashls",
@@ -61,7 +41,6 @@ local servers = {
     "cssls",
     "dockerls",
     "gopls",
-    "pyright",
     "graphql",
     "html",
     "jsonls",
@@ -69,10 +48,11 @@ local servers = {
     "yamlls",
     "texlab"
 }
-
 for _, lsp in ipairs(servers) do
-    -- lspconfig[lsp].setup(coq.lsp_ensure_capabilities({on_attach = on_attach, capabilities = capabilities}))
-    lspconfig[lsp].setup(coq.lsp_ensure_capabilities({on_attach = on_attach}))
+    lspconfig[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
 end
 
 -- This method provides vim completion
