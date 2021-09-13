@@ -253,14 +253,14 @@ local theme =
             -- NvimTree
             NvimTreeGitIgnored {fg = base.b4},
             NvimTreeSymlink {fg = base.purple},
-            NvimTreeFolderIcon {fg = base.yellow},
-            NvimTreeFolderName {fg = base.orange, gui = styles.bold},
+            NvimTreeFolderIcon {fg = base.teal},
+            NvimTreeFolderName {fg = base.dark, gui = styles.bold},
             NvimTreeRootFolder {fg = base.yellow, gui = styles.bold},
             NvimTreeEmptyFolderName {NvimTreeFolderName},
-            NvimTreeOpenedFolderName {fg = base.green, gui = styles.bold},
+            NvimTreeOpenedFolderName {fg = base.teal, gui = styles.bold},
             NvimTreeIndentMarker {fg = base.b3},
             NvimTreeNormal {Normal, bg = base.shade},
-            NvimTreeGitDirty {fg = base.yellow}
+            NvimTreeGitDirty {fg = base.orange}
         }
     end
 )
