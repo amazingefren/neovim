@@ -35,7 +35,7 @@ wo.cursorline = true -- Cursor Line
 wo.wrap = false
 -- wo.spell = true
 
-opt.wildmode = {"longest", "list", "full"}
+opt.wildmode = {"list", "full"}
 opt.wildmenu = true
 opt.wildignorecase = true
 opt.autoindent = true

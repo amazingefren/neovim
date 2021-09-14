@@ -33,6 +33,7 @@ local lspconfig = require("lspconfig")
 -- Lsp servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 require "lspkind".init()
 local servers = {
     "tsserver",
@@ -44,6 +45,7 @@ local servers = {
     "graphql",
     "html",
     "jsonls",
+    "pyright",
     "rust_analyzer",
     "yamlls",
     "texlab"

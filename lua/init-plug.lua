@@ -32,6 +32,14 @@ require("packer").startup {
         --= Tree Sitter =--
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
+        use {
+            "hrsh7th/nvim-cmp",
+            requires = {
+                "hrsh7th/vim-vsnip",
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-buffer"
+            }
+        }
         --= Completion =--
         --[[ use {
             "hrsh7th/nvim-compe",
@@ -135,7 +143,7 @@ require("packer").startup {
             end
         } ]]
         --= Startup Time =--
-        use {"dstein64/vim-startuptime", cmd="StartupTime"}
+        use {"dstein64/vim-startuptime", cmd = "StartupTime"}
 
         --= BufDelete =--
         use "famiu/bufdelete.nvim"
@@ -205,4 +213,4 @@ require("packer").startup {
 }
 
 vim.cmd [[colorscheme dev-theme]]
-require('plug-lspconfig')
+require("plug-lspconfig")
