@@ -60,28 +60,6 @@ vim.opt.wildignore = {
 vim.cmd('filetype plugin indent on')
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
--- vim.cmd [[
---   set wildmode=longest,list,full
---   set wildmenu
---   set wildignorecase
---   set autoindent
---   set expandtab
---   set shiftwidth=2
---   set tabstop=2
---   set fillchars+=vert:│
---   set smartindent
---   set autoread
---   set bufhidden=delete
---   setglobal bufhidden=delete
---   filetype plugin indent on
---   set wildignore+=*.pyc
---   set wildignore+=*_build/*
---   set wildignore+=**/coverage/*
---   set wildignore+=**/node_modules/*
---   set wildignore+=**/android/*
---   set wildignore+=**/ios/*
---   set wildignore+=**/.git/*
--- ]]
 
 --vim.cmd[[
 --  augroup MoveCursorLineHl
