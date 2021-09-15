@@ -37,8 +37,10 @@ require("packer").startup {
             "~/.config/nvim/lua/nvim-cmp",
             requires = {
                 "hrsh7th/vim-vsnip",
+                "hrsh7th/cmp-vsnip",
                 "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer"
+                "hrsh7th/cmp-buffer",
+                "rafamadriz/friendly-snippets"
             }
         }
         --= Completion =--
