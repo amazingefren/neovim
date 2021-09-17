@@ -193,9 +193,9 @@ require("packer").startup {
         vim.cmd [[call wilder#setup({'modes': [':', '/', '?']})]]
       end
     }
+    use "projekt0n/github-nvim-theme"
 
     use "lervag/vimtex"
   end
 }
 
-vim.cmd [[colorscheme dev-theme]]
