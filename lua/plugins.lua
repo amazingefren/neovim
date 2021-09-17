@@ -169,7 +169,8 @@ require("packer").startup {
     use "kyazdani42/nvim-web-devicons"
 
     --= Status Bar =--
-    use {"famiu/feline.nvim", branch = "develop"}
+    -- use {"famiu/feline.nvim", branch = "develop"}
+    use 'shadmansaleh/lualine.nvim'
 
     --=== ColorSchemes ===---
     -- Bogsterish
