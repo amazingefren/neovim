@@ -213,4 +213,3 @@ require("packer").startup {
 }
 
 vim.cmd [[colorscheme dev-theme]]
-require("plug-lspconfig")

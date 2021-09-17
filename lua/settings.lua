@@ -48,16 +48,16 @@ opt.autoread = true
 opt.bufhidden = "delete"
 vim.opt_global.bufhidden = "delete"
 vim.opt.wildignore = {
-  '*.pyc',
-  '*._build',
-  '**./coverage/*',
-  '**./node_modules/*',
-  '**./android/*',
-  '**./ios/*',
-  '**./.git/*',
+  "*.pyc",
+  "*._build",
+  "**./coverage/*",
+  "**./node_modules/*",
+  "**./android/*",
+  "**./ios/*",
+  "**./.git/*"
 }
 
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype plugin indent on")
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
 
@@ -68,4 +68,3 @@ o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,res
 --    autocmd WinLeave * set nocul
 --  augroup END
 --]]
-

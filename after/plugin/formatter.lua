@@ -8,46 +8,48 @@ local prettier = {
   end
 }
 
-require'formatter'.setup({
-  logging = false,
-  filetype = {
-    typescript = prettier,
-    typescriptreact = prettier,
-    javascript = prettier,
-    javascriptreact = prettier,
-    markdown = prettier,
-    json = prettier,
-    html = prettier,
-    graphql = prettier,
-    css = prettier,
-    scss = prettier,
-    yaml = prettier,
-    go = {
-      function()
-        return {
-          exe = "gofmt",
-          args = {},
-          stdin = true
-        }
-      end
-    },
-    rust = {
-      function()
-        return {
-          exe = "rustfmt",
-          args = {"--emit=stdout"},
-          stdin = true
-        }
-      end
-    },
-    lua = {
+require "formatter".setup(
+  {
+    logging = false,
+    filetype = {
+      typescript = prettier,
+      typescriptreact = prettier,
+      javascript = prettier,
+      javascriptreact = prettier,
+      markdown = prettier,
+      json = prettier,
+      html = prettier,
+      graphql = prettier,
+      css = prettier,
+      scss = prettier,
+      yaml = prettier,
+      go = {
         function()
           return {
-            exe = "luafmt",
-            args = {"--stdin"},
+            exe = "gofmt",
+            args = {},
             stdin = true
           }
         end
-    },
+      },
+      rust = {
+        function()
+          return {
+            exe = "rustfmt",
+            args = {"--emit=stdout"},
+            stdin = true
+          }
+        end
+      },
+      lua = {
+        function()
+          return {
+            exe = "luafmt",
+            args = {"--stdin -i 2"},
+            stdin = true
+          }
+        end
+      }
+    }
   }
-})
+)
