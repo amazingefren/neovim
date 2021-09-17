@@ -16,5 +16,5 @@
 require('impatient')
 require('settings')
 require('keymap')
-require('plugins')
 require('lsp')
+require('plugins')

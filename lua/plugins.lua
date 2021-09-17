@@ -153,7 +153,11 @@ require("packer").startup {
     use "akinsho/nvim-bufferline.lua"
 
     --= File Tree =--
-    use "kyazdani42/nvim-tree.lua"
+   -- use {"kyazdani42/nvim-tree.lua", 
+   -- config=function()
+   --   vim.g.nvim_tree_hijack_netrw = 1
+   -- end
+   -- }
 
     --= Formatting =--
     use "mhartington/formatter.nvim"
@@ -198,4 +202,3 @@ require("packer").startup {
     use "lervag/vimtex"
   end
 }
-

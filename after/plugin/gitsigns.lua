@@ -1,4 +1,6 @@
-require "gitsigns".setup {
+local has_gs, gs = pcall(require, 'gitsigns')
+if not has_gs then return end
+gs.setup {
   signs = {
     add = {hl = "GitSignsAdd", text = nil, numhl = "GitSignsAdd"},
     change = {hl = "GitSignsChange", text = nil, numhl = "GitSignsChange"},

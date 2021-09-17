@@ -1,3 +1,5 @@
+local has_fmt, fmt = pcall(require, 'formatter')
+if not has_fmt then return end
 local prettier = {
   function()
     return {
@@ -8,7 +10,7 @@ local prettier = {
   end
 }
 
-require "formatter".setup(
+fmt.setup(
   {
     logging = false,
     filetype = {

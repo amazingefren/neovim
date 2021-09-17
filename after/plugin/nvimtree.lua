@@ -1,8 +1,10 @@
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+local has_nt, nvimtree = pcall(require, 'nvim-tree.config')
+local has_icons, icons = pcall(require, 'nvim-web-devicons')
+if not has_nt or not has_icons then return end
 local g = vim.g
 
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
-
+vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
 -- nvim_tree_width = 35,
 g.nvim_tree_indent_markers = 0
 g.nvim_tree_follow = 1
@@ -12,6 +14,8 @@ g.nvim_tree_git_hl = 1
 g.nvim_tree_quit_on_open = 0
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_update_cwd = 0
+g.nvim_tree_disable_netrw = 1
+g.nvim_tree_hijack_netrw = 1
 g.nvim_tree_add_trailing = 1
 g.nvim_tree_hijack_cursor = 0
 g.nvim_tree_show_icons = {
@@ -54,7 +58,7 @@ g.nvim_tree_icons = {
   }
 }
 
-require "nvim-web-devicons".setup()
+icons.setup()
 require "nvim-tree.events".on_nvim_tree_ready(
   function()
     vim.cmd("NvimTreeRefresh")
@@ -64,7 +68,7 @@ vim.cmd [[PackerLoad nvim-tree.lua]]
 vim.cmd [[au FileType LuaTree setlocal sol]]
 -- NvimTree VimEnter Full Width to be added soon -> SEE: #214, #200, #248 on gh
 
-local tree_cb = require "nvim-tree.config".nvim_tree_callback
+local tree_cb = nvimtree.nvim_tree_callback
 vim.g.nvim_tree_bindings = {
   {key = "<CR>", cb = tree_cb("edit")},
   {key = "o", cb = tree_cb("edit")},

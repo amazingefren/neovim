@@ -1,8 +1,10 @@
-local cmp = require "cmp"
-local lspkind = require "lspkind"
-local ls = require "luasnip"
+local has_cmp, cmp = pcall(require,"cmp")
+local has_lk, lspkind = pcall(require,"lspkind")
+local has_ls, ls = pcall("luasnip")
 
-require "lspkind".init({with_text = true})
+if not has_cmp or not has_lk or not has_ls then return end
+
+lspkind.init({with_text = true})
 
 cmp.setup(
   {

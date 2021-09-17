@@ -48,7 +48,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-require "lspkind".init()
+-- require "lspkind".init()
 local servers = {
   "tsserver",
   "bashls",

@@ -1,4 +1,6 @@
-require "toggleterm".setup {
+local has_tt, tt = pcall(require, 'toggleterm')
+if not has_tt then return end
+tt.setup {
   direction = "float"
 }
 local Terminal = require("toggleterm.terminal").Terminal

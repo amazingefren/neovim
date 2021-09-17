@@ -1,4 +1,6 @@
-require "nvim-treesitter.configs".setup {
+local has_ts, tsc = pcall(require, 'nvim-treesitter.configs')
+if not has_ts then return end
+tsc.setup {
   ensure_installed = "all",
   highlight = {
     enable = true,
