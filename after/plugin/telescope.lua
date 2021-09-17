@@ -5,6 +5,7 @@ vim.api.nvim_set_keymap("n", "<Leader>fg", [[<Cmd>lua require('telescope.builtin
 vim.api.nvim_set_keymap("n", "<Leader>fb", [[<Cmd>lua require('telescope.builtin').buffers()<CR>]], {noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>fhf", [[:Telescope find_files hidden=true <cr>]], {noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>fhh", [[<Cmd>lua require('telescope.builtin').help_tags()<CR>]], {noremap = true})
+vim.api.nvim_set_keymap("n", "<C-n>", [[<Cmd>Telescope find_files hidden=true<CR>]], {noremap = true, silent = true})
 
 telescope.setup {
   defaults = {

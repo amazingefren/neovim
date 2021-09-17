@@ -1,6 +1,6 @@
 local has_cmp, cmp = pcall(require,"cmp")
 local has_lk, lspkind = pcall(require,"lspkind")
-local has_ls, ls = pcall("luasnip")
+local has_ls, ls = pcall(require, "luasnip")
 
 if not has_cmp or not has_lk or not has_ls then return end
 
