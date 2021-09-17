@@ -33,8 +33,8 @@ require("packer").startup {
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
         use {
-            -- "hrsh7th/nvim-cmp",
-            "~/.config/nvim/lua/nvim-cmp",
+            "hrsh7th/nvim-cmp",
+            -- "~/.config/nvim/lua/nvim-cmp",
             requires = {
                 "hrsh7th/vim-vsnip",
                 "hrsh7th/cmp-vsnip",

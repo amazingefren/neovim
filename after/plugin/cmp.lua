@@ -21,38 +21,37 @@ cmp.setup(
             end
         },
         completion = {
-            completeopt = "menu,menuone,noselect"
+            completeopt = "menu,menuone,noinsert"
         },
         mapping = {
             ["<C-u>"] = cmp.mapping.scroll_docs(4),
             ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-e>"] = cmp.mapping.close(),
-            ["<BS>"] = function(fallback)
+            ["<C-e>"] = cmp.mapping.abort(),
+            --[[ ["<BS>"] = function(fallback)
                 if (vim.fn.pumvisible() == 1 and vim.fn.complete_info({"selected"}).selected >= 0) then
                     return cmp.abort()
                 else
                     fallback()
                 end
-            end,
+            end, ]]
+            ['<C-y>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true}),
             ["<C-f>"] = cmp.mapping.confirm({select = true}),
             -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
             ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "s"}),
             ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s"}),
-            ["<CR>"] = cmp.mapping.confirm(
+            --[[ ["<CR>"] = cmp.mapping.confirm(
                 {
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = false
                 }
-            )
+            ) ]]
         },
         sources = {
             {name = "nvim_lsp"},
             {name = "vsnip"},
             {name = "buffer"}
         },
-        experimental = {
-            active_preview = true,
-            ghost_text = true
-        }
+        --[[ experimental = {
+        } ]]
     }
 )
