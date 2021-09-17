@@ -1,5 +1,4 @@
 local has_nt, nvimtree = pcall(require, 'nvim-tree.config')
-local has_icons, icons = pcall(require, 'nvim-web-devicons')
 if not has_nt or not has_icons then return end
 local g = vim.g
 

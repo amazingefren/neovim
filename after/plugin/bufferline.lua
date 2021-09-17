@@ -1,4 +1,4 @@
-local has_bl, bl = pcall(require 'bufferline')
+local has_bl, bl = pcall(require, 'bufferline')
 if not has_bl then return end
 
 bl.setup()
