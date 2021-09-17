@@ -23,10 +23,10 @@ local base = {
   blue = hsl(213, 70, 65),
   purple = hsl(265, 70, 65),
   pink = hsl(330, 70, 65),
-  red_bg = hsl(5, 30, 10),
-  yellow_bg = hsl(50, 30, 10),
-  green_bg = hsl(100, 30, 10),
-  blue_bg = hsl(200, 30, 10)
+  red_bg = hsl(5, 50, 15),
+  yellow_bg = hsl(50, 50, 15),
+  green_bg = hsl(100, 50, 15),
+  blue_bg = hsl(200, 50, 15)
 }
 
 
@@ -79,7 +79,7 @@ local theme =
       NormalFloat {fg = base.fg, bg = base.b1}, -- Normal text in floating windows.
       NormalNC {Normal}, -- normal text in non-current windows
       Pmenu {fg = base.fg, bg = base.b1}, -- Popup menu: normal item.
-      PmenuSel {fg = base.bright, bg = base.b2}, -- Popup menu: selected item.
+      PmenuSel {fg = base.shade, bg = base.cyan}, -- Popup menu: selected item.
       PmenuSbar {bg = base.b3}, -- Popup menu: scrollbar.
       PmenuThumb {bg = base.b2}, -- Popup menu: Thumb of the scrollbar.
       Question {fg = base.pink}, -- |hit-enter| prompt and yes/no questions
@@ -214,7 +214,7 @@ local theme =
       TelescopePromptBorder {TelescopePreviewBorder},
       TelescopeResultsBorder {TelescopePreviewBorder},
       TelescopeSelectionCaret {TelescopePreviewBorder},
-      TelescopeSelection {bg = base.b3, fg = base.dark},
+      TelescopeSelection {bg = base.b3, fg = base.fg},
       TelescopeMatching {fg = base.cyan},
       TelescopePromptPrefix {fg = base.cyan},
       TelescopeMultiSelection {fg = base.cyan},
