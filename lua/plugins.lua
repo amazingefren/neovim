@@ -16,51 +16,44 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
-    execute "packadd packer.nvim"
+  fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
+  execute "packadd packer.nvim"
 end
 
 require("packer").startup {
-    function(use)
-        use "wbthomason/packer.nvim"
-        use "lewis6991/impatient.nvim"
+  function(use)
+    use "wbthomason/packer.nvim"
+    use "lewis6991/impatient.nvim"
 
-        --= LSP =--
-        use "neovim/nvim-lspconfig"
-        use "onsails/lspkind-nvim"
+    --= LSP =--
+    use "neovim/nvim-lspconfig"
+    use "onsails/lspkind-nvim"
 
-        --= Tree Sitter =--
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    --= Tree Sitter =--
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
-        use {
-            "hrsh7th/nvim-cmp",
-            -- "~/.config/nvim/lua/nvim-cmp",
-            requires = {
-                "hrsh7th/vim-vsnip",
-                "hrsh7th/cmp-vsnip",
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer",
-                "rafamadriz/friendly-snippets"
-            }
-        }
-        --= Completion =--
-        --[[ use {
-            "hrsh7th/nvim-compe",
-            requires = {
-                "rafamadriz/friendly-snippets",
-                "hrsh7th/vim-vsnip",
-                "hrsh7th/vim-vsnip-integ"
-            },
-            config = function()
-                require "plug-compe"
-            end
-        } ]]
-        --= Comments =--
-        use "b3nj5m1n/kommentary"
+    --= Completion =--
+    use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-buffer",
+        "rafamadriz/friendly-snippets"
+      }
+    }
 
-        -- use { "ray-x/lsp_signature.nvim" }
+    --= Signatures =--
+    use {
+      "ray-x/lsp_signature.nvim"
+    }
+    --= Comments =--
+    use "b3nj5m1n/kommentary"
 
-        --[[ use {
+    use {"ray-x/lsp_signature.nvim"}
+
+    --[[ use {
             "folke/trouble.nvim",
             config = function()
                 require("trouble").setup {}
@@ -82,134 +75,129 @@ require("packer").startup {
                 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
             end
         } ]]
-        --= Neovim Lua Lsp =--
-        use "tjdevries/nlua.nvim"
+    --= Neovim Lua Lsp =--
+    use "tjdevries/nlua.nvim"
 
-        --= Sessions =--
-        --[[ use {
-            "rmagatti/auto-session",
-            requires = {"rmagatti/session-lens"},
-            config = function()
-                require "auto-session".setup {
-                    auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
-                    auto_save_enabled = true,
-                    auto_restore_enabled = true,
-                    auto_session_suppress_dirs = {"~/"},
-                    pre_save_cmds = {"NvimTreeClose", "ToggleTermCloseAll"},
-                    log_level = "error"
-                }
-                require "session-lens".setup {
-                    -- SEE: pull #11, full path is temporary due to telescope changes
-                    path_display = {"shorten"},
-                    previewer = true
-                }
+    --= Sessions =--
+    --[[ use {
+    "rmagatti/auto-session",
+    requires = {"rmagatti/session-lens"},
+    config = function()
+        require "auto-session".setup {
+            auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
+            auto_save_enabled = true,
+            auto_restore_enabled = true,
+            auto_session_suppress_dirs = {"~/"},
+            pre_save_cmds = {"NvimTreeClose", "ToggleTermCloseAll"},
+            log_level = "error"
+        }
+        require "session-lens".setup {
+            -- SEE: pull #11, full path is temporary due to telescope changes
+            path_display = {"shorten"},
+            previewer = true
+        }
 
-                require "telescope".load_extension("session-lens")
+        require "telescope".load_extension("session-lens")
 
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "<leader>fs",
-                    "<Cmd>lua require('session-lens').search_session()<CR>",
-                    {silent = true, noremap = true}
-                )
-            end
+        vim.api.nvim_set_keymap(
+            "n",
+            "<leader>fs",
+            "<Cmd>lua require('session-lens').search_session()<CR>",
+            {silent = true, noremap = true}
+        )
+    end
         } ]]
-        --= Undo Tree =--
-        use "mbbill/undotree"
+    --= Undo Tree =--
+    use "mbbill/undotree"
 
-        --= Git HEAD deatch, rm -rf ~/.local/share/nvim/site/pack/packer/gitsigns.nvim then :PackerSync
-        --= Git Signs =--
-        use "lewis6991/gitsigns.nvim"
+    --= Git Signs =--
+    use "lewis6991/gitsigns.nvim"
 
-        --= Colorizer =--
-        use "norcalli/nvim-colorizer.lua"
+    --= Colorizer =--
+    use "norcalli/nvim-colorizer.lua"
 
-        --= Tab Things =--
-        --[[ use {
+    --= Tab Things =--
+    --[[ use {
             "lukas-reineke/indent-blankline.nvim",
             branch = "master",
             config = function()
                 require "plug-blankline"
             end
         } ]]
-        --= Pairs =--
-        --[[ use {
-            "windwp/nvim-autopairs",
-            config = function()
-                require "nvim-autopairs".setup()
-            end
-        } ]]
-        --[[ use {
+    --= Pairs =--
+    use "windwp/nvim-autopairs"
+
+    --[[ use {
             "windwp/nvim-ts-autotag",
             config = function()
                 require "nvim-ts-autotag".setup()
             end
         } ]]
-        --= Startup Time =--
-        use {"dstein64/vim-startuptime", cmd = "StartupTime"}
+    --= Startup Time =--
+    use {"dstein64/vim-startuptime", cmd = "StartupTime"}
 
-        --= BufDelete =--
-        use "famiu/bufdelete.nvim"
+    --= BufDelete =--
+    use "famiu/bufdelete.nvim"
 
-        --= Auto NOH =--
-        use "romainl/vim-cool"
+    --= Auto NOH =--
+    use "romainl/vim-cool"
 
-        --= Telescope =--
-        use {
-            "nvim-telescope/telescope.nvim",
-            requires = {
-                "nvim-lua/popup.nvim",
-                "nvim-lua/plenary.nvim"
-            }
-        }
+    --= Telescope =--
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim"
+      }
+    }
 
-        --= Buffer Bar =--
-        use "akinsho/nvim-bufferline.lua"
+    --= Buffer Bar =--
+    use "akinsho/nvim-bufferline.lua"
 
-        --= File Tree =--
-        use "kyazdani42/nvim-tree.lua"
+    --= File Tree =--
+    use "kyazdani42/nvim-tree.lua"
 
-        --= Formatting =--
-        use "mhartington/formatter.nvim"
+    --= Formatting =--
+    use "mhartington/formatter.nvim"
 
-        --= Toggle Term =--
-        use "akinsho/nvim-toggleterm.lua"
+    --= Toggle Term =--
+    use "akinsho/nvim-toggleterm.lua"
 
-        --= Devicons =--
-        use "kyazdani42/nvim-web-devicons"
+    --= Devicons =--
+    use "kyazdani42/nvim-web-devicons"
 
-        --= Status Bar =--
-        use "famiu/feline.nvim"
+    --= Status Bar =--
+    use "famiu/feline.nvim"
 
-        --=== ColorSchemes ===---
-        -- Bogsterish
-        use {
-            "amazingefren/bogsterish.nvim",
-            branch = "devel",
-            requires = "rktjmp/lush.nvim"
-        }
+    --=== ColorSchemes ===---
+    -- Bogsterish
+    use {
+      "amazingefren/bogsterish.nvim",
+      branch = "devel",
+      requires = "rktjmp/lush.nvim"
+    }
 
-        -- Sonokai
-        use {"sainnhe/sonokai"}
+    -- Sonokai
+    use {"sainnhe/sonokai"}
 
-        -- Tokyonight
-        use "folke/tokyonight.nvim"
+    -- Tokyonight
+    use "folke/tokyonight.nvim"
 
-        -- Crack
-        use {"sainnhe/gruvbox-material"}
+    -- Crack
+    use {"sainnhe/gruvbox-material"}
 
-        -- Bogster
-        use "wojciechkepka/bogster"
+    -- Bogster
+    use "wojciechkepka/bogster"
 
-        use {
-            "gelguy/wilder.nvim",
-            config = function()
-                vim.cmd [[call wilder#setup({'modes': [':', '/', '?']})]]
-            end
-        }
+    use {
+      "gelguy/wilder.nvim",
+      config = function()
+        vim.cmd [[call wilder#setup({'modes': [':', '/', '?']})]]
+      end
+    }
 
-        use "lervag/vimtex"
-    end
+    use "lervag/vimtex"
+  end
 }
 
 vim.cmd [[colorscheme dev-theme]]
