@@ -51,8 +51,6 @@ require("packer").startup {
     --= Comments =--
     use "b3nj5m1n/kommentary"
 
-    use {"ray-x/lsp_signature.nvim"}
-
     --[[ use {
             "folke/trouble.nvim",
             config = function()

@@ -4,3 +4,4 @@ lua/dev-bogsterish
 lua/dev-twm
 colors/dev-bogsterish.vim
 lua/nvim-cmp
+nvim.log
