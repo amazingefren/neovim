@@ -76,35 +76,6 @@ require("packer").startup {
     --= Neovim Lua Lsp =--
     use "tjdevries/nlua.nvim"
 
-    --= Sessions =--
-    --[[ use {
-    "rmagatti/auto-session",
-    requires = {"rmagatti/session-lens"},
-    config = function()
-        require "auto-session".setup {
-            auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
-            auto_save_enabled = true,
-            auto_restore_enabled = true,
-            auto_session_suppress_dirs = {"~/"},
-            pre_save_cmds = {"NvimTreeClose", "ToggleTermCloseAll"},
-            log_level = "error"
-        }
-        require "session-lens".setup {
-            -- SEE: pull #11, full path is temporary due to telescope changes
-            path_display = {"shorten"},
-            previewer = true
-        }
-
-        require "telescope".load_extension("session-lens")
-
-        vim.api.nvim_set_keymap(
-            "n",
-            "<leader>fs",
-            "<Cmd>lua require('session-lens').search_session()<CR>",
-            {silent = true, noremap = true}
-        )
-    end
-        } ]]
     --= Undo Tree =--
     use "mbbill/undotree"
 
@@ -122,15 +93,10 @@ require("packer").startup {
                 require "plug-blankline"
             end
         } ]]
+
     --= Pairs =--
     use "windwp/nvim-autopairs"
 
-    --[[ use {
-            "windwp/nvim-ts-autotag",
-            config = function()
-                require "nvim-ts-autotag".setup()
-            end
-        } ]]
     --= Startup Time =--
     use {"dstein64/vim-startuptime", cmd = "StartupTime"}
 
@@ -151,13 +117,6 @@ require("packer").startup {
 
     --= Buffer Bar =--
     use "akinsho/nvim-bufferline.lua"
-
-    --= File Tree =--
-   -- use {"kyazdani42/nvim-tree.lua", 
-   -- config=function()
-   --   vim.g.nvim_tree_hijack_netrw = 1
-   -- end
-   -- }
 
     --= Formatting =--
     use "mhartington/formatter.nvim"
@@ -201,5 +160,7 @@ require("packer").startup {
     use "projekt0n/github-nvim-theme"
 
     use "lervag/vimtex"
+
+    use "airblade/vim-rooter"
   end
 }
