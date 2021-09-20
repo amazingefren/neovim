@@ -1,12 +1,6 @@
-# Neovim Configuration
+# My Neovim Configuration
 
-Currently: Working on a stable version (neovim-stable) instead of nightly
-
-### WIP
-
-Neovim Nightly (0.6) is recommended
-
-Note: Performance is *decent* but will get better
+Neovim Nightly (0.6)
 
 [neovim/neovim](https://github.com/neovim/neovim)
 
