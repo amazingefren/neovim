@@ -47,7 +47,14 @@ cmp.setup(
       end,
       ["<C-space>"] = cmp.mapping.complete(),
       ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "s"}),
-      ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s"})
+      ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s"}),
+      ["<CR>"] = function(fallback)
+        if (vim.fn.pumvisible() == 1 and vim.fn.complete_info({"selected"}).selected > -1) then
+          cmp.confirm({select = true})
+        else
+          fallback()
+        end
+      end
     },
     sources = {
       {name = "path"},
