@@ -233,7 +233,8 @@ local theme =
       NvimTreeOpenedFolderName {fg = base.teal, gui = styles.bold},
       NvimTreeIndentMarker {fg = base.b3},
       NvimTreeNormal {Normal, bg = base.shade},
-      NvimTreeGitDirty {fg = base.orange}
+      NvimTreeGitDirty {fg = base.orange},
+      IndentBlanklineContextChar {fg=base.b3}
     }
   end
 )

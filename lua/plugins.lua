@@ -86,13 +86,7 @@ require("packer").startup {
     use "norcalli/nvim-colorizer.lua"
 
     --= Tab Things =--
-    --[[ use {
-            "lukas-reineke/indent-blankline.nvim",
-            branch = "master",
-            config = function()
-                require "plug-blankline"
-            end
-        } ]]
+    use "lukas-reineke/indent-blankline.nvim"
 
     --= Pairs =--
     use "windwp/nvim-autopairs"
