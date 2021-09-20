@@ -1,17 +1,27 @@
-local has_cmp, cmp = pcall(require,"cmp")
-local has_lk, lspkind = pcall(require,"lspkind")
+local has_cmp, cmp = pcall(require, "cmp")
+local has_lk, lspkind = pcall(require, "lspkind")
 local has_ls, ls = pcall(require, "luasnip")
 
-if not has_cmp or not has_lk or not has_ls then return end
+if not has_cmp or not has_lk or not has_ls then
+  return
+end
 
 lspkind.init({with_text = true})
 
 cmp.setup(
   {
     formatting = {
-      format = function(_, vim_item)
-        -- print(vim.inspect(vim_item))
+      format = function(entry, vim_item)
         vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
+        vim_item.menu =
+          ({
+          buffer = "[Buffer]",
+          nvim_lsp = "[LSP]",
+          luasnip = "[LuaSnip]",
+          nvim_lua = "[Lua]",
+          latex_symbols = "[Latex]"
+        })[entry.source.name]
+
         return vim_item
       end
     },
