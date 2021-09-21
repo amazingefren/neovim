@@ -234,7 +234,8 @@ local theme =
       NvimTreeIndentMarker {fg = base.b3},
       NvimTreeNormal {Normal, bg = base.shade},
       NvimTreeGitDirty {fg = base.orange},
-      IndentBlanklineContextChar {fg=base.b3}
+
+      IndentBlanklineContextChar {fg=base.b5}
     }
   end
 )
