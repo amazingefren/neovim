@@ -44,6 +44,8 @@ require("packer").startup {
       }
     }
 
+    use "christoomey/vim-tmux-navigator"
+
     --= Signatures =--
     use {
       "ray-x/lsp_signature.nvim"
