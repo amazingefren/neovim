@@ -62,10 +62,14 @@ vim.cmd("filetype plugin indent on")
 o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
 
 vim.cmd [[colorscheme dev-theme]]
+
 vim.cmd[[
  augroup MoveCursorLineHl
    autocmd!
    autocmd WinEnter * set cul
    autocmd WinLeave * set nocul
  augroup END
+]]
+vim.cmd[[
+  autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
 ]]
