@@ -15,6 +15,7 @@ cmp.setup(
         vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
         vim_item.menu =
           ({
+          path = "[Path]",
           buffer = "[Buffer]",
           nvim_lsp = "[LSP]",
           luasnip = "[LuaSnip]",
@@ -57,10 +58,10 @@ cmp.setup(
       end
     },
     sources = {
-      {name = "path"},
       {name = "nvim_lsp"},
       {name = "nvim_lua"},
       {name = "luasnip"},
+      {name = "path"},
       {name = "buffer"}
     },
     experimental = {

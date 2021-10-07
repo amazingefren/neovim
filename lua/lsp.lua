@@ -62,7 +62,10 @@ local servers = {
   "pyright",
   "rust_analyzer",
   "yamlls",
-  "texlab"
+  "texlab",
+  "svelte",
+  "stylelint_lsp",
+  "tailwindcss"
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
