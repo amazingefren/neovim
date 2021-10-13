@@ -28,7 +28,6 @@ cmp.setup(
     },
     snippet = {
       expand = function(args)
-        -- vim.fn["vsnip#anonymous"](args.body)
         require "luasnip".lsp_expand(args.body)
       end
     },
@@ -38,7 +37,7 @@ cmp.setup(
       ["<C-e>"] = cmp.mapping.abort(),
       ["<C-y>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true}),
       ["<C-f>"] = function(fallback)
-        if vim.fn.pumvisible() == 1 then
+        if cmp.visible() then
           cmp.confirm({select = true})
         elseif ls and ls.expand_or_jumpable() then
           ls.jump(1)
@@ -50,7 +49,7 @@ cmp.setup(
       ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "s"}),
       ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s"}),
       ["<CR>"] = function(fallback)
-        if (vim.fn.pumvisible() == 1 and vim.fn.complete_info({"selected"}).selected > -1) then
+        if cmp.visible() then
           cmp.confirm({select = true})
         else
           fallback()
