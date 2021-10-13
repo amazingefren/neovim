@@ -54,6 +54,7 @@ require("packer").startup {
     --= Comments =--
     use "b3nj5m1n/kommentary"
 
+    use "folke/trouble.nvim"
     --[[ use {
             "folke/trouble.nvim",
             config = function()
