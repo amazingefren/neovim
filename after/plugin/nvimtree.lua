@@ -1,15 +1,18 @@
+local nt = require('nvim-tree')
 local has_nt, nvimtree = pcall(require, 'nvim-tree.config')
+local has_icons, icons = pcall(require, 'nvim-web-devicons')
 if not has_nt or not has_icons then return end
 local g = vim.g
 
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-s>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-s>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
 -- nvim_tree_width = 35,
 g.nvim_tree_indent_markers = 0
 g.nvim_tree_follow = 1
 g.nvim_tree_auto_close = 0
 g.nvim_tree_auto_open = 1
-g.nvim_tree_git_hl = 1
+g.nvim_tree_git_hl = 0
+g.nvim_tree_gitignore = 0
 g.nvim_tree_quit_on_open = 0
 g.nvim_tree_width_allow_resize = 1
 g.nvim_tree_update_cwd = 0
@@ -19,7 +22,7 @@ g.nvim_tree_add_trailing = 1
 g.nvim_tree_hijack_cursor = 0
 g.nvim_tree_show_icons = {
   files = 1,
-  git = 1,
+  git = 0,
   folders = 1,
   folder_arrows = 1
 }
@@ -99,3 +102,5 @@ vim.g.nvim_tree_bindings = {
   {key = "<leader><BS>", cb = tree_cb("dir_up")},
   {key = "q", cb = tree_cb("close")}
 }
+
+nt.setup{}
