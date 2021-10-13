@@ -26,7 +26,7 @@ go.showcmd = true
 
 -- local window_options = {
 wo.number = true -- Number
-wo.rnu = false -- Relative Number
+wo.rnu = true -- Relative Number
 wo.linebreak = true -- Linebreak on Wrap
 wo.signcolumn = "no" -- Signs on Number Column
 -- wo.signcolumn  = "yes:1", -- Test

@@ -52,7 +52,8 @@ require("packer").startup {
       "ray-x/lsp_signature.nvim"
     }
     --= Comments =--
-    use "b3nj5m1n/kommentary"
+    -- use "b3nj5m1n/kommentary"
+    use "numToStr/Comment.nvim"
 
     --= Trouble =--
     use "folke/trouble.nvim"
@@ -62,6 +63,10 @@ require("packer").startup {
 
     --= Repeat =--
     use 'tpope/vim-repeat'
+
+    --= Practice (temp) =--
+    use 'ThePrimeagen/vim-be-good'
+
     --[[ use {
             "folke/trouble.nvim",
             config = function()
