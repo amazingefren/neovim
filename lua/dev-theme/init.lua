@@ -29,7 +29,6 @@ local base = {
   blue_bg = hsl(200, 50, 15)
 }
 
-
 local styles = {
   bold = "bold",
   curly = "undercurl",
@@ -133,33 +132,33 @@ local theme =
       Ignore {}, -- (preferred) left blank, hidden  |hl-Ignore|
       Error {gui = styles.curly}, -- (preferred) any erroneous construct
       Todo {fg = base.yellow}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-      LspError {fg = base.red},
-      LspWarning {fg = base.yellow},
-      LspInfo {fg = base.blue},
-      LspHint {fg = base.green},
-      LspReferenceText {fg = base.b4}, -- used for highlighting "text" references
-      LspReferenceRead {fg = base.b4}, -- used for highlighting "read" references
+      DiagnosticError {fg = base.red},
+      DiagnosticWarn {fg = base.yellow},
+      DiagnosticInfo {fg = base.blue},
+      DiagnosticHint {fg = base.green},
+      -- LspReferenceText {fg = base.b4}, -- used for highlighting "text" references
+      --[[ LspReferenceRead {fg = base.b4}, -- used for highlighting "read" references
       LspReferenceWrite {fg = base.b4}, -- used for highlighting "write" references
       LspDiagnosticsDefaultError {LspError, bg = base.red_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
       LspDiagnosticsDefaultWarning {fg = base.yellow, bg = base.yellow_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
       LspDiagnosticsDefaultInformation {LspInfo, bg = base.blue_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-      LspDiagnosticsDefaultHint {LspHint, bg = base.green_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-      LspDiagnosticsVirtualTextError {LspDiagnosticsDefaultError, bg = base.red_bg}, -- Used for "Error" diagnostic virtual text
-      LspDiagnosticsVirtualTextWarning {LspDiagnosticsDefaultWarning, bg = base.yellow_bg}, -- Used for "Warning" diagnostic virtual text
-      LspDiagnosticsVirtualTextInformation {LspDiagnosticsDefaultInformation, bg = base.blue_bg}, -- Used for "Information" diagnostic virtual text
-      LspDiagnosticsVirtualTextHint {LspDiagnosticsDefaultHint, bg = base.green_bg}, -- Used for "Hint" diagnostic virtual text
-      LspDiagnosticsUnderlineError {sp = base.red, gui = styles.curly}, -- Used to underline "Error" diagnostics
-      LspDiagnosticsUnderlineWarning {sp = base.yellow, gui = styles.curly}, -- Used to underline "Warning" diagnostics
-      LspDiagnosticsUnderlineInformation {sp = base.blue, gui = styles.curly}, -- Used to underline "Information" diagnostics
-      LspDiagnosticsUnderlineHint {sp = base.cyan, gui = styles.curly}, -- Used to underline "Hint" diagnostics
-      LspDiagnosticsFloatingError {LspError, bg = base.b1}, -- Used to color "Error" diagnostic messages in diagnostics float
-      LspDiagnosticsFloatingWarning {LspWarning, bg = base.b1}, -- Used to color "Warning" diagnostic messages in diagnostics float
-      LspDiagnosticsFloatingInformation {LspInfo, bg = base.b1}, -- Used to color "Information" diagnostic messages in diagnostics float
-      LspDiagnosticsFloatingHint {LspHint, bg = base.b1}, -- Used to color "Hint" diagnostic messages in diagnostics float
-      LspDiagnosticsSignError {LspError}, -- Used for "Error" signs in sign column
-      LspDiagnosticsSignWarning {LspWarning}, -- Used for "Warning" signs in sign column
-      LspDiagnosticsSignInformation {LspInfo}, -- Used for "Information" signs in sign column
-      LspDiagnosticsSignHint {LspHint}, -- Used for "Hint" signs in sign column
+      LspDiagnosticsDefaultHint {LspHint, bg = base.green_bg}, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline) ]]
+      DiagnosticVirtualTextError {DiagnosticError, bg = base.red_bg}, -- Used for "Error" diagnostic virtual text
+      DiagnosticVirtualTextWarn {DiagnosticWarn, bg = base.yellow_bg}, -- Used for "Warning" diagnostic virtual text
+      DiagnosticVirtualTextInfo {DiagnosticInfo, bg = base.blue_bg}, -- Used for "Information" diagnostic virtual text
+      DiagnosticVirtualTextHint {DiagnosticHint, bg = base.green_bg}, -- Used for "Hint" diagnostic virtual text
+      DiagnosticUnderlineError {sp = base.red, gui = styles.curly}, -- Used to underline "Error" diagnostics
+      DiagnosticUnderlineWarn {sp = base.yellow, gui = styles.curly}, -- Used to underline "Warning" diagnostics
+      DiagnosticUnderlineInfo {sp = base.blue, gui = styles.curly}, -- Used to underline "Information" diagnostics
+      DiagnosticUnderlineHint {sp = base.cyan, gui = styles.curly}, -- Used to underline "Hint" diagnostics
+      DiagnosticFloatingError {DiagnosticError, bg = base.b1}, -- Used to color "Error" diagnostic messages in diagnostics float
+      DiagnosticFloatingWarn {DiagnosticWarn, bg = base.b1}, -- Used to color "Warning" diagnostic messages in diagnostics float
+      DiagnosticFloatingInfo {DiagnosticInfo, bg = base.b1}, -- Used to color "Information" diagnostic messages in diagnostics float
+      DiagnosticFloatingHint {DiagnosticHint, bg = base.b1}, -- Used to color "Hint" diagnostic messages in diagnostics float
+      DiagnosticSignError {DiagnosticError}, -- Used for "Error" signs in sign column
+      DiagnosticSignWarn {DiagnosticWarn}, -- Used for "Warning" signs in sign column
+      DiagnosticSignInfo {DiagnosticInfo}, -- Used for "Information" signs in sign column
+      DiagnosticSignHint {DiagnosticHint}, -- Used for "Hint" signs in sign column
       -- TSAnnotation {}, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
       TSBoolean {Boolean}, -- For booleans.
       TSCharacter {Character}, -- For characters.
@@ -234,8 +233,7 @@ local theme =
       NvimTreeIndentMarker {fg = base.b3},
       NvimTreeNormal {Normal, bg = base.shade},
       NvimTreeGitDirty {fg = base.orange},
-
-      IndentBlanklineContextChar {fg=base.b5}
+      IndentBlanklineContextChar {fg = base.b5}
     }
   end
 )
