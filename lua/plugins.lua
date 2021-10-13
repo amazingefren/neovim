@@ -54,7 +54,14 @@ require("packer").startup {
     --= Comments =--
     use "b3nj5m1n/kommentary"
 
+    --= Trouble =--
     use "folke/trouble.nvim"
+
+    --= Surround =--
+    use 'tpope/vim-surround'
+
+    --= Repeat =--
+    use 'tpope/vim-repeat'
     --[[ use {
             "folke/trouble.nvim",
             config = function()
