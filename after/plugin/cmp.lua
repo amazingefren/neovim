@@ -1,6 +1,7 @@
 local has_cmp, cmp = pcall(require, "cmp")
 local has_lk, lspkind = pcall(require, "lspkind")
 local has_ls, ls = pcall(require, "luasnip")
+local has_ap, ap = pcall(require, "nvim-autopairs.completion.cmp")
 
 if not has_cmp or not has_lk or not has_ls then
   return
@@ -68,3 +69,8 @@ cmp.setup(
     }
   }
 )
+
+if not has_ap then
+  return
+end
+cmp.event:on("confirm_done", ap.on_confirm_done())

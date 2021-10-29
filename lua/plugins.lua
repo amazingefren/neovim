@@ -59,13 +59,13 @@ require("packer").startup {
     use "folke/trouble.nvim"
 
     --= Surround =--
-    use 'tpope/vim-surround'
+    use "tpope/vim-surround"
 
     --= Repeat =--
-    use 'tpope/vim-repeat'
+    use "tpope/vim-repeat"
 
     --= Practice (temp) =--
-    use 'ThePrimeagen/vim-be-good'
+    use "ThePrimeagen/vim-be-good"
 
     --[[ use {
             "folke/trouble.nvim",
@@ -139,7 +139,8 @@ require("packer").startup {
 
     --= Status Bar =--
     -- use {"famiu/feline.nvim", branch = "develop"}
-    use "shadmansaleh/lualine.nvim"
+    -- use "shadmansaleh/lualine.nvim"
+    use "nvim-lualine/lualine.nvim"
 
     --= NvimTree =--
     use {
