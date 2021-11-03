@@ -49,33 +49,33 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- require "lspkind".init()
-local servers = {
-  "tsserver",
-  "bashls",
-  "clangd",
-  "cssls",
-  "dockerls",
-  "gopls",
-  "graphql",
-  "html",
-  "jsonls",
-  "pyright",
-  "rust_analyzer",
-  "yamlls",
-  "texlab",
-  "svelte",
-  "stylelint_lsp",
-  "tailwindcss"
-}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150
-    }
-  }
-end
+-- local servers = {
+--   "tsserver",
+--   "bashls",
+--   "clangd",
+--   "cssls",
+--   "dockerls",
+--   "gopls",
+--   "graphql",
+--   "html",
+--   "jsonls",
+--   "pyright",
+--   "rust_analyzer",
+--   "yamlls",
+--   "texlab",
+--   "svelte",
+--   "stylelint_lsp",
+--   "tailwindcss"
+-- }
+-- for _, lsp in ipairs(servers) do
+--   lspconfig[lsp].setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     flags = {
+--       debounce_text_changes = 150
+--     }
+--   }
+-- end
 
 -- This method provides vim completion
 local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/sumneko_lua/lua-language-server"
@@ -114,3 +114,17 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     signs = false
   }
 )
+
+local has_lspi, lspi = pcall(require, 'nvim-lsp-installer')
+if not has_lspi then return end
+
+lspi.on_server_ready(function(server)
+  local opts = {
+     on_attach = on_attach,
+     capabilities = capabilities,
+     flags = {
+       debounce_text_changes = 150
+     }
+  }
+  server:setup(opts)
+end)

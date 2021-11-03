@@ -27,6 +27,7 @@ require("packer").startup {
 
     --= LSP =--
     use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
     use "onsails/lspkind-nvim"
 
     --= Tree Sitter =--
