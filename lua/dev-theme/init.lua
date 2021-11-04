@@ -2,16 +2,6 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local base = {
-  -- shade = hsl(170, 15, 5),
-  -- b0 = hsl(170, 15, 8),
-  -- b1 = hsl(170, 15, 15),
-  -- b2 = hsl(170, 15, 20),
-  -- b3 = hsl(170, 15, 25),
-  -- b4 = hsl(170, 15, 30),
-  -- b5 = hsl(170, 15, 35),
-  -- b6 = hsl(170, 15, 45),
-  -- dark = hsl(170, 5, 50),
-  -- black = hsl(170, 15, 13),
   shade = hsl(208, 15, 5),
   b0 = hsl(208, 15, 8),
   b1 = hsl(208, 15, 15),

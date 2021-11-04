@@ -46,6 +46,22 @@ require("packer").startup {
       }
     }
 
+    -- Menu
+    use {
+      "gelguy/wilder.nvim",
+      requires = {
+        "roxma/nvim-yarp",
+        "roxma/vim-hug-neovim-rpc"
+      }
+    }
+
+    -- Latex
+    use "lervag/vimtex"
+
+    -- Rooter
+    use "airblade/vim-rooter"
+
+    -- Tmux Navigation
     use "christoomey/vim-tmux-navigator"
 
     --= Signatures =--
@@ -68,28 +84,6 @@ require("packer").startup {
     --= Practice (temp) =--
     use "ThePrimeagen/vim-be-good"
 
-    --[[ use {
-            "folke/trouble.nvim",
-            config = function()
-                require("trouble").setup {}
-                vim.api.nvim_set_keymap("n", "<leader>oo", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "<leader>ow",
-                    "<cmd>Trouble lsp_workspace_diagnostics<cr>",
-                    {silent = true, noremap = true}
-                )
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "<leader>od",
-                    "<cmd>Trouble lsp_document_diagnostics<cr>",
-                    {silent = true, noremap = true}
-                )
-                vim.api.nvim_set_keymap("n", "<leader>ol", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
-                vim.api.nvim_set_keymap("n", "<leader>oq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
-                vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
-            end
-        } ]]
     --= Neovim Lua Lsp =--
     use "tjdevries/nlua.nvim"
 
@@ -139,8 +133,6 @@ require("packer").startup {
     use "kyazdani42/nvim-web-devicons"
 
     --= Status Bar =--
-    -- use {"famiu/feline.nvim", branch = "develop"}
-    -- use "shadmansaleh/lualine.nvim"
     use "nvim-lualine/lualine.nvim"
 
     --= NvimTree =--
@@ -169,18 +161,7 @@ require("packer").startup {
     -- Bogster
     use "wojciechkepka/bogster"
 
-    use {
-      "gelguy/wilder.nvim",
-      requires = {
-        'roxma/nvim-yarp',
-        'roxma/vim-hug-neovim-rpc'
-      }
-    }
-
+    -- Github Theme
     use "projekt0n/github-nvim-theme"
-
-    use "lervag/vimtex"
-
-    use "airblade/vim-rooter"
   end
 }
