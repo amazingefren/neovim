@@ -171,10 +171,12 @@ require("packer").startup {
 
     use {
       "gelguy/wilder.nvim",
-      config = function()
-        vim.cmd [[call wilder#setup({'modes': [':', '/', '?']})]]
-      end
+      requires = {
+        'roxma/nvim-yarp',
+        'roxma/vim-hug-neovim-rpc'
+      }
     }
+
     use "projekt0n/github-nvim-theme"
 
     use "lervag/vimtex"
