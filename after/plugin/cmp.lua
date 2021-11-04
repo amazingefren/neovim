@@ -11,6 +11,9 @@ lspkind.init({with_text = true})
 
 cmp.setup(
   {
+    completion = {
+      completeopt = "menu,menuone,noselect"
+    },
     formatting = {
       format = function(entry, vim_item)
         vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
@@ -50,7 +53,7 @@ cmp.setup(
       ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "s"}),
       ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s"}),
       ["<CR>"] = function(fallback)
-        if cmp.visible() then
+        if cmp.visible() and cmp.get_selected_entry() then
           cmp.confirm({select = true})
         else
           fallback()
@@ -65,7 +68,7 @@ cmp.setup(
       {name = "buffer"}
     },
     experimental = {
-      ghost_text = true
+      ghost_text = false
     }
   }
 )
