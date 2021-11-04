@@ -233,7 +233,12 @@ local theme =
       NvimTreeIndentMarker {fg = base.b3},
       NvimTreeNormal {Normal, bg = base.shade},
       NvimTreeGitDirty {fg = base.orange},
-      IndentBlanklineContextChar {fg = base.b5}
+      IndentBlanklineContextChar {fg = base.b5},
+      CmpItemAbbrMatch {fg = base.fg},
+      CmpItemAbbrMatchFuzzy {fg = base.cyan},
+      CmpItemAbbr {fg = base.dark},
+      CmpItemMenu {fg = base.dark},
+      CmpItemKind {fg = base.orange}
     }
   end
 )
