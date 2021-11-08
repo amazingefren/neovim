@@ -15,7 +15,7 @@ local Op = require("Comment.opfunc")
 
 function _G.__toggle_visual(vmode)
   local lcs, rcs = Ut.unwrap_cstr(vim.bo.commentstring)
-  local scol, ecol, lines = Ut.get_lines(vmode, Ut.ctype.line)
+  local srow, erow, lines = Ut.get_lines(vmode, Ut.ctype.line)
 
   Op.linewise(
     {
@@ -24,8 +24,8 @@ function _G.__toggle_visual(vmode)
       lines = lines,
       lcs = lcs,
       rcs = rcs,
-      scol = scol,
-      ecol = ecol
+      erow = erow,
+      srow = srow
     }
   )
 end
