@@ -167,5 +167,8 @@ require("packer").startup {
     --= Experimental =--
     -- Rainbow
     use "p00f/nvim-ts-rainbow"
+
+    -- Hop
+    use "phaazon/hop.nvim"
   end
 }

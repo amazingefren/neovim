@@ -23,6 +23,7 @@ go.showbreak = "-->" -- Symbol For Break
 go.cpo = o.cpo .. "n" -- Hide Number for Break
 go.ruler = false
 go.showcmd = true
+-- go.cmdheight = 0 -- SEE: https://github.com/neovim/neovim/pull/16383
 
 -- local window_options = {
 wo.number = true -- Number
