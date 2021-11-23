@@ -48,7 +48,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
--- require "lspkind".init()
 -- local servers = {
 --   "tsserver",
 --   "bashls",
@@ -77,7 +76,35 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 --   }
 -- end
 
--- This method provides vim completion
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    virtual_text = true,
+    underline = true,
+    signs = false
+  }
+)
+
+local has_lspi, lspi = pcall(require, "nvim-lsp-installer")
+if not has_lspi then
+  return
+end
+
+lspi.on_server_ready(
+  function(server)
+    local opts = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      flags = {
+        debounce_text_changes = 150
+      }
+    }
+    server:setup(opts)
+  end
+)
+
+-- This method provides vim completion (LOAD AFTER LSPI)
 local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/sumneko_lua/lua-language-server"
 local sumneko_binary = "/usr/bin/lua-language-server"
 lspconfig.sumneko_lua.setup {
@@ -104,27 +131,3 @@ lspconfig.sumneko_lua.setup {
     }
   }
 }
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    virtual_text = true,
-    underline = true,
-    signs = false
-  }
-)
-
-local has_lspi, lspi = pcall(require, 'nvim-lsp-installer')
-if not has_lspi then return end
-
-lspi.on_server_ready(function(server)
-  local opts = {
-     on_attach = on_attach,
-     capabilities = capabilities,
-     flags = {
-       debounce_text_changes = 150
-     }
-  }
-  server:setup(opts)
-end)
