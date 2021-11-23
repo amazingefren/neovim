@@ -163,5 +163,9 @@ require("packer").startup {
 
     -- Github Theme
     use "projekt0n/github-nvim-theme"
+
+    --= Experimental =--
+    -- Rainbow
+    use "p00f/nvim-ts-rainbow"
   end
 }
