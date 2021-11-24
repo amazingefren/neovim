@@ -71,6 +71,6 @@ vim.cmd[[
    autocmd WinLeave * set nocul
  augroup END
 ]]
-vim.cmd[[
-  autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
-]]
+-- vim.cmd[[
+--   autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
+-- ]]

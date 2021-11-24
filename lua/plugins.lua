@@ -170,5 +170,13 @@ require("packer").startup {
 
     -- Hop
     use "phaazon/hop.nvim"
+
+    -- Filetype Shit (Might break alot)
+    use {
+      "nathom/filetype.nvim",
+      config = function()
+        require("filetype").setup({})
+      end
+    }
   end
 }
