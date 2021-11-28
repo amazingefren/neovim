@@ -24,8 +24,8 @@ function _G.__toggle_visual(vmode)
 end
 
 comment.setup()
-vim.api.nvim_set_keymap("n", "<C-_>", ":lua require('Comment').toggle()<cr>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<C-_>", ":lua ___comment_gc(vim.fn.visualmode())<cr>", {noremap = true, silent = true}) -- Line Comment
+vim.api.nvim_set_keymap("n", "<C-_>", ":lua require('Comment.api').toggle()<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("x", "<C-_>", ":lua require('Comment.api').gc(vim.fn.visualmode())<cr>", {noremap = true, silent = true}) -- Line Comment
 
 -- Not Recommended as it overrides native C-b motion, use  gb  instead
 -- vim.api.nvim_set_keymap("v", "<C-b>", ":lua ___comment_gb(vim.fn.visualmode())<cr>", {noremap = true, silent = true}) -- Block Comment
