@@ -1,6 +1,6 @@
 # My Neovim Configuration
 
-Neovim Nightly (0.6)
+Neovim Nightly (0.7)
 
 [neovim/neovim](https://github.com/neovim/neovim)
 
